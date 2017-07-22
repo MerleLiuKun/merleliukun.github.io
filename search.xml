@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[docker简单使用]]></title>
+    <url>%2F2017%2F07%2F22%2Fdocker%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[一、删除： 1.删除container a.单独删除具体某一个容器 ➜ ~ sudo docker rm CONTAINER_ID ➜ ~ sudo docker rm -f 删除运行中的容器 b.删除当前所有容器(已终止运行) ➜ ~ sudo docker rm $(sudo docker ps -a -q) 2.删除image a.删除某个镜像 ➜ ~ sudo docker rmi &lt;image_id&gt; b.删除所有镜像 ➜ ~ sudo docker rmi $(sudo docker images -q&quot;) c.删除所有untagged的镜像(就是id为None的镜像) ➜ ~ sudo docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot; 二、查看： 1.查看所有容器 ➜ ~ sudo docker ps -a 2.查看所有正在运行的容器 ➜ ~ sudo docker ps 3.查看镜像 ➜ ~ sudo docker images 三、运行： 1.创建一个container ➜ ~ sudo docker run image_name 2.启动一个container ➜ ~ sudo docker run container_name 3.重命名container ➜ ~ sudo docker rename old_name new_name 4.重启某个容器 ➜ ~ sudo docker restart container_name Tips: docker run 的相关参数说明: --name 指定容器名 -p 指定端口映射 eg 3306:3306 -v 挂载数据卷或者本地目录映射 :ro 挂载为只读 -d 后台持续运行 -i 交互式操作 -t 终端 -rm 容器退出后随之将其删除(与-d 冲突) 四、停止： 1.停止所有正在运行的容器 ➜ ~ sudo docker kill $(docker ps -q) 五、相关示例： 1.使用docker创建postgresql数据库容器 sudo docker search postgres sudo docker pull postgres:9.5.7 使用镜像创建容器，并运行 sudo docker run --name postgres-server -p 5432:5432 -e POSTGRES_PASSWORD=111111 -d postgres:9.5.7 启动容器 sudo docker start container_id 使用镜像创建一个client sudo docker run --name postgresql-client -it --link postgres-server:postgres postgres:9.5.7 psql -U postgres 此时就可以在client中的命令行上实现操作数据库啦。 2.使用docker创建mysql数据库容器 # 查询mysql镜像 sudo docker search mysql # 拉到本机 sudo docker pull mysql # 创建一个mysql服务端,并将端口映射到本机的3306端口 sudo docker run --name mysql-server -p 3306:3306 -e MYSQL_ROOT_PASSWORD=yourpassword -d mysql # 创建一个mysql客户端，用来管理数据库 sudo docker run --name mysql-client -it --link mysql-server:mysql mysql sh -c &apos;exec mysql -h&quot;$MYSQL_PORT_3306_TCP_ADDR&quot; -P&quot;$MYSQL_PORT_3306_TCP_PORT&quot; -uroot -p&quot;$MYSQL_ENV_MYSQL_ROOT_PASSWORD&quot;&apos; # 启动容器 sudo docker start container_name 注：可以通过指定mysql数据库的外部数据卷，让数据保存在本机上，便于迁移。 -v /my/own/datadir:/var/lib/mysql 其中 ：号前面是本机的数据卷地址， 这样表示宿主机的/my/own/datadir目录挂载到容器内的/var/lib/mysql目录。 现在就可以像在本机安装mysql数据库一样的使用啦。]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F07%2F22%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
