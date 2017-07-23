@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="一、删除： 1.删除container a.单独删除具体某一个容器 ➜  ~ sudo docker rm CONTAINER_ID ➜  ~ sudo docker rm -f 删除运行中的容器  b.删除当前所有容器(已终止运行) ➜  ~ sudo docker rm $(sudo docker ps -a -q) 2.删除image a.删除某个镜像 ➜  ~ sudo docker rm">
+<meta name="description" content="简介:Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。Docker通常用于如下场景：  web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从">
 <meta name="keywords" content="docker,linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker简单使用">
 <meta property="og:url" content="http://lkhardy.cn/2017/07/22/docker简单使用/index.html">
 <meta property="og:site_name" content="理想">
-<meta property="og:description" content="一、删除： 1.删除container a.单独删除具体某一个容器 ➜  ~ sudo docker rm CONTAINER_ID ➜  ~ sudo docker rm -f 删除运行中的容器  b.删除当前所有容器(已终止运行) ➜  ~ sudo docker rm $(sudo docker ps -a -q) 2.删除image a.删除某个镜像 ➜  ~ sudo docker rm">
+<meta property="og:description" content="简介:Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。Docker通常用于如下场景：  web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-23T00:10:47.686Z">
+<meta property="og:updated_time" content="2017-07-23T05:31:34.995Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker简单使用">
-<meta name="twitter:description" content="一、删除： 1.删除container a.单独删除具体某一个容器 ➜  ~ sudo docker rm CONTAINER_ID ➜  ~ sudo docker rm -f 删除运行中的容器  b.删除当前所有容器(已终止运行) ➜  ~ sudo docker rm $(sudo docker ps -a -q) 2.删除image a.删除某个镜像 ➜  ~ sudo docker rm">
+<meta name="twitter:description" content="简介:Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。Docker通常用于如下场景：  web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从">
 
 
 
@@ -397,8 +397,15 @@
       
 
       
-        <p>一、删除：</p>
-<p>1.删除container</p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介:"></a>简介:</h1><p>Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。<br>Docker通常用于如下场景：</p>
+<ul>
+<li>web应用的自动化打包和发布；</li>
+<li>自动化测试和持续集成、发布；</li>
+<li>在服务型环境中部署和调整数据库或其他的后台应用；</li>
+<li>从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境</li>
+</ul>
+<a id="more"></a>
+<h1 id="删除："><a href="#删除：" class="headerlink" title="删除："></a>删除：</h1><p>1.删除container</p>
 <pre><code>a.单独删除具体某一个容器
 ➜  ~ sudo docker rm CONTAINER_ID
 ➜  ~ sudo docker rm -f 删除运行中的容器 
@@ -409,21 +416,18 @@ b.删除当前所有容器(已终止运行)
 ➜  ~ sudo docker rmi &lt;image_id&gt;
 
 b.删除所有镜像
-➜  ~ sudo docker rmi $(sudo docker images -q&quot;)
+➜  ~ sudo docker rmi $(sudo docker images -q)
 
 c.删除所有untagged的镜像(就是id为None的镜像)
 ➜  ~ sudo docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot;
-</code></pre><a id="more"></a>
-<p>二、查看：</p>
-<pre><code>1.查看所有容器
+</code></pre><h1 id="查看："><a href="#查看：" class="headerlink" title="查看："></a>查看：</h1><pre><code>1.查看所有容器
 ➜  ~ sudo docker ps -a
 2.查看所有正在运行的容器
 ➜  ~ sudo docker ps
 
 3.查看镜像
 ➜  ~ sudo docker images
-</code></pre><p>三、运行：</p>
-<pre><code>1.创建一个container
+</code></pre><h1 id="运行："><a href="#运行：" class="headerlink" title="运行："></a>运行：</h1><pre><code>1.创建一个container
 ➜  ~ sudo docker run image_name
 
 2.启动一个container
@@ -449,11 +453,9 @@ c.删除所有untagged的镜像(就是id为None的镜像)
 -t 终端
 
 -rm 容器退出后随之将其删除(与-d 冲突)
-</code></pre><p>四、停止：</p>
-<pre><code>1.停止所有正在运行的容器 
+</code></pre><h1 id="停止："><a href="#停止：" class="headerlink" title="停止："></a>停止：</h1><pre><code>1.停止所有正在运行的容器 
 ➜  ~ sudo docker kill $(docker ps -q) 
-</code></pre><p>五、相关示例：</p>
-<p>1.使用docker创建postgresql数据库容器</p>
+</code></pre><h1 id="相关示例："><a href="#相关示例：" class="headerlink" title="相关示例："></a>相关示例：</h1><p>1.使用docker创建postgresql数据库容器</p>
 <pre><code>sudo docker search postgres
 sudo docker pull postgres:9.5.7
 
@@ -585,8 +587,17 @@ sudo docker start container_name
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/erha.png"
@@ -601,7 +612,7 @@ sudo docker start container_name
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -612,7 +623,7 @@ sudo docker start container_name
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -623,7 +634,7 @@ sudo docker start container_name
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -668,6 +679,22 @@ sudo docker start container_name
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除："><span class="nav-number">2.</span> <span class="nav-text">删除：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看："><span class="nav-number">3.</span> <span class="nav-text">查看：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运行："><span class="nav-number">4.</span> <span class="nav-text">运行：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#停止："><span class="nav-number">5.</span> <span class="nav-text">停止：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关示例："><span class="nav-number">6.</span> <span class="nav-text">相关示例：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

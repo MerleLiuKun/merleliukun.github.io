@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -93,16 +93,18 @@
 
 
 
-<meta name="description" content="ideas and notes.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="理想">
-<meta property="og:url" content="http://lkhardy.cn/archives/2017/index.html">
+<meta name="description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="collections模块之namedtuple使用">
+<meta property="og:url" content="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/index.html">
 <meta property="og:site_name" content="理想">
-<meta property="og:description" content="ideas and notes.">
+<meta property="og:description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-23T05:24:37.359Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理想">
-<meta name="twitter:description" content="ideas and notes.">
+<meta name="twitter:title" content="collections模块之namedtuple使用">
+<meta name="twitter:description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
 
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://lkhardy.cn/archives/2017/"/>
+  <link rel="canonical" href="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/"/>
 
 
 
 
 
-  <title>归档 | 理想</title>
+  <title>collections模块之namedtuple使用 | 理想</title>
   
 
 
@@ -161,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,140 +301,200 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 3 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/23/collections模块之namedtuple使用/" itemprop="url">
-              
-                <span itemprop="name">collections模块之namedtuple使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-23T13:16:21+08:00"
-              content="2017-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/23/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-23T08:10:41+08:00"
-              content="2017-07-23" >
-          07-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/22/docker简单使用/" itemprop="url">
-              
-                <span itemprop="name">docker简单使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-22T16:41:44+08:00"
-              content="2017-07-22" >
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MerleLiuKun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/erha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="理想">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">collections模块之namedtuple使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T13:16:21+08:00">
+                2017-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于<code>struct</code>或其他常见<code>record types</code>，但它们是不可变的。</p>
+<a id="more"></a>
+<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><p>1.创建namedtuple</p>
+<pre><code>form collections import namedtuple
+Point = namedtuple(&apos;Point&apos;, &apos;x y&apos;)
+
+point1 = Point(1.0, 5.0)
+point2 = Point(2.5, 1.5)    
+</code></pre><p>上例即创建了一个名字为<code>Point</code>的namedtuple对象.</p>
+<p>2.namedtuple对象的参数解析</p>
+<ul>
+<li>a.示例中的<code>Point</code>是namedtuple的名称。</li>
+<li>b.示例中的<code>x y</code>这个字符串中的两个用<strong>空格</strong>隔开的字符表示这个namedtuple中有两个元素，名为<code>x,y</code>.(避免关键字)</li>
+<li><p>c.如果在数据库中读列名作为元素名时可能会出现相同名，程序会报错，那么可以在定义namedtuple时开启自动重命名。如下：</p>
+<p>  Point = namedtuple(‘Point’, ‘x y’， rename=True)<br>  此时命名方式为<code>_indexnumber</code>,下划线+索引号。</p>
+</li>
+</ul>
+<h1 id="调用方式"><a href="#调用方式" class="headerlink" title="调用方式"></a>调用方式</h1><p>3.1索引方式调用</p>
+<pre><code>对于示例中的定义的Point1,可以采用索引方式调用获取其中的值.
+In [7]: x = point1[0]
+Out : 1.0
+In [10]: y = point1[1]
+Out : 5.0
+</code></pre><p>3.2元素名方式调用</p>
+<pre><code>对于示例中的定义的Point2,可以采用元素名调用获取其中的值.
+In [12]: x = point2.x
+Out : 2.5
+In [14]: y = point2.y
+Out : 1.5
+</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>4.1 你应该使用<code>namedtuple</code>代替那些你认为影响了你代码的易读性的<code>tuple</code>，以便让你的代码更加<code>pythonic</code>.</p>
+<p>4.2 此外，你还可以替换那些没有功能函数、只有字段的普通不可变类。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/23/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -440,6 +502,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -460,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/erha.png"
@@ -543,6 +618,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单使用"><span class="nav-number">2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用方式"><span class="nav-number">3.</span> <span class="nav-text">调用方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -663,11 +754,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
