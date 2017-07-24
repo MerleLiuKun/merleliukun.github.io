@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[from-import和import]]></title>
+    <url>%2F2017%2F07%2F24%2Ffrom-import%E5%92%8Cimport%2F</url>
+    <content type="text"><![CDATA[简介：在使用Python编写项目时，我们经常使用import xx或者from xx import a去导入其他模块或者其他模块中的一些对象和方法，那么这两个语句有什么不一样的呢。在此处，做一下总结，让自己对它们的原理进行一些了解。 方法：Python提供了三种方法引入外部模块，import语句、from...import...和__import__函数。我们最为常用的是前两者。对于第三种方式，它与import语句类似，只是前者显式的将模块的名称作为字符串传递并赋值给命名空间的变量。 1.注意事项： 尽量优先使用import语句，如import a.B，可以访问B 有节制的使用from a import B形式，但是这样也可以直接访问B 避免使用from a import *形式，这样会污染命名空间，并且导入了哪些模块也不清晰。 import的原理Python的import机制，在Python初始化运行环境时候会预先加载一批内建模块到内存中，这些模块相关的信息存放在了sys.modules中，用户导入sys模块后使用sys.modules.items()可以显示所有预加载模块的相关信息。 当加载一个模块时，Python解释器做了以下一些事情： 在sys.modules中进行搜索，如果该模块已经存在，就将该模块导入到当前局部命名空间。加载就结束了。 如果在sys.modules中找不到该模块的名称，则为需要导入的模块创建一个字典对象，并将该对象信息插入到sys.modules中。 加载前确认是否需要对模块对应的文件进行编译，如果需要编译就要进行编译。 执行动态加载，在当前模块中的命名空间中执行编译后的字节码文件，并将其中所有的对象放入到模块对应的字典中。 无节制使用from…import…带来的问题1.命名空间冲突例子：有如下三个文件 在模块a和模块b中都定义了add()函数。那么我们在test文件中使用from...import...的形式导入add时，最终起作用的是哪一个呢？ # filename a.py def add(): print(&quot;add in module A&quot;) # filename b.py def add(): print(&quot;add in module B&quot;) # filename test.py from a import add from b import add if __name__ == &apos;__main__&apos;: add() 运行test.py之后，我们得到输出： &quot;add in module B&quot; 也就是说在这里起作用的是最近导入的add(),它完全覆盖了当前命名空间中之前导入的模块a中的add().所以在大型的项目中，我们所包含的包和模块数目非常多，因此使用from...import...语句将会大大增加了命名空间冲突的概率，很大可能会导致出现无法预料的错误和问题。所有有必要有节制的使用from...import...语句。 当然在以下的一些情况中可以考虑使用from...import...语句 当只需要导入部分属性或者方法时。 模块中的某些属性和方法使用频率很高导致使用a.B这种形式进行访问过于烦琐时。 某模块的文档明确说明需要使用from...import形式，能后更为简单和便利时。如使用from io.drivers import zip要比使用import iodrivers.zip更加方便。 2.循环嵌套导入问题例子： # filename c1.py from c2 import g def x(): pass # filename c2.py from c1 import x def g(): pass 像上边的两个文件，无论运行哪一个，都会报出ImportError的错误。解析如下： 在执行c1.py的加载过程的时候需要创建新的模块对象c1然后执行c1.py所对应的字节码，此时遇到语句from c2 import g,而此时c2在sys.modules中并不存在。然后就会创建与c2对应的模块对象并执行c2.py， 而在执行c2.py时候，又遇到from c1 import x语句，此时的c1对象虽然已经存在，但是初始化的过程并未完成，所以不存在x对象，所以c2也无法初始化完成。 再次执行c1.py时，就会报出ImportError: cannot import name g异常。 而使用import可以解决这个问题。修改文件如下： # filename c1.py import c2 def x(): pass # filename c2.py import c1 def g(): pass 此时就可以运行这两个文件了。]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[collections模块之namedtuple使用]]></title>
     <url>%2F2017%2F07%2F23%2Fcollections%E6%A8%A1%E5%9D%97%E4%B9%8Bnamedtuple%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。 简单使用1.创建namedtuple form collections import namedtuple Point = namedtuple(&apos;Point&apos;, &apos;x y&apos;) point1 = Point(1.0, 5.0) point2 = Point(2.5, 1.5) 上例即创建了一个名字为Point的namedtuple对象. 2.namedtuple对象的参数解析 a.示例中的Point是namedtuple的名称。 b.示例中的x y这个字符串中的两个用空格隔开的字符表示这个namedtuple中有两个元素，名为x,y.(避免关键字) c.如果在数据库中读列名作为元素名时可能会出现相同名，程序会报错，那么可以在定义namedtuple时开启自动重命名。如下： Point = namedtuple(‘Point’, ‘x y’， rename=True) 此时命名方式为_indexnumber,下划线+索引号。 调用方式3.1索引方式调用 对于示例中的定义的Point1,可以采用索引方式调用获取其中的值. In [7]: x = point1[0] Out : 1.0 In [10]: y = point1[1] Out : 5.0 3.2元素名方式调用 对于示例中的定义的Point2,可以采用元素名调用获取其中的值. In [12]: x = point2.x Out : 2.5 In [14]: y = point2.y Out : 1.5 总结4.1 你应该使用namedtuple代替那些你认为影响了你代码的易读性的tuple，以便让你的代码更加pythonic. 4.2 此外，你还可以替换那些没有功能函数、只有字段的普通不可变类。]]></content>
