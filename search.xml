@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[新博客搬迁计划]]></title>
+    <url>%2F2017%2F07%2F27%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
+    <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
+      <tags>
+        <tag>杂项</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[js遍历对象的几个方法]]></title>
     <url>%2F2017%2F07%2F26%2Fjs%E9%81%8D%E5%8E%86%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[有关对象遍历的几个方法。所有继承到Object的对象都会继承到hasOwnProerty()方法，此方法用来检测一个对象是否包含特定的自身属性，其与in运算符不同之处在于，hasOwnProperty方法会忽略掉那些从原型链上继承到的属性。 1.一个简单的例子： 检测对象obj是否含有自身属性’prop’. obj = new Object(); obj.prop = &apos;exists&apos;; function changeO(){ // 将prop属性删除。 obj.newprop = obj.prop; delete obj.prop; } alert(obj.hasOwnProperty(&apos;prop&apos;)); // True changeO(); alert(obj.hasOwnProperty(&apos;prop&apos;)); // False 对于从原型链上继承的属性，hasOwnProperty方法会将其忽略。而in操作符则是将原型链上的属性也涵盖。 alert(obj.hasOwnProperty(&apos;toString&apos;)); // False alert(&apos;toString&apos; in obj); // True 2.遍历一个对象所有的自身属性。忽略掉继承属性。 var buz = { fog: &apos;stack&apos;, name: &apos;hello&apos; }; for (var name in buz) { if (buz.hasOwnProperty(name)) { alert(&quot;this is fog (&quot; + name + &quot;) for sure. Value: &quot; + buz[name]); } else { alert(name); // toString or something else } } 注意： 此例子中for...in循环只会遍历可枚举的属性。 3.处理json对象转为字符串。 我们需要遍历一个json对象。 var s = &apos;{&quot;data&quot;:[{&quot;d1&quot;: &quot;c1&quot;, &quot;d2&quot;: &quot;c2&quot;}]}&apos;; var parsedData = JSON.parse(s); for(var i in parserd_data){ for(var j in parserd_data[i]){ alert(parserd_data[i][j]); console.log(parserd_data[i][j]); for (var k in parserd_data[i][j]){ alert(parserd_data[i][j][k]); } } } 这种方法有些费劲，所以可以定义一个函数进行遍历,虽然函数很长，但是对基本的情况也进行了校验，没有使用那么多的嵌套循环。 function JsonToStr(data){ var resultStr = &quot;&quot;; for (var i in data){ if (data.hasOwnProperty(i)){ if (typeof(data[i]) === &quot;object&quot;){ JsonToStr(data[i]); } else{ if(resultStr === &quot;&quot;){ resultStr = i + &quot;,&quot; + data[i]; } else{ resultStr = resultStr + &quot;,&quot; + i + &quot;,&quot; + data[i]; } } } } return resultStr; } 参考资料： MDN web docs]]></content>
@@ -42,22 +50,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2017%2F07%2F23%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[新博客搬迁计划]]></title>
-    <url>%2F2017%2F07%2F22%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
-    <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
-      <tags>
-        <tag>杂项</tag>
       </tags>
   </entry>
   <entry>
