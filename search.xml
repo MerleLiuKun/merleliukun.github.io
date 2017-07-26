@@ -50,6 +50,17 @@
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
   <entry>
+    <title><![CDATA[新博客搬迁计划]]></title>
+    <url>%2F2017%2F07%2F22%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
+    <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>杂项</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[docker简单使用]]></title>
     <url>%2F2017%2F07%2F22%2Fdocker%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[简介:Docker是一个开源的引擎，可以轻松的为任何应用创建一个轻量级的、可移植的、自给自足的容器。开发者在笔记本上编译测试通过的容器可以批量地在生产环境中部署，包括VMs（虚拟机）、bare metal、OpenStack 集群和其他的基础应用平台。Docker通常用于如下场景： web应用的自动化打包和发布； 自动化测试和持续集成、发布； 在服务型环境中部署和调整数据库或其他的后台应用； 从头编译或者扩展现有的OpenShift或Cloud Foundry平台来搭建自己的PaaS环境 删除：1.删除container a.单独删除具体某一个容器 ➜ ~ sudo docker rm CONTAINER_ID ➜ ~ sudo docker rm -f 删除运行中的容器 b.删除当前所有容器(已终止运行) ➜ ~ sudo docker rm $(sudo docker ps -a -q) 2.删除image a.删除某个镜像 ➜ ~ sudo docker rmi &lt;image_id&gt; b.删除所有镜像 ➜ ~ sudo docker rmi $(sudo docker images -q) c.删除所有untagged的镜像(就是id为None的镜像) ➜ ~ sudo docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;{print $3}&quot; 查看：1.查看所有容器 ➜ ~ sudo docker ps -a 2.查看所有正在运行的容器 ➜ ~ sudo docker ps 3.查看镜像 ➜ ~ sudo docker images 运行：1.创建一个container ➜ ~ sudo docker run image_name 2.启动一个container ➜ ~ sudo docker run container_name 3.重命名container ➜ ~ sudo docker rename old_name new_name 4.重启某个容器 ➜ ~ sudo docker restart container_name Tips: docker run 的相关参数说明: --name 指定容器名 -p 指定端口映射 eg 3306:3306 -v 挂载数据卷或者本地目录映射 :ro 挂载为只读 -d 后台持续运行 -i 交互式操作 -t 终端 -rm 容器退出后随之将其删除(与-d 冲突) 停止：1.停止所有正在运行的容器 ➜ ~ sudo docker kill $(docker ps -q) 相关示例：1.使用docker创建postgresql数据库容器 sudo docker search postgres sudo docker pull postgres:9.5.7 使用镜像创建容器，并运行 sudo docker run --name postgres-server -p 5432:5432 -e POSTGRES_PASSWORD=111111 -d postgres:9.5.7 启动容器 sudo docker start container_id 使用镜像创建一个client sudo docker run --name postgresql-client -it --link postgres-server:postgres postgres:9.5.7 psql -U postgres 此时就可以在client中的命令行上实现操作数据库啦。 2.使用docker创建mysql数据库容器 # 查询mysql镜像 sudo docker search mysql # 拉到本机 sudo docker pull mysql # 创建一个mysql服务端,并将端口映射到本机的3306端口 sudo docker run --name mysql-server -p 3306:3306 -e MYSQL_ROOT_PASSWORD=yourpassword -d mysql # 创建一个mysql客户端，用来管理数据库 sudo docker run --name mysql-client -it --link mysql-server:mysql mysql sh -c &apos;exec mysql -h&quot;$MYSQL_PORT_3306_TCP_ADDR&quot; -P&quot;$MYSQL_PORT_3306_TCP_PORT&quot; -uroot -p&quot;$MYSQL_ENV_MYSQL_ROOT_PASSWORD&quot;&apos; # 启动容器 sudo docker start container_name 注：可以通过指定mysql数据库的外部数据卷，让数据保存在本机上，便于迁移。 -v /my/own/datadir:/var/lib/mysql 其中 ：号前面是本机的数据卷地址， 这样表示宿主机的/my/own/datadir目录挂载到容器内的/var/lib/mysql目录。 现在就可以像在本机安装mysql数据库一样的使用啦。]]></content>
