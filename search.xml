@@ -4,6 +4,9 @@
     <title><![CDATA[新博客搬迁计划]]></title>
     <url>%2F2017%2F07%2F27%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
     <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
       <tags>
         <tag>杂项</tag>
       </tags>
