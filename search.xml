@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python函数之format]]></title>
+    <url>%2F2017%2F07%2F28%2Fpython%E5%87%BD%E6%95%B0%E4%B9%8Bformat%2F</url>
+    <content type="text"><![CDATA[python format 函数总结文章基于Python2.7.12进行讲述： &#160;&#160;&#160;&#160;在python中格式化字符串进行输出时，通常会用到format函数。 &#160;&#160;&#160;&#160;介绍一下简单用法： &#160;&#160;&#160;&#160;1.将字符串替换 In [1]: print &apos;{0} {1} {2}&apos;.format(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;) a b c &#160;&#160;&#160;&#160;2.按照参数格式化 In [2]: print &apos;{name} {age}&apos;.format(age=21, name=&apos;lkhardy&apos;) lkhardy 21 &#160;&#160;&#160;&#160;3.限制字符串内的信息范围 In [3]: print &apos;{array[5]}&apos;.format(array=range(10)) 5 In [4]: print &apos;{array[12]}&apos;.format(array=range(10)) -------------------------------------IndexError Traceback (most recent call last) &lt;ipython-input-13-e9cd5827deae&gt; in &lt;module&gt;()----&gt; 1 print &apos;{array[12]}&apos;.format(array=range(10)) IndexError: list index out of range &#160;&#160;&#160;&#160;4.直接调用系统函数 In [14]: print &apos;{attr.__class__}&apos;.format(attr=0) &lt;type &apos;int&apos;&gt; In [15]: print &apos;{attr.__class__}&apos;.format(attr=&quot;d&quot;) &lt;type &apos;str&apos;&gt; &#160;&#160;&#160;&#160;5.转义 In [18]: print &apos;{name!r}&apos;.format(name=u&apos;汉字&apos;) u&apos;\u6c49\u5b57&apos; In [19]: print &apos;{name!r}&apos;.format(name=u&apos;lkhardy&apos;) u&apos;lkhardy&apos; In [20]: print &apos;{name!r}&apos;.format(name=u&apos;1234&apos;) u&apos;1234&apos; &#160;&#160;&#160;&#160;6.识别格式化 In [24]: print &apos;{digit:*^ 10.5f}&apos;.format(digit=1.0/3) * 0.33333* In [25]: print &apos;{digit:*^ 10.5f}&apos;.format(digit=10.0/3) * 3.33333* 未完待续。。。。。。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python的虚拟环境]]></title>
+    <url>%2F2017%2F07%2F28%2FPython%E7%9A%84%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[简述：&#160;&#160;&#160;&#160;问题：&#160;&#160;&#160;&#160;我们知道Python的魅力更在于它庞大的第三方库。所以在实际的开发环境中，可能会同时进行多个项目，也许就会出现一个项目是基于python2.x，而另一个项目是基于python3.x的尴尬情况，以及其他很多不方便的情况，比如无法自动生成requirements文件etc。。。。。&#160;&#160;&#160;&#160;Methods：&#160;&#160;&#160;&#160;于是就有virtualenv这个插件很好的解决了这个问题。下面讲解它的基础使用。以及更为方便的一个插件virtualenvwrapper。 使用virtualenv&#160;&#160;&#160;&#160;安装&#160;&#160;&#160;&#160;virtualenv的安装十分简单，使用pip就能很方便的安装： sudo pip install virtualenv &#160;&#160;&#160;&#160;基础操作&#160;&#160;&#160;&#160;1.创建虚拟环境&#160;&#160;&#160;&#160;使用如下命令即可在当前目录下创建一个名为env1的虚拟环境 virtualenv env1 &#160;&#160;&#160;&#160;还可以创建指定解释器版本的虚拟环境 virtualenv -p python2.7 env2.7 #该环境下解释器为python2.7virtualenv -p python3.5 env3.5 #该环境下解释器为python3.5 &#160;&#160;&#160;&#160;如果你的系统里的python已经安装第三方库，你想直接继承过来使用，使用如下命令 virtualenv –system-site-packages env &#160;&#160;&#160;&#160;默认的是不加继承的，或者使用以下命令 virtualenv –no-site-packages env &#160;&#160;&#160;&#160;2.启动和退出虚拟环境&#160;&#160;&#160;&#160;启动，要想启动创建好的虚拟环境，需要到其安装目录(即当前目录下)，输入如下命令： source env1/bin/activate 当命令行头出现(env1)时就表示虚拟环境已经启动。此时我们再次使用pip、setools、easy_install等安装的插件就只会在此虚拟环境之下，不会影响系统内的默认环境、或者其他的虚拟环境。 &#160;&#160;&#160;&#160;退出，要想从当前虚拟环境之下退出，只需执行如下命令即可： deactivate 使用virtualenvwrapper&#160;&#160;&#160;&#160;virtualenv的出现使得项目间的环境使用更加方便和简洁，而virtualenvwrapper是一个基于virtualenv之上的一个工具，它提供了更加方便的虚拟环境管理方式。即统一管理。 &#160;&#160;&#160;&#160;安装 &#160;&#160;&#160;&#160;安装操作仍然十分简单，使用如下命令即可安装此工具： sudo pip install virtualenvwrapper &#160;&#160;&#160;&#160;windows下安装 pip install virtualenvwrapper-win &#160;&#160;&#160;&#160;virtualenvwrapper默认将所有的虚拟环境放在~/.virtualenvs目录下管理，但是也可以修改环境变量WORKON_HOME来指定虚拟环境的保存目录。 &#160;&#160;&#160;&#160;基本操作&#160;&#160;&#160;&#160;1.启动&#160;&#160;&#160;&#160;使用前需要在shell里执行： source /usr/local/bin/virtualenvwrapper.sh 为了方便使用这个命令，我们可以把如下命令加到shell的配置文件中： sudo vim ~/.profile export WORKON_HOME=$HOME/.virtualenvsexport PROJECT_HOME=$HOME/Develsource /usr/local/bin/virtualenvwrapper.sh &#160;&#160;&#160;&#160;2.相关命令&#160;&#160;&#160;&#160;列出已有的虚拟环境，命令如下： workon &#160;&#160;&#160;&#160;创建新的虚拟环境，创建完毕之后会自动切换到当前环境，命令如下： mkvirtualenv env1 &#160;&#160;&#160;&#160;列出当前环境下中所安装的包，命令如下： lssitepackages &#160;&#160;&#160;&#160;切换虚拟环境，命令如下： workon env2 &#160;&#160;&#160;&#160;退出当前环境，命令如下： deactivate &#160;&#160;&#160;&#160;删除虚拟环境，如果该环境正在使用，那么必须先退出该环境，命令如下： rmvirtualenv env1 &#160;&#160;&#160;&#160;显示指定环境的详情，命令如下： showvirtualenv env1 &#160;&#160;&#160;&#160;把指定的目录加入当前使用的环境path中，命令如下： add2virtualenv dir dir &#160;&#160;&#160;&#160;复制一份虚拟环境 cpvirtualenv source dest &#160;&#160;&#160;&#160;还可以在上面我们配置过的目录PROJECT_HOME下创建一个新项目。 mkproject project_name OK，以上就是关于virtualenv和增强工具virtualenvwrapper的简单使用介绍。另外说一点，在windows上使用时会出现一些命令使用的问题，好好搜索哦，本文是基于linux上使用的….呼呼，欢迎大家指正哦。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[新博客搬迁计划]]></title>
     <url>%2F2017%2F07%2F27%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
     <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
