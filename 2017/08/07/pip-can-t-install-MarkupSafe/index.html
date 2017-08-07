@@ -93,18 +93,22 @@
 
 
 
-<meta name="description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
+<meta name="description" content="背景今天早上试用pyecharts时（环境：Python3.6.1），使用pip安装.在安装时报出错误。此错误应该是针对于（MarkupSafe）模块的。如下：">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="collections模块之namedtuple使用">
-<meta property="og:url" content="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/index.html">
+<meta property="og:title" content="pip can not install MarkupSafe">
+<meta property="og:url" content="http://lkhardy.cn/2017/08/07/pip-can-t-install-MarkupSafe/index.html">
 <meta property="og:site_name" content="一只猪">
-<meta property="og:description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
+<meta property="og:description" content="背景今天早上试用pyecharts时（环境：Python3.6.1），使用pip安装.在安装时报出错误。此错误应该是针对于（MarkupSafe）模块的。如下：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-24T14:43:00.822Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-6e1bf19cf67cc87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-8a0766195459709b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-810e236b53419364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-07T01:07:55.060Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="collections模块之namedtuple使用">
-<meta name="twitter:description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
+<meta name="twitter:title" content="pip can not install MarkupSafe">
+<meta name="twitter:description" content="背景今天早上试用pyecharts时（环境：Python3.6.1），使用pip安装.在安装时报出错误。此错误应该是针对于（MarkupSafe）模块的。如下：">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1747527-6e1bf19cf67cc87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -132,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/"/>
+  <link rel="canonical" href="http://lkhardy.cn/2017/08/07/pip-can-t-install-MarkupSafe/"/>
 
 
 
 
 
-  <title>collections模块之namedtuple使用 | 一只猪</title>
+  <title>pip can not install MarkupSafe | 一只猪</title>
   
 
 
@@ -321,7 +325,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/">
+    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/08/07/pip-can-t-install-MarkupSafe/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MerleLiuKun">
@@ -338,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">collections模块之namedtuple使用</h1>
+          <h1 class="post-title" itemprop="name headline">pip can not install MarkupSafe</h1>
         
 
         <div class="post-meta">
@@ -350,8 +354,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T13:16:21+08:00">
-                2017-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-07T09:06:16+08:00">
+                2017-08-07
               </time>
             
 
@@ -407,37 +411,14 @@
       
 
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于<code>struct</code>或其他常见<code>record types</code>，但它们是不可变的。</p>
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>今天早上试用<a href="https://github.com/chenjiandongx/pyecharts" target="_blank" rel="external">pyecharts</a>时（环境：Python3.6.1），使用pip安装.在安装时报出错误。此错误应该是针对于（<code>MarkupSafe</code>）模块的。<br>如下：<br><img src="http://upload-images.jianshu.io/upload_images/1747527-6e1bf19cf67cc87f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="error1.png"></p>
 <a id="more"></a>
-<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><p>1.创建namedtuple</p>
-<pre><code>form collections import namedtuple
-Point = namedtuple(&apos;Point&apos;, &apos;x y&apos;)
-
-point1 = Point(1.0, 5.0)
-point2 = Point(2.5, 1.5)    
-</code></pre><p>上例即创建了一个名字为<code>Point</code>的namedtuple对象.</p>
-<p>2.namedtuple对象的参数解析</p>
-<ul>
-<li>a.示例中的<code>Point</code>是namedtuple的名称。</li>
-<li>b.示例中的<code>x y</code>这个字符串中的两个用<strong>空格</strong>隔开的字符表示这个namedtuple中有两个元素，名为<code>x,y</code>.(避免关键字)</li>
-<li><p>c.如果在数据库中读列名作为元素名时可能会出现相同名，程序会报错，那么可以在定义namedtuple时开启自动重命名。如下：</p>
-<p>  Point = namedtuple(‘Point’, ‘x y’， rename=True)<br>  此时命名方式为<code>_indexnumber</code>,下划线+索引号。</p>
-</li>
-</ul>
-<h1 id="调用方式"><a href="#调用方式" class="headerlink" title="调用方式"></a>调用方式</h1><p>3.1索引方式调用</p>
-<pre><code>对于示例中的定义的Point1,可以采用索引方式调用获取其中的值.
-In [7]: x = point1[0]
-Out : 1.0
-In [10]: y = point1[1]
-Out : 5.0
-</code></pre><p>3.2元素名方式调用</p>
-<pre><code>对于示例中的定义的Point2,可以采用元素名调用获取其中的值.
-In [12]: x = point2.x
-Out : 2.5
-In [14]: y = point2.y
-Out : 1.5
-</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>4.1 你应该使用<code>namedtuple</code>代替那些你认为影响了你代码的易读性的<code>tuple</code>，以便让你的代码更加<code>pythonic</code>.</p>
-<p>4.2 此外，你还可以替换那些没有功能函数、只有字段的普通不可变类。</p>
+<h1 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h1><p>1、通过traceback可以看到应该是pip命令将控制台的字符串进行编码转换时出现了错误。因为我这是在windows下进行的，所以<code>console</code>上使用的是<code>gbk</code>的编码，但是pip模块却使用<code>utf-8</code>进行解码，所以产生了错误。<br>找到对应的出错位置，我们修改一下对应的代码。<br>找到<code>\lib\site-packages\pip\compat\__init__.py</code>文件<br>定位到第75行：<br><img src="http://upload-images.jianshu.io/upload_images/1747527-8a0766195459709b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="code.png"></p>
+<p>我们将原来的<code>utf_8</code>修改为<code>gbk</code>.</p>
+<p>执行 <code>pip freeze</code>命令，如果存在安装包（MarkupSafe）， 先进行卸载。</p>
+<p>重新安装。 发现没有问题。</p>
+<p>同样环境在Linux下却不会出现问题，因为Linux的console默认<code>utf-8</code>编码。<br>如图(<code>Konsole</code>)：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1747527-810e236b53419364.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="konsole_encoding.png"></p>
 
       
     </div>
@@ -480,8 +461,8 @@ Out : 1.5
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/docker简单使用/" rel="next" title="docker简单使用">
-                <i class="fa fa-chevron-left"></i> docker简单使用
+              <a href="/2017/08/06/Python基础之迭代器-生成器/" rel="next" title="Python基础之迭代器+生成器">
+                <i class="fa fa-chevron-left"></i> Python基础之迭代器+生成器
               </a>
             
           </div>
@@ -489,10 +470,6 @@ Out : 1.5
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/24/from-import和import/" rel="prev" title="from-import和import">
-                from-import和import <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -651,7 +628,7 @@ Out : 1.5
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单使用"><span class="nav-number">2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用方式"><span class="nav-number">3.</span> <span class="nav-text">调用方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决问题"><span class="nav-number">2.</span> <span class="nav-text">解决问题</span></a></li></ol></div>
             
 
           </div>

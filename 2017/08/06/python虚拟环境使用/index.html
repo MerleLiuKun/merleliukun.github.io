@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
+<meta name="description" content="简介问题我们知道Python的魅力更在于它庞大的第三方库。所以在实际的开发环境中，可能会同时进行多个项目，也许就会出现一个项目是基于python2.x，而另一个项目是基于python3.x的尴尬情况，以及其他很多不方便的情况，比如无法自动生成requirements文件etc。。。。。 Methods于是就有virtualenv这个插件很好的解决了这个问题。下面讲解它的基础使用。以及更为方便的一个">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="collections模块之namedtuple使用">
-<meta property="og:url" content="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/index.html">
+<meta property="og:title" content="python虚拟环境使用">
+<meta property="og:url" content="http://lkhardy.cn/2017/08/06/python虚拟环境使用/index.html">
 <meta property="og:site_name" content="一只猪">
-<meta property="og:description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
+<meta property="og:description" content="简介问题我们知道Python的魅力更在于它庞大的第三方库。所以在实际的开发环境中，可能会同时进行多个项目，也许就会出现一个项目是基于python2.x，而另一个项目是基于python3.x的尴尬情况，以及其他很多不方便的情况，比如无法自动生成requirements文件etc。。。。。 Methods于是就有virtualenv这个插件很好的解决了这个问题。下面讲解它的基础使用。以及更为方便的一个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-24T14:43:00.822Z">
+<meta property="og:updated_time" content="2017-08-06T15:33:39.054Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="collections模块之namedtuple使用">
-<meta name="twitter:description" content="简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。">
+<meta name="twitter:title" content="python虚拟环境使用">
+<meta name="twitter:description" content="简介问题我们知道Python的魅力更在于它庞大的第三方库。所以在实际的开发环境中，可能会同时进行多个项目，也许就会出现一个项目是基于python2.x，而另一个项目是基于python3.x的尴尬情况，以及其他很多不方便的情况，比如无法自动生成requirements文件etc。。。。。 Methods于是就有virtualenv这个插件很好的解决了这个问题。下面讲解它的基础使用。以及更为方便的一个">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/"/>
+  <link rel="canonical" href="http://lkhardy.cn/2017/08/06/python虚拟环境使用/"/>
 
 
 
 
 
-  <title>collections模块之namedtuple使用 | 一只猪</title>
+  <title>python虚拟环境使用 | 一只猪</title>
   
 
 
@@ -321,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/07/23/collections模块之namedtuple使用/">
+    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/08/06/python虚拟环境使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MerleLiuKun">
@@ -338,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">collections模块之namedtuple使用</h1>
+          <h1 class="post-title" itemprop="name headline">python虚拟环境使用</h1>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T13:16:21+08:00">
-                2017-07-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T23:12:52+08:00">
+                2017-08-06
               </time>
             
 
@@ -407,37 +407,98 @@
       
 
       
-        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于<code>struct</code>或其他常见<code>record types</code>，但它们是不可变的。</p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>我们知道Python的魅力更在于它庞大的第三方库。所以在实际的开发环境中，可能会同时进行多个项目，也许就会出现一个项目是基于python2.x，而另一个项目是基于python3.x的尴尬情况，以及其他很多不方便的情况，比如无法自动生成requirements文件etc。。。。。</p>
+<h2 id="Methods"><a href="#Methods" class="headerlink" title="Methods"></a>Methods</h2><p>于是就有virtualenv这个插件很好的解决了这个问题。下面讲解它的基础使用。以及更为方便的一个插件virtualenvwrapper。</p>
 <a id="more"></a>
-<h1 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h1><p>1.创建namedtuple</p>
-<pre><code>form collections import namedtuple
-Point = namedtuple(&apos;Point&apos;, &apos;x y&apos;)
-
-point1 = Point(1.0, 5.0)
-point2 = Point(2.5, 1.5)    
-</code></pre><p>上例即创建了一个名字为<code>Point</code>的namedtuple对象.</p>
-<p>2.namedtuple对象的参数解析</p>
-<ul>
-<li>a.示例中的<code>Point</code>是namedtuple的名称。</li>
-<li>b.示例中的<code>x y</code>这个字符串中的两个用<strong>空格</strong>隔开的字符表示这个namedtuple中有两个元素，名为<code>x,y</code>.(避免关键字)</li>
-<li><p>c.如果在数据库中读列名作为元素名时可能会出现相同名，程序会报错，那么可以在定义namedtuple时开启自动重命名。如下：</p>
-<p>  Point = namedtuple(‘Point’, ‘x y’， rename=True)<br>  此时命名方式为<code>_indexnumber</code>,下划线+索引号。</p>
-</li>
-</ul>
-<h1 id="调用方式"><a href="#调用方式" class="headerlink" title="调用方式"></a>调用方式</h1><p>3.1索引方式调用</p>
-<pre><code>对于示例中的定义的Point1,可以采用索引方式调用获取其中的值.
-In [7]: x = point1[0]
-Out : 1.0
-In [10]: y = point1[1]
-Out : 5.0
-</code></pre><p>3.2元素名方式调用</p>
-<pre><code>对于示例中的定义的Point2,可以采用元素名调用获取其中的值.
-In [12]: x = point2.x
-Out : 2.5
-In [14]: y = point2.y
-Out : 1.5
-</code></pre><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>4.1 你应该使用<code>namedtuple</code>代替那些你认为影响了你代码的易读性的<code>tuple</code>，以便让你的代码更加<code>pythonic</code>.</p>
-<p>4.2 此外，你还可以替换那些没有功能函数、只有字段的普通不可变类。</p>
+<h1 id="使用virtualenv"><a href="#使用virtualenv" class="headerlink" title="使用virtualenv"></a>使用virtualenv</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><code>virtualenv</code>的安装十分简单，使用pip就能很方便的安装：</p>
+<blockquote>
+<p>sudo pip install virtualenv</p>
+</blockquote>
+<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><p>1.创建虚拟环境<br>使用如下命令即可在<strong>当前目录</strong>下创建一个名为env1的虚拟环境</p>
+<blockquote>
+<p>virtualenv env1</p>
+</blockquote>
+<p>还可以创建指定解释器版本的虚拟环境</p>
+<blockquote>
+<p>virtualenv -p python2.7 env2.7   #该环境下解释器为python2.7<br>virtualenv -p python3.5 env3.5   #该环境下解释器为python3.5</p>
+</blockquote>
+<p>如果你的系统里的python已经安装第三方库，你想直接继承过来使用，使用如下命令</p>
+<blockquote>
+<p>virtualenv –system-site-packages env</p>
+</blockquote>
+<p>默认的是不加继承的，或者使用以下命令</p>
+<blockquote>
+<p>virtualenv –no-site-packages env</p>
+</blockquote>
+<p>2.启动和退出虚拟环境<br>启动，要想启动创建好的虚拟环境，需要到其安装目录(即当前目录下)，输入如下命令：</p>
+<blockquote>
+<p>source env1/bin/activate</p>
+</blockquote>
+<p>当命令行头出现<strong>(env1)</strong>时就表示虚拟环境已经启动。此时我们再次使用<code>pip</code>、<code>setools</code>、<code>easy_install</code>等安装的插件就只会在此虚拟环境之下，不会影响系统内的默认环境、或者其他的虚拟环境。</p>
+<p>退出，要想从当前虚拟环境之下退出，只需执行如下命令即可：</p>
+<blockquote>
+<p>deactivate</p>
+</blockquote>
+<h1 id="使用virtualenvwrapper"><a href="#使用virtualenvwrapper" class="headerlink" title="使用virtualenvwrapper"></a>使用virtualenvwrapper</h1><p><code>virtualenv</code>的出现使得项目间的环境使用更加方便和简洁，而<code>virtualenvwrapper</code>是一个基于<code>virtualenv</code>之上的一个工具，它提供了更加方便的虚拟环境管理方式。即统一管理。</p>
+<h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><p>安装操作仍然十分简单，使用如下命令即可安装此工具：</p>
+<blockquote>
+<p>sudo pip install virtualenvwrapper</p>
+</blockquote>
+<p>windows下安装</p>
+<blockquote>
+<p>pip install virtualenvwrapper-win</p>
+</blockquote>
+<p><code>virtualenvwrapper</code>默认将所有的虚拟环境放在<code>~/.virtualenvs</code>目录下管理，但是也可以修改环境变量<code>WORKON_HOME</code>来指定虚拟环境的保存目录。</p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>启动<br>使用前需要在shell里执行：</p>
+<blockquote>
+<p>source /usr/local/bin/virtualenvwrapper.sh</p>
+</blockquote>
+<p>为了方便使用这个命令，我们可以把如下命令加到shell的配置文件中：</p>
+<blockquote>
+<p>sudo vim ~/.profile</p>
+<p>export <code>WORKON_HOME</code>=$HOME/.virtualenvs<br>export <code>PROJECT_HOME</code>=$HOME/Devel<br>source /usr/local/bin/virtualenvwrapper.sh</p>
+</blockquote>
+<h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><p>列出已有的虚拟环境，命令如下：</p>
+<blockquote>
+<p>workon</p>
+</blockquote>
+<p>创建新的虚拟环境，创建完毕之后会自动切换到当前环境，命令如下：</p>
+<blockquote>
+<p>mkvirtualenv env1</p>
+</blockquote>
+<p>列出当前环境下中所安装的包，命令如下：</p>
+<blockquote>
+<p>lssitepackages</p>
+</blockquote>
+<p>切换虚拟环境，命令如下：</p>
+<blockquote>
+<p>workon env2</p>
+</blockquote>
+<p>退出当前环境，命令如下：</p>
+<blockquote>
+<p>deactivate</p>
+</blockquote>
+<p>删除虚拟环境，如果该环境正在使用，那么必须先退出该环境，命令如下：</p>
+<blockquote>
+<p>rmvirtualenv env1</p>
+</blockquote>
+<p>显示指定环境的详情，命令如下：</p>
+<blockquote>
+<p>showvirtualenv env1</p>
+</blockquote>
+<p>把指定的目录加入当前使用的环境path中，命令如下：</p>
+<blockquote>
+<p>add2virtualenv dir dir</p>
+</blockquote>
+<p>复制一份虚拟环境</p>
+<blockquote>
+<p>cpvirtualenv source dest</p>
+</blockquote>
+<p>还可以在上面我们配置过的目录<code>PROJECT_HOME</code>下创建一个新项目。</p>
+<blockquote>
+<p>mkproject project_name</p>
+</blockquote>
+<p>OK，以上就是关于virtualenv和增强工具virtualenvwrapper的简单使用介绍。另外说一点，在windows上使用时会出现一些命令使用的问题，好好搜索哦，本文是基于linux上使用的….呼呼，欢迎大家指正哦。</p>
 
       
     </div>
@@ -480,8 +541,8 @@ Out : 1.5
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/22/docker简单使用/" rel="next" title="docker简单使用">
-                <i class="fa fa-chevron-left"></i> docker简单使用
+              <a href="/2017/08/06/archLinux初识/" rel="next" title="archLinux初识">
+                <i class="fa fa-chevron-left"></i> archLinux初识
               </a>
             
           </div>
@@ -490,8 +551,8 @@ Out : 1.5
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/24/from-import和import/" rel="prev" title="from-import和import">
-                from-import和import <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/06/基于BBB开发板的温度检测和邮件自发送/" rel="prev" title="基于BBB开发板的温度检测和邮件自发送">
+                基于BBB开发板的温度检测和邮件自发送 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -651,7 +712,7 @@ Out : 1.5
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简单使用"><span class="nav-number">2.</span> <span class="nav-text">简单使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用方式"><span class="nav-number">3.</span> <span class="nav-text">调用方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Methods"><span class="nav-number">1.2.</span> <span class="nav-text">Methods</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用virtualenv"><span class="nav-number">2.</span> <span class="nav-text">使用virtualenv</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础操作"><span class="nav-number">2.2.</span> <span class="nav-text">基础操作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用virtualenvwrapper"><span class="nav-number">3.</span> <span class="nav-text">使用virtualenvwrapper</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-1"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">3.2.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关命令"><span class="nav-number">3.3.</span> <span class="nav-text">相关命令</span></a></li></ol></li></ol></div>
             
 
           </div>
