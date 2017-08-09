@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python函数参数总结]]></title>
+    <url>%2F2017%2F08%2F09%2Fpython%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[参数传递Python中的参数传递存在以下几种情况： 基本定义方式这是最常见的定义方式。 def foo(arg1, atg2,...) pass 一个函数可以定义任意个参数，参数中间使用,隔开，使用这种定义方式的函数在调用的时候，必须提供所有的参数，并且顺序也要一致。否则就会报错。 提供默认值的参数这种方式就是第一种方式的稍微改进版本。 def foo(arg1, arg2=2): pass 此时，调用这个函数的时候，可以只传递arg1一个参数，因为arg2存在默认值，接收不到参数时，就是使用默认值。 使用单个星号 *在程序中，有时候我们可能不太清楚有多少个参数，所以可以使用*来传递不确定的参数。 def foo(*args): pass 在参数名前边加上*号就是让函数可以接受任意多的位置参数，但是不管传递的参数有多少个，都会存储在一形参名为标识符的tuple中。 使用双星号 **在形参名的前边加上**,参数在函数的内部将会存为形参名为标识符的字典中。并且是以关键字参数为key，位置参数为value的字典。 def foo(**kwargs): pass 在函数调用的时候，要以foo(arg1=value1, arg2=value2)这种形式调用。这样内部使用的时候可以直接调用args1和arg2。 Tips：函数参数在调用过程中是以上述四中方式优先级依次降低的次序执行解析的。 zip函数这时候理解zip函数中的*就十分简单了。 我们需要多个参数，但是想以list作为参数。就可以使用* a = [[1,2,3,4], [&apos;1a&apos;, &apos;2a&apos;, &apos;3a&apos;, &apos;4a&apos;]] result = zip(*a) for i in result: print(i) # output: (1, &apos;1a&apos;) (2, &apos;2a&apos;) (3, &apos;3a&apos;) (4, &apos;4a&apos;) 所以我们可以使用zip函数进行矩阵的转换。 a = [[1,2,3], [4,5,6], [7,8,9]] for i in zip(*a): print(i) # output (1, 4, 7) (2, 5, 8) (3, 6, 9) .]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[docker-compose部署web项目]]></title>
     <url>%2F2017%2F08%2F08%2Fdocker-compose%E9%83%A8%E7%BD%B2web%E9%A1%B9%E7%9B%AE%2F</url>
     <content type="text"><![CDATA[需求： 要在docker中运行运行Web项目 需要一个数据库存储 部署简易。 解决：基于docker-compose实现部署项目 当前项目结构 ├── db_proj│ ├── db.sql│ └── Dockerfile├── docker-compose.yml└── web_proj ├── DataPlatformSystem │ ├── manage.py │ ├── README.md │ ├── requirements.txt │ ├── tests │ │ └── __init__.py │ └── webapp │ ├── config.py │ ├── __init__.py └── Dockerfile docker-compose的配置文件内容 db: build: ./db_proj # image: postgres:9.5 environment: - POSTGRES_USER=postgres - POSTGRES_PASSWORD=111111 # - POSTGRES_DB=testDB ports: - &quot;5432:5432&quot; web: build: ./web_proj command: python /app/DataPlatformSystem/manage.py volumes: - /app/DataPlatformSystem ports: - &quot;5000:5000&quot; - &quot;8001:8001&quot; - &quot;9001:9001&quot; links: - db lables: com.dragonteam.des: &quot;数据管理平台&quot; com.dragonteam.department: &quot;DragonTeam&quot; com.dragonteam.release: &quot;v0.5&quot; db_proj下的Dockerfile FROM postgres ENV POSTGRES_DB test COPY db.sql /docker-entrypoint-initdb.d/ web_proj下的Dockerfile FROM ubuntu COPY DataPlatformSystem /app/DataPlatformSystem WORKDIR /app/DataPlatformSystem RUN buildDeps=&apos;python python-pip python-dev python-tk&apos;\ &amp;&amp; cp /etc/apt/sources.list /etc/apt/sources.list.bak \ &amp;&amp; sed -i &apos;s/archive.ubuntu.com/mirrors.ustc.edu.cn/g&apos; /etc/apt/sources.list \ &amp;&amp; apt-get update &amp;&amp; apt-get install --assume-yes apt-utils \ &amp;&amp; apt-get install -y $buildDeps \ &amp;&amp; pip install --upgrade pip \ &amp;&amp; pip install -r /app/DataPlatformSystem/requirements.txt 所遇问题：数据库容器连接问题：如果web应用的容器和数据库服务的容器分离，就要使用links指定关联、 links: - db 那么在web应用中的配置信息中就要使用此配置信息， SQLALCHEMY_DATABASE_URI = &apos;postgresql://postgres:111111@db/test&apos; 其中的db就是links的配置内容。 路径问题：在docker-compose.yml中使用build命令时，指定的路径可以是绝对路径，或者是相对于docker-compose.yml文件的相对路径。 build: /path/to/build/dir 参考资料： Docker从入门到实战 Docker部署Flask项目 使用docker-compose docker-postgres-issue Docker初始化导入数据库文件]]></content>
@@ -16,7 +27,7 @@
     <url>%2F2017%2F08%2F07%2Fpip-can-t-install-MarkupSafe%2F</url>
     <content type="text"><![CDATA[背景今天早上试用pyecharts时（环境：Python3.6.1），使用pip安装.在安装时报出错误。此错误应该是针对于（MarkupSafe）模块的。如下： 解决问题1、通过traceback可以看到应该是pip命令将控制台的字符串进行编码转换时出现了错误。因为我这是在windows下进行的，所以console上使用的是gbk的编码，但是pip模块却使用utf-8进行解码，所以产生了错误。找到对应的出错位置，我们修改一下对应的代码。找到\lib\site-packages\pip\compat\__init__.py文件定位到第75行： 我们将原来的utf_8修改为gbk. 执行 pip freeze命令，如果存在安装包（MarkupSafe）， 先进行卸载。 重新安装。 发现没有问题。 同样环境在Linux下却不会出现问题，因为Linux的console默认utf-8编码。如图(Konsole)：]]></content>
       <categories>
-        <category>python</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -27,7 +38,7 @@
     <url>%2F2017%2F08%2F06%2FPython%E5%9F%BA%E7%A1%80%E4%B9%8B%E8%BF%AD%E4%BB%A3%E5%99%A8-%E7%94%9F%E6%88%90%E5%99%A8%2F</url>
     <content type="text"><![CDATA[迭代器(iterator)简介迭代器是访问集合内元素的一种方式。迭代器对象从集合的第一个元素开始访问，直到所有的元素都被访问一遍后结束。 优点： 对于无法随机访问的数据结构(比如set)而言,迭代器是唯一的访问元素的方式。 迭代器不要求你事先准备好整个迭代过程的所有的元素，它仅仅是在迭代至某一个元素时才计算该元素。在这之前或者之后，元素可以不存在或者被销毁。适合巨大的或者无限的集合。 迭代器提供了一个统一的访问集合的接口。只要实现了iter()方法的对象，就可以使用迭代器进行访问。 缺点 迭代器无法回退，只能向前进行迭代。 迭代器不是线程安全的，在多线程环境中对可变集合使用迭代器是一个危险的操作。 简单使用使用内建函数iter可以从可迭代的对象中获得迭代器。 &gt;&gt;it = iter([1, 2, 3]) &gt;&gt;it.next() 1 &gt;&gt;it.next() 2 上述的it.next()可以使用next(it)替换。 如果迭代到最后一位后，再调用it.next()就会出现StopIteration的异常。但是我们可以通过检测到异常信息，来退出迭代器。 使用迭代器的循环可以避开索引，但有时候我们还是需要索引来进行一些操作的。这时候内建函数enumerate就派上用场咯，它能在iter函数的结果前加上索引，以元组返回，用起来就像这样： &gt;&gt;lst = range(3) &gt;&gt;for idx, ele in enumerate(lst): &gt;&gt; print idx, ele 0 0 1 1 2 2 Tips：使用list的构造方法显式地将迭代器转化为列表、 生成器(Generator)简介生成器是一种用普通函数语法定义的迭代器。它主要依赖于yield关键字，任何包含yield语句的函数都称为生成器。 生成器和函数的主要区别在于函数return a value，生成器yield a value同时标记且记忆point of the yield 以便于在下次调用时从标记点恢复执行。 示例学习创建生成器 我们创建一个函数，用来展开列表的列表的值顺序打印。 In [35]: my_list = [[1, 2], [3, 4], [5]] In [36]: def un_fold(the_list): ...: for _list in the_list: ...: for element in _list: ...: yield element ...: In [37]: list(un_fold(my_list)) Out[37]: [1, 2, 3, 4, 5] 在这里，就是一个生成器，如果我们将yield element换成print element那么就是一个普通的函数。区别就在于，生成器并没有return一个值，而是产生多个值。每次产生一个值(即使用yield语句),函数就被冻结：重新唤醒后，就会延续刚才运行的状态继续。 递归生成器 Demo: In [38]: def flatten(the_list): ...: try: ...: for sublist in the_list: ...: for element in flatten(sublist): ...: yield element ...: except TypeError: ...: yield the_list ...: In [39]: list(flatten([[[1],2], 3,4, [5, [6, 7]], 8])) Out[39]: [1, 2, 3, 4, 5, 6, 7, 8] 在函数flatten被调用时存在两种可能性： 函数被告知展开一个元素时(如一个数字),这时，for循环会出现一个TypeError,生成器会产生一个元素。 如果展开的是一个列表(或者其他迭代器对象)，那么程序就会遍历所有的子列表(一些也可能不是列表)，并对他们调用flatten函数。然后用另一个flatten函数展开子列表中的所有元素。 但是上述的例子由一个问题。如果the_list是一个类似字符串的对象。那么它就是一个序列，不会引发TypeError，但是我们不想对这样的对象进行迭代。所以我们可以在生成器的开始添加一个检查语句。如下 # demo2 In [6]: def flatten(the_list): ...: try: ...: try: the_list + &apos;&apos; ...: except TypeError: pass ...: else: raise TypeError ...: for sublist in the_list: ...: for element in flatten(sublist): ...: yield element ...: except TypeError: ...: yield the_list ...: In [7]: list(flatten([&apos;foo&apos;, [&apos;bar&apos;, [&apos;baz&apos;]]])) Out[7]: [&apos;foo&apos;, &apos;bar&apos;, &apos;baz&apos;] 通用生成器 当生成器被调用时，在函数体的代码不会被执行，而会返回一个迭代器。每次请求一个值，就会执行生成器的代码，直到遇到一个yield或者return语句。yield语句意味着应该生成一个值，return语句意味着生成器要停止运行(不在生成任何东西,return语句只有在一个生成器中使用时才能 进行无参数调用). 换句话说，生成器由两部分构成：生成器的函数和生成器的迭代器。生成器的函数是用def定义的，包含yield的部分。生成器的迭代器是这个函数返回的部分。 # demo In [1]: def simple_generator(): ...: yield 1 ...: In [2]: simple_generator Out[2]: &lt;function __main__.simple_generator&gt; In [3]: simple_generator() Out[3]: &lt;generator object simple_generator at 0x7f2b98d66dc0&gt; Tips： 在生成器中返回的迭代器，可以像其他的迭代器一样使用。 生成器方法 send()方法 在外部作用域访问生成器的send()方法就像访问next()方法一样，只不过前者使用一个参数(即要发送的消息—任意对象) 在内部则挂起生成器，yield现在作为表达式而不是语句来用，也就是说，在生成器重新运行时，yield函数返回一个值，也就是外部通过send方法发送的值，如果next方法被使用，那么yield返回None 注意在使用send方法，只有在生成器挂起的时候，才会有意义，否则就要提供更多信息。 demo 说明这种机制In [4]: def repeater(value):…: while True: …: new = (yield value) …: if new is not None:…: value = new…: In [5]: r = repeater(100) In [6]: r.next()Out[6]: 100 In [7]: r.send(101)Out[7]: 101 In [8]: r.send(“Alex”)Out[8]: ‘Alex’ throw方法：用于在生成器内引发一个异常（在yield表达式中） close方法:调用时不需要参数， 用于停止生成器。 使用enumerate函数普通的遍历索引+值 In [5]: seq = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;] In [6]: i = 0 In [7]: for ele in seq: ...: seq[i] = &apos;%d: %s&apos; % (i, seq[i]) ...: i += 1 ...: In [8]: print seq [&apos;0: one&apos;, &apos;1: two&apos;, &apos;2: three&apos;] 使用enumerate后 In [9]: seq = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;] In [10]: for i, ele in enumerate(seq): ...: seq[i] = &apos;%d: %s&apos; % (i, seq[i]) ...: In [11]: print seq [&apos;0: one&apos;, &apos;1: two&apos;, &apos;2: three&apos;] 更加pythonic的写法 In [12]: seq = [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;] In [13]: print [&apos;%d: %s&apos; % (i, ele) for i, ele in enumerate(seq)] [&apos;0: one&apos;, &apos;1: two&apos;, &apos;2: three&apos;]]]></content>
       <categories>
-        <category>python</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -42,17 +53,6 @@
       </categories>
       <tags>
         <tag>嵌入式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[python虚拟环境使用]]></title>
-    <url>%2F2017%2F08%2F06%2Fpython%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%E4%BD%BF%E7%94%A8%2F</url>
-    <content type="text"><![CDATA[简介问题我们知道Python的魅力更在于它庞大的第三方库。所以在实际的开发环境中，可能会同时进行多个项目，也许就会出现一个项目是基于python2.x，而另一个项目是基于python3.x的尴尬情况，以及其他很多不方便的情况，比如无法自动生成requirements文件etc。。。。。 Methods于是就有virtualenv这个插件很好的解决了这个问题。下面讲解它的基础使用。以及更为方便的一个插件virtualenvwrapper。 使用virtualenv安装virtualenv的安装十分简单，使用pip就能很方便的安装： sudo pip install virtualenv 基础操作1.创建虚拟环境使用如下命令即可在当前目录下创建一个名为env1的虚拟环境 virtualenv env1 还可以创建指定解释器版本的虚拟环境 virtualenv -p python2.7 env2.7 #该环境下解释器为python2.7virtualenv -p python3.5 env3.5 #该环境下解释器为python3.5 如果你的系统里的python已经安装第三方库，你想直接继承过来使用，使用如下命令 virtualenv –system-site-packages env 默认的是不加继承的，或者使用以下命令 virtualenv –no-site-packages env 2.启动和退出虚拟环境启动，要想启动创建好的虚拟环境，需要到其安装目录(即当前目录下)，输入如下命令： source env1/bin/activate 当命令行头出现(env1)时就表示虚拟环境已经启动。此时我们再次使用pip、setools、easy_install等安装的插件就只会在此虚拟环境之下，不会影响系统内的默认环境、或者其他的虚拟环境。 退出，要想从当前虚拟环境之下退出，只需执行如下命令即可： deactivate 使用virtualenvwrappervirtualenv的出现使得项目间的环境使用更加方便和简洁，而virtualenvwrapper是一个基于virtualenv之上的一个工具，它提供了更加方便的虚拟环境管理方式。即统一管理。 安装安装操作仍然十分简单，使用如下命令即可安装此工具： sudo pip install virtualenvwrapper windows下安装 pip install virtualenvwrapper-win virtualenvwrapper默认将所有的虚拟环境放在~/.virtualenvs目录下管理，但是也可以修改环境变量WORKON_HOME来指定虚拟环境的保存目录。 基本操作启动使用前需要在shell里执行： source /usr/local/bin/virtualenvwrapper.sh 为了方便使用这个命令，我们可以把如下命令加到shell的配置文件中： sudo vim ~/.profile export WORKON_HOME=$HOME/.virtualenvsexport PROJECT_HOME=$HOME/Develsource /usr/local/bin/virtualenvwrapper.sh 相关命令列出已有的虚拟环境，命令如下： workon 创建新的虚拟环境，创建完毕之后会自动切换到当前环境，命令如下： mkvirtualenv env1 列出当前环境下中所安装的包，命令如下： lssitepackages 切换虚拟环境，命令如下： workon env2 退出当前环境，命令如下： deactivate 删除虚拟环境，如果该环境正在使用，那么必须先退出该环境，命令如下： rmvirtualenv env1 显示指定环境的详情，命令如下： showvirtualenv env1 把指定的目录加入当前使用的环境path中，命令如下： add2virtualenv dir dir 复制一份虚拟环境 cpvirtualenv source dest 还可以在上面我们配置过的目录PROJECT_HOME下创建一个新项目。 mkproject project_name OK，以上就是关于virtualenv和增强工具virtualenvwrapper的简单使用介绍。另外说一点，在windows上使用时会出现一些命令使用的问题，好好搜索哦，本文是基于linux上使用的….呼呼，欢迎大家指正哦。]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -148,7 +148,7 @@
     <url>%2F2017%2F07%2F23%2Fcollections%E6%A8%A1%E5%9D%97%E4%B9%8Bnamedtuple%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[简介在python中tuple是一个不可变的且轻量型的集合对象，但是使用时，我们只能通过索引的方式去获取元组中的元素。不太方便，并且容易出错。而在collections模块中namedtuple对象则给出了一个更加便捷的操作方式，即给元组中的元素命名。它可以被用作类似于struct或其他常见record types，但它们是不可变的。 简单使用1.创建namedtuple form collections import namedtuple Point = namedtuple(&apos;Point&apos;, &apos;x y&apos;) point1 = Point(1.0, 5.0) point2 = Point(2.5, 1.5) 上例即创建了一个名字为Point的namedtuple对象. 2.namedtuple对象的参数解析 a.示例中的Point是namedtuple的名称。 b.示例中的x y这个字符串中的两个用空格隔开的字符表示这个namedtuple中有两个元素，名为x,y.(避免关键字) c.如果在数据库中读列名作为元素名时可能会出现相同名，程序会报错，那么可以在定义namedtuple时开启自动重命名。如下： Point = namedtuple(‘Point’, ‘x y’， rename=True) 此时命名方式为_indexnumber,下划线+索引号。 调用方式3.1索引方式调用 对于示例中的定义的Point1,可以采用索引方式调用获取其中的值. In [7]: x = point1[0] Out : 1.0 In [10]: y = point1[1] Out : 5.0 3.2元素名方式调用 对于示例中的定义的Point2,可以采用元素名调用获取其中的值. In [12]: x = point2.x Out : 2.5 In [14]: y = point2.y Out : 1.5 总结4.1 你应该使用namedtuple代替那些你认为影响了你代码的易读性的tuple，以便让你的代码更加pythonic. 4.2 此外，你还可以替换那些没有功能函数、只有字段的普通不可变类。]]></content>
       <categories>
-        <category>python</category>
+        <category>Python</category>
       </categories>
       <tags>
         <tag>python</tag>
