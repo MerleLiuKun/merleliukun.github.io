@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[我学算法之寻找缺失的整数]]></title>
+    <url>%2F2017%2F08%2F09%2F%E6%88%91%E5%AD%A6%E7%AE%97%E6%B3%95%E4%B9%8B%E5%AF%BB%E6%89%BE%E7%BC%BA%E5%A4%B1%E7%9A%84%E6%95%B4%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[有关数组里需找数字的算法题目 一个无序数组里有99个不重复正整数，范围从1到100，唯独缺少一个整数。如何找出这个缺失的整数？ 解决办法一： 构建一个字典，以1-100为key，初始value均为0. 遍历原来数组，读到一个数，就将其对应的value设置为1. 遍历字典，得到value为0的key。就是数组中缺失的数字 代码实现： def check(my_list): # 初始化字典 my_dict = {} for i in range(100): my_dict.update({i + 1: 0}) # 遍历数组，并操作字典 for i in my_list: my_dict[i] = 1 # 遍历字典得到缺失值。 for i in range(100): if my_dict[i + 1] == 0: return i + 1 算法时间复杂度为O(n)， 空间复杂度为O(n) 解决办法二： 先对原数组进行排序。 逐一判断，相邻元素是否为连续。 不连续的话，中间元素的就是我们要找的结果。 如股票全部连续，那么缺失的就是1或者100. 代码实现： def sort_check(my_list): # 首先排序 my_list.sort() # 先判断1和100是否存在 if 1 not in my_list: return 1 if 100 not in my_list: return 100 # 寻找缺失的数字 for i in range(len(my_list)-1): if my_list[i+1] - my_list[i] != 1: return my_list[i] + 1 解决办法三： 当前情况下最佳，也最简单。 由于题目要求计算1-100之间的缺失的整数且不重复！ 那么就可以先计算1+…+100的和，再减去数组中的数字 得到的结果就是我们寻找的数字。 代码实现： def simple_check(my_list): # 计算1-100的和 result = sum([i + 1 for i in range(100)]) # 逐一相减得到最后结果 for i in my_list: result -= i return result 题目： 一个无序数组里有若干个正整数，范围从1到100，其中99个整数都出现了偶数次，只有一个整数出现了奇数次（比如1,1,2,2,3,3,4,5,5），如何找到这个出现奇数次的整数？ 解决办法： 我们知道异或运算时，相同位的结果为0，不同位的结果为1.那么就可以按照这个规则进行处理了。 对数组中的每个数注意异或相加， 因为其他的数字都是偶数次，所以最后的结果都是0 对于唯一出现奇数次的数字，就是最终的结果 代码实现： def check_one_num(my_list): result = 0 for i in my_list: result ^= i return result 题目： 一个无序数组里有若干个正整数，范围从1到100，其中98个整数都出现了偶数次，只有两个整数出现了奇数次（比如1,1,2,2,3,4,5,5），如何找到这个出现奇数次的整数？ 解决思路： 我们依旧可以一句第二道题的思路，但是难点在于存在两个整数出现奇数次。注意到数字的二进制表示是唯一的，所以我们发现这两个缺失的数可以依据某些条件分成两个数组中，遵循分治法的要求。 解决办法： 首先对数组中的所有数字进行异或，最终的结果转换为二进制。 假如转换后的二进制是00000101(就是数字5)那么我们可以选择任意一个1所在的二进制位来分开原数组。 比如我们选择末位，所以可以分开来两部分。而缺失的两个数分别在一部分。 再对分开的数字进行异或，最终可以得到这两个数。 代码实现： def check_two_num(my_list): result = 0 num1 = 0 num2 = 0 # 先异或出原来数组的结果 for i in my_list: result ^= i # 寻找出我们需要的1 tail = str(bin(result)).rindex(&apos;1&apos;) flag = str(bin(result))[tail:] # 按照条件分开数组，直接计算出最终结果。 for i in my_list: if str(bin(i)).endswith(flag): num1 ^= i else: num2 ^= i return num1, num2 代码放置与 我的github上 题目来源： 寻找缺失的整数]]></content>
+      <categories>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>algorithm</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python函数参数总结]]></title>
     <url>%2F2017%2F08%2F09%2Fpython%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[参数传递Python中的参数传递存在以下几种情况： 基本定义方式这是最常见的定义方式。 def foo(arg1, atg2,...) pass 一个函数可以定义任意个参数，参数中间使用,隔开，使用这种定义方式的函数在调用的时候，必须提供所有的参数，并且顺序也要一致。否则就会报错。 提供默认值的参数这种方式就是第一种方式的稍微改进版本。 def foo(arg1, arg2=2): pass 此时，调用这个函数的时候，可以只传递arg1一个参数，因为arg2存在默认值，接收不到参数时，就是使用默认值。 使用单个星号 *在程序中，有时候我们可能不太清楚有多少个参数，所以可以使用*来传递不确定的参数。 def foo(*args): pass 在参数名前边加上*号就是让函数可以接受任意多的位置参数，但是不管传递的参数有多少个，都会存储在一形参名为标识符的tuple中。 使用双星号 **在形参名的前边加上**,参数在函数的内部将会存为形参名为标识符的字典中。并且是以关键字参数为key，位置参数为value的字典。 def foo(**kwargs): pass 在函数调用的时候，要以foo(arg1=value1, arg2=value2)这种形式调用。这样内部使用的时候可以直接调用args1和arg2。 Tips：函数参数在调用过程中是以上述四中方式优先级依次降低的次序执行解析的。 zip函数这时候理解zip函数中的*就十分简单了。 我们需要多个参数，但是想以list作为参数。就可以使用* a = [[1,2,3,4], [&apos;1a&apos;, &apos;2a&apos;, &apos;3a&apos;, &apos;4a&apos;]] result = zip(*a) for i in result: print(i) # output: (1, &apos;1a&apos;) (2, &apos;2a&apos;) (3, &apos;3a&apos;) (4, &apos;4a&apos;) 所以我们可以使用zip函数进行矩阵的转换。 a = [[1,2,3], [4,5,6], [7,8,9]] for i in zip(*a): print(i) # output (1, 4, 7) (2, 5, 8) (3, 6, 9) .]]></content>
