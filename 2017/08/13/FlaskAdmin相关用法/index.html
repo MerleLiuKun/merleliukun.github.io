@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="flask," />
 
 
 
@@ -93,16 +93,23 @@
 
 
 
-<meta name="description" content="ideas and notes.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只猪">
-<meta property="og:url" content="http://lkhardy.cn/archives/index.html">
+<meta name="description" content="背景之前项目开发的时间不是十分充裕，对项目中管理员身份用户的部分业务直接使用了FlaskAdmin插件进行开发。由于当初没有针对FlaskAdmin做相关设计，导致后期测试时，大部分Bug出现在这一模块。于是，就加深以下对FlaskAdmin插件的一些额外的使用方法。">
+<meta name="keywords" content="flask">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FlaskAdmin相关用法">
+<meta property="og:url" content="http://lkhardy.cn/2017/08/13/FlaskAdmin相关用法/index.html">
 <meta property="og:site_name" content="一只猪">
-<meta property="og:description" content="ideas and notes.">
+<meta property="og:description" content="背景之前项目开发的时间不是十分充裕，对项目中管理员身份用户的部分业务直接使用了FlaskAdmin插件进行开发。由于当初没有针对FlaskAdmin做相关设计，导致后期测试时，大部分Bug出现在这一模块。于是，就加深以下对FlaskAdmin插件的一些额外的使用方法。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-529b5d1eb72a86b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-f8182ea7d1a330f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-af80ba8bb350c743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-1335361c6ac8ca59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-13T15:08:26.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一只猪">
-<meta name="twitter:description" content="ideas and notes.">
+<meta name="twitter:title" content="FlaskAdmin相关用法">
+<meta name="twitter:description" content="背景之前项目开发的时间不是十分充裕，对项目中管理员身份用户的部分业务直接使用了FlaskAdmin插件进行开发。由于当初没有针对FlaskAdmin做相关设计，导致后期测试时，大部分Bug出现在这一模块。于是，就加深以下对FlaskAdmin插件的一些额外的使用方法。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1747527-529b5d1eb72a86b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -130,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://lkhardy.cn/archives/"/>
+  <link rel="canonical" href="http://lkhardy.cn/2017/08/13/FlaskAdmin相关用法/"/>
 
 
 
 
 
-  <title>归档 | 一只猪</title>
+  <title>FlaskAdmin相关用法 | 一只猪</title>
   
 
 
@@ -161,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -309,403 +316,263 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 17 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/08/13/FlaskAdmin相关用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MerleLiuKun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/erha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只猪">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">FlaskAdmin相关用法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-13T23:07:37+08:00">
+                2017-08-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flask/" itemprop="url" rel="index">
+                    <span itemprop="name">Flask</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前项目开发的时间不是十分充裕，对项目中管理员身份用户的部分业务直接使用了FlaskAdmin插件进行开发。<br>由于当初没有针对FlaskAdmin做相关设计，导致后期测试时，大部分Bug出现在这一模块。于是，就加深以下对FlaskAdmin插件的一些额外的使用方法。</p>
+<a id="more"></a>
+<h1 id="部分用法介绍"><a href="#部分用法介绍" class="headerlink" title="部分用法介绍"></a>部分用法介绍</h1><h2 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h2><p>FlaskAdmin的的视图模型是直接与对应的数据库表同步的。与数据库模型对应关系建立十分简单。如果我们使用FlaskAdmin默认的视图模型。直接如下即可建立一个简单的页面。</p>
+<pre><code>from flask import Flask
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+from webapp.models import db, User
+app = Flask(__name__)
+app.config....  # app.相关配置，DB等
+admin = Admin(app)
+admin.add_view(ModelView(User, db.session))
+</code></pre><p>此时生成的界面如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1747527-529b5d1eb72a86b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始界面"></p>
+<h2 id="模型进阶"><a href="#模型进阶" class="headerlink" title="模型进阶"></a>模型进阶</h2><p>我们从上边的图可以看到：</p>
+<ol>
+<li>全是英文显示，对用户有很大困扰。</li>
+<li>所有的数据列都显示了，有的数据列可能不是我们需要的。</li>
+<li>在每列左边的操作区，可以修改，删除等操作，我们可能只需要让用户保留一部分功能。如:只能修改。</li>
+</ol>
+<p>为了自定义对应模型的界面，我们可以自定义相关的信息。所以我们自定义一个类并继承ModelView，就可以实现相关的操作。<br>首先我们给出修改后的界面。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1747527-f8182ea7d1a330f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="基本页面.png"></p>
+<p>1.首先我们中文问题，我们使用了Flask的插件<code>Flask-Bable</code>和<code>Flask-BabelEx</code>，在配置中我们可以使用如下语句：</p>
+<pre><code>BABEL_DEFAULT_LOCALE = &apos;zh_CN&apos;
+</code></pre><p>然后就解决了界面上大部分的中文，但是表头不是中文。所以我们还要在FlaskAdmin中进行表头的配置。</p>
+<pre><code>column_labels = {
+    &apos;id&apos;: u&apos;用户ID&apos;,
+    &apos;username&apos;: u&apos;用户名&apos;,
+    &apos;password&apos;: u&apos;密码&apos;,
+    &apos;name&apos;: u&apos;姓名&apos;,
+    &apos;grade&apos;: u&apos;年级&apos;,
+    &apos;emp_no&apos;: u&apos;工号&apos;
+}
+</code></pre><p>这样就完成了中文的翻译。</p>
+<p>2.介绍FlaskAdmin的一些配置:</p>
+<pre><code>page_size= 10       # 每页显示几条
+can_create=True     # 可以创建数据  False 
+can_delete=True     # 可以删除数据  False
+can_edit=True       # 可以编辑数据  False
+can_view_details=True  # 可以查看详情  False
+
+column_searchable_list=[&apos;列名&apos;]  # 可以搜索的列名
+form_exclude_columns=[&apos;列名&apos;]    # 不显示的列
+</code></pre><h2 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h2><p>1.我们在对Admin进行操作时，对于某些字段我们需要进行限制，比如字段校验，进行一些特殊的限制等。</p>
+<p>这里我们可以用自定义的校验器。我们以一个例子展示。</p>
+<p>我们需要让用户无法修改<code>admin</code>用户的数据。</p>
+<p>在用户表的视图下：</p>
+<pre><code># 自定义的校验器
+def user_validator(form, field):
+    if form._obj is not None:
+        user_id = form._obj.id
+        # 调用user表的方法，通过用户名得到用户信息
+        user = User.get_user_info(user_id=user_id)
+        if user.username == &apos;admin&apos;:
+            if field.data != &apos;admin&apos;:
+                raise ValidationError(u&apos;admin为最高权限用户，不允许修改&apos;)
+
+# FlaskAdmin的属性  form_args
+form_args = {
+    &apos;username&apos;:{
+        &apos;label&apos;: u&apos;用户&apos;,
+        &apos;validators&apos;: [DataRequired(), user_validator]
+    }
+}
+</code></pre><p>这样，我们就完成了对用户名为’admin’的用户无法修改的限制。<br>在程序里，校验器的form属性中的_obj可以获取原始数据库中的数据，而不是当前form的数据。这样就避免了用户直接修改用户名。</p>
+<p>2.对于基础的限制，我们还可以继承ModelView中的on_model_change()方法。</p>
+<blockquote>
+<p>on_model_change()是在一个模型创建之前或者修改更新之前进行的操作，所以也可以加一些相关的限制。<br>参数有：<br>form： 将要更新或者创建模型的Form表单<br>model： 即将被创建或者更新的模型<br>is_created： 是不是新建的模型。  True/ False</p>
+</blockquote>
+<p>我们同样给出一个示例：</p>
+<pre><code>def on_model_change(self, form, model, is_created):
+    if &apos;user&apos; not in [role.role_name for role in model.roles]:
+        raise ValidationError(u&apos;user角色是必须的。&apos;)
+</code></pre><p>上边一个简单的例子，完成了在创建新的用户时，必须给用户加上一个<code>user</code>的角色的功能。<br>图如下：<br><img src="http://upload-images.jianshu.io/upload_images/1747527-af80ba8bb350c743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无user角色报错"></p>
+<p>3.同样类似的方法还有<code>after_model_change</code>、<code>on_model_delete</code>、<code>after_model_delete</code>等方法。具体的使用方法我们可以在FlaskAdmin的<a href="http://flask-admin.readthedocs.io/en/latest/api/mod_contrib_sqla/" target="_blank" rel="external">API</a>上找到相关介绍。</p>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>1.修改FlaskAdmin主页面</p>
+<p>默认的主页面是空白的，当然不好看，我们可以在初始化admin的时候自定义主页。如下：</p>
+<pre><code>admin = Admin(index_view=AdminIndexView(
+    name==u&apos;数据管理&apos;,
+    template=&apos;MyAdmin/welcome.html&apos;,
+    url=&apos;/admin&apos;,
+), template_mode=&apos;bootstrap3&apos;)
+</code></pre><p>其中template对应的html文件是我们自己写的。<br>可以继承来自Admin的源码中的template进行改写。</p>
+<p>现在的首页如下：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1747527-1335361c6ac8ca59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改后的首页"></p>
+<p>2.结合权限管理。</p>
+<p>对于Admin的界面，我们需要对访问其的权限进行限制，我们可以结合Flask的另外一个插件<code>Flask-Login</code>进行实现。</p>
+<p>在我们自定义的ModeView中。</p>
+<p>定义方法<code>is_accessible()</code></p>
+<p>如下：</p>
+<pre><code>def is_accessible(self):
+    if current_user.is_authenticated and current_user.username == &quot;admin&quot;:
+        return True
+    return False
+</code></pre><p>这样的话如果用户没有登录，且不属于’admin’用户的话，就不会进入到该视图模型下面。</p>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/flask/" rel="tag"># flask</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/09/我学算法之寻找缺失的整数/" rel="next" title="我学算法之寻找缺失的整数">
+                <i class="fa fa-chevron-left"></i> 我学算法之寻找缺失的整数
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/13/FlaskAdmin相关用法/" itemprop="url">
-              
-                <span itemprop="name">FlaskAdmin相关用法</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-13T23:07:37+08:00"
-              content="2017-08-13" >
-          08-13
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/09/我学算法之寻找缺失的整数/" itemprop="url">
-              
-                <span itemprop="name">我学算法之寻找缺失的整数</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-09T15:57:26+08:00"
-              content="2017-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/09/python函数参数总结/" itemprop="url">
-              
-                <span itemprop="name">python函数参数总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-09T09:27:24+08:00"
-              content="2017-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/08/docker-compose部署web项目/" itemprop="url">
-              
-                <span itemprop="name">docker-compose部署web项目</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-08T09:15:05+08:00"
-              content="2017-08-08" >
-          08-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/07/pip-can-t-install-MarkupSafe/" itemprop="url">
-              
-                <span itemprop="name">pip can not install MarkupSafe</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-07T09:06:16+08:00"
-              content="2017-08-07" >
-          08-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/06/Python基础之迭代器-生成器/" itemprop="url">
-              
-                <span itemprop="name">Python基础之迭代器+生成器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-06T23:31:57+08:00"
-              content="2017-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/06/基于BBB开发板的温度检测和邮件自发送/" itemprop="url">
-              
-                <span itemprop="name">基于BBB开发板的温度检测和邮件自发送</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-06T23:20:41+08:00"
-              content="2017-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/06/archLinux初识/" itemprop="url">
-              
-                <span itemprop="name">archLinux初识</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-06T22:23:31+08:00"
-              content="2017-08-06" >
-          08-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/02/数据结构之单链表/" itemprop="url">
-              
-                <span itemprop="name">数据结构之单链表~</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-02T22:14:29+08:00"
-              content="2017-08-02" >
-          08-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/28/python函数之format/" itemprop="url">
-              
-                <span itemprop="name">python函数之format</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-28T21:07:32+08:00"
-              content="2017-07-28" >
-          07-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -713,6 +580,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -733,8 +604,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/erha.png"
@@ -825,6 +705,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部分用法介绍"><span class="nav-number">2.</span> <span class="nav-text">部分用法介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础模型"><span class="nav-number">2.1.</span> <span class="nav-text">基础模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型进阶"><span class="nav-number">2.2.</span> <span class="nav-text">模型进阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#高级功能"><span class="nav-number">2.3.</span> <span class="nav-text">高级功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他操作"><span class="nav-number">2.4.</span> <span class="nav-text">其他操作</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -945,11 +841,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
