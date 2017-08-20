@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="一只猪">
 <meta property="og:description" content="单例模式在某些情况下，有些对象我们只需要一个就可以了，比如，一台计算机上可以连接好多个打印机，但是这个计算机的打印机程序只能有一个，所以我们在这里就可以使用单例模式来避免两个打印作业同时输出到打印机中。相似的例子还有数据库的连接实例。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-19T06:32:46.952Z">
+<meta property="og:updated_time" content="2017-08-20T02:11:09.509Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python实现单例模式总结">
 <meta name="twitter:description" content="单例模式在某些情况下，有些对象我们只需要一个就可以了，比如，一台计算机上可以连接好多个打印机，但是这个计算机的打印机程序只能有一个，所以我们在这里就可以使用单例模式来避免两个打印作业同时输出到打印机中。相似的例子还有数据库的连接实例。">
@@ -509,8 +509,22 @@ print(type(MyClass)) # &lt;class &apos;function&apos;&gt;
 </code></pre><blockquote>
 <p>优点：直接添加在类定义代码上面，比多重继承更加直观<br>缺点：类调用的时候 myclass()是一个单例对象，但是myclass本身变成了一个方法，而不是一个类，因此不能调用这个类的类方法.并且如果A的类型发生变化之后产生的负面作用是很难把握的。</p>
 </blockquote>
-<p>参考资料：</p>
-<blockquote>
+<h2 id="使用import模块"><a href="#使用import模块" class="headerlink" title="使用import模块"></a>使用import模块</h2><p>将类作为模块让其他的包去引用，是天然的单例模式。</p>
+<p>代码实现：</p>
+<pre><code># singleton_by_import.py
+class SingletonByImport(object):
+    def foo(self):
+        pass
+
+singleton = SingletonByImport()
+
+
+# other file 
+from singleton_by_import import singleton
+
+singleton.foo()
+</code></pre><p>这是比较简单和容易理解的一种实现方式。</p>
+<h1 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h1><blockquote>
 <p><a href="https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python" target="_blank" rel="external">https://stackoverflow.com/questions/6760685/creating-a-singleton-in-python</a><br><a href="http://blog.csdn.net/ghostfromheaven/article/details/7671853" target="_blank" rel="external">http://blog.csdn.net/ghostfromheaven/article/details/7671853</a><br><a href="http://whosemario.github.io/2016/01/22/pattern-singleton/" target="_blank" rel="external">http://whosemario.github.io/2016/01/22/pattern-singleton/</a></p>
 </blockquote>
 
@@ -722,7 +736,7 @@ print(type(MyClass)) # &lt;class &apos;function&apos;&gt;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python实现单例模式"><span class="nav-number">2.</span> <span class="nav-text">Python实现单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-new-方法。"><span class="nav-number">2.1.</span> <span class="nav-text">使用__new__方法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用共享属性"><span class="nav-number">2.2.</span> <span class="nav-text">使用共享属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用metaclass实现"><span class="nav-number">2.3.</span> <span class="nav-text">使用metaclass实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用装饰器实现"><span class="nav-number">2.4.</span> <span class="nav-text">使用装饰器实现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#单例模式"><span class="nav-number">1.</span> <span class="nav-text">单例模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Python实现单例模式"><span class="nav-number">2.</span> <span class="nav-text">Python实现单例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-new-方法。"><span class="nav-number">2.1.</span> <span class="nav-text">使用__new__方法。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用共享属性"><span class="nav-number">2.2.</span> <span class="nav-text">使用共享属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用metaclass实现"><span class="nav-number">2.3.</span> <span class="nav-text">使用metaclass实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用装饰器实现"><span class="nav-number">2.4.</span> <span class="nav-text">使用装饰器实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用import模块"><span class="nav-number">2.5.</span> <span class="nav-text">使用import模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料："><span class="nav-number">3.</span> <span class="nav-text">参考资料：</span></a></li></ol></div>
             
 
           </div>
