@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-f8182ea7d1a330f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-af80ba8bb350c743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1747527-1335361c6ac8ca59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-13T15:08:26.485Z">
+<meta property="og:updated_time" content="2017-09-17T10:49:11.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FlaskAdmin相关用法">
 <meta name="twitter:description" content="背景之前项目开发的时间不是十分充裕，对项目中管理员身份用户的部分业务直接使用了FlaskAdmin插件进行开发。由于当初没有针对FlaskAdmin做相关设计，导致后期测试时，大部分Bug出现在这一模块。于是，就加深以下对FlaskAdmin插件的一些额外的使用方法。">
@@ -415,15 +415,8 @@
         <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>之前项目开发的时间不是十分充裕，对项目中管理员身份用户的部分业务直接使用了FlaskAdmin插件进行开发。<br>由于当初没有针对FlaskAdmin做相关设计，导致后期测试时，大部分Bug出现在这一模块。于是，就加深以下对FlaskAdmin插件的一些额外的使用方法。</p>
 <a id="more"></a>
 <h1 id="部分用法介绍"><a href="#部分用法介绍" class="headerlink" title="部分用法介绍"></a>部分用法介绍</h1><h2 id="基础模型"><a href="#基础模型" class="headerlink" title="基础模型"></a>基础模型</h2><p>FlaskAdmin的的视图模型是直接与对应的数据库表同步的。与数据库模型对应关系建立十分简单。如果我们使用FlaskAdmin默认的视图模型。直接如下即可建立一个简单的页面。</p>
-<pre><code>from flask import Flask
-from flask_admin import Admin
-from flask_admin.contrib.sqla import ModelView
-from webapp.models import db, User
-app = Flask(__name__)
-app.config....  # app.相关配置，DB等
-admin = Admin(app)
-admin.add_view(ModelView(User, db.session))
-</code></pre><p>此时生成的界面如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</div><div class="line"><span class="keyword">from</span> flask_admin <span class="keyword">import</span> Admin</div><div class="line"><span class="keyword">from</span> flask_admin.contrib.sqla <span class="keyword">import</span> ModelView</div><div class="line"><span class="keyword">from</span> webapp.models <span class="keyword">import</span> db, User</div><div class="line">app = Flask(__name__)</div><div class="line">app.config....  <span class="comment"># app.相关配置，DB等</span></div><div class="line">admin = Admin(app)</div><div class="line">admin.add_view(ModelView(User, db.session))</div></pre></td></tr></table></figure>
+<p>此时生成的界面如下：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1747527-529b5d1eb72a86b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="初始界面"></p>
 <h2 id="模型进阶"><a href="#模型进阶" class="headerlink" title="模型进阶"></a>模型进阶</h2><p>我们从上边的图可以看到：</p>
 <ol>
@@ -434,66 +427,30 @@ admin.add_view(ModelView(User, db.session))
 <p>为了自定义对应模型的界面，我们可以自定义相关的信息。所以我们自定义一个类并继承ModelView，就可以实现相关的操作。<br>首先我们给出修改后的界面。</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1747527-f8182ea7d1a330f0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="基本页面.png"></p>
 <p>1.首先我们中文问题，我们使用了Flask的插件<code>Flask-Bable</code>和<code>Flask-BabelEx</code>，在配置中我们可以使用如下语句：</p>
-<pre><code>BABEL_DEFAULT_LOCALE = &apos;zh_CN&apos;
-</code></pre><p>然后就解决了界面上大部分的中文，但是表头不是中文。所以我们还要在FlaskAdmin中进行表头的配置。</p>
-<pre><code>column_labels = {
-    &apos;id&apos;: u&apos;用户ID&apos;,
-    &apos;username&apos;: u&apos;用户名&apos;,
-    &apos;password&apos;: u&apos;密码&apos;,
-    &apos;name&apos;: u&apos;姓名&apos;,
-    &apos;grade&apos;: u&apos;年级&apos;,
-    &apos;emp_no&apos;: u&apos;工号&apos;
-}
-</code></pre><p>这样就完成了中文的翻译。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">BABEL_DEFAULT_LOCALE = <span class="string">'zh_CN'</span></div></pre></td></tr></table></figure>
+<p>然后就解决了界面上大部分的中文，但是表头不是中文。所以我们还要在FlaskAdmin中进行表头的配置。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">column_labels = &#123;</div><div class="line">	<span class="string">'id'</span>: <span class="string">u'用户ID'</span>,</div><div class="line">	<span class="string">'username'</span>: <span class="string">u'用户名'</span>,</div><div class="line">	<span class="string">'password'</span>: <span class="string">u'密码'</span>,</div><div class="line">	<span class="string">'name'</span>: <span class="string">u'姓名'</span>,</div><div class="line">	<span class="string">'grade'</span>: <span class="string">u'年级'</span>,</div><div class="line">	<span class="string">'emp_no'</span>: <span class="string">u'工号'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样就完成了中文的翻译。</p>
 <p>2.介绍FlaskAdmin的一些配置:</p>
-<pre><code>page_size= 10       # 每页显示几条
-can_create=True     # 可以创建数据  False 
-can_delete=True     # 可以删除数据  False
-can_edit=True       # 可以编辑数据  False
-can_view_details=True  # 可以查看详情  False
-
-column_searchable_list=[&apos;列名&apos;]  # 可以搜索的列名
-form_exclude_columns=[&apos;列名&apos;]    # 不显示的列
-</code></pre><h2 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h2><p>1.我们在对Admin进行操作时，对于某些字段我们需要进行限制，比如字段校验，进行一些特殊的限制等。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">page_size= <span class="number">10</span>       <span class="comment"># 每页显示几条</span></div><div class="line">can_create=<span class="keyword">True</span>     <span class="comment"># 可以创建数据  False </span></div><div class="line">can_delete=<span class="keyword">True</span>     <span class="comment"># 可以删除数据  False</span></div><div class="line">can_edit=<span class="keyword">True</span>       <span class="comment"># 可以编辑数据  False</span></div><div class="line">can_view_details=<span class="keyword">True</span>  <span class="comment"># 可以查看详情  False</span></div><div class="line"></div><div class="line">column_searchable_list=[<span class="string">'列名'</span>]  <span class="comment"># 可以搜索的列名</span></div><div class="line">form_exclude_columns=[<span class="string">'列名'</span>]    <span class="comment"># 不显示的列</span></div></pre></td></tr></table></figure>
+<h2 id="高级功能"><a href="#高级功能" class="headerlink" title="高级功能"></a>高级功能</h2><p>1.我们在对Admin进行操作时，对于某些字段我们需要进行限制，比如字段校验，进行一些特殊的限制等。</p>
 <p>这里我们可以用自定义的校验器。我们以一个例子展示。</p>
 <p>我们需要让用户无法修改<code>admin</code>用户的数据。</p>
 <p>在用户表的视图下：</p>
-<pre><code># 自定义的校验器
-def user_validator(form, field):
-    if form._obj is not None:
-        user_id = form._obj.id
-        # 调用user表的方法，通过用户名得到用户信息
-        user = User.get_user_info(user_id=user_id)
-        if user.username == &apos;admin&apos;:
-            if field.data != &apos;admin&apos;:
-                raise ValidationError(u&apos;admin为最高权限用户，不允许修改&apos;)
-
-# FlaskAdmin的属性  form_args
-form_args = {
-    &apos;username&apos;:{
-        &apos;label&apos;: u&apos;用户&apos;,
-        &apos;validators&apos;: [DataRequired(), user_validator]
-    }
-}
-</code></pre><p>这样，我们就完成了对用户名为’admin’的用户无法修改的限制。<br>在程序里，校验器的form属性中的_obj可以获取原始数据库中的数据，而不是当前form的数据。这样就避免了用户直接修改用户名。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 自定义的校验器</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">user_validator</span><span class="params">(form, field)</span>:</span></div><div class="line">	<span class="keyword">if</span> form._obj <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">		user_id = form._obj.id</div><div class="line">		<span class="comment"># 调用user表的方法，通过用户名得到用户信息</span></div><div class="line">		user = User.get_user_info(user_id=user_id)</div><div class="line">		<span class="keyword">if</span> user.username == <span class="string">'admin'</span>:</div><div class="line">			<span class="keyword">if</span> field.data != <span class="string">'admin'</span>:</div><div class="line">				<span class="keyword">raise</span> ValidationError(<span class="string">u"admin为最高权限用户，不允许修改"</span>)</div><div class="line"></div><div class="line"><span class="comment"># FlaskAdmin的属性  form_args</span></div><div class="line">form_args = &#123;</div><div class="line">	<span class="string">"username"</span>:&#123;</div><div class="line">		<span class="string">'label'</span>: <span class="string">u'用户'</span>,</div><div class="line">		<span class="string">'validators'</span>: [DataRequired(), user_validator]</div><div class="line">	&#125;&#125;</div></pre></td></tr></table></figure>
+<p>这样，我们就完成了对用户名为’admin’的用户无法修改的限制。<br>在程序里，校验器的form属性中的_obj可以获取原始数据库中的数据，而不是当前form的数据。这样就避免了用户直接修改用户名。</p>
 <p>2.对于基础的限制，我们还可以继承ModelView中的on_model_change()方法。</p>
 <blockquote>
 <p>on_model_change()是在一个模型创建之前或者修改更新之前进行的操作，所以也可以加一些相关的限制。<br>参数有：<br>form： 将要更新或者创建模型的Form表单<br>model： 即将被创建或者更新的模型<br>is_created： 是不是新建的模型。  True/ False</p>
 </blockquote>
 <p>我们同样给出一个示例：</p>
-<pre><code>def on_model_change(self, form, model, is_created):
-    if &apos;user&apos; not in [role.role_name for role in model.roles]:
-        raise ValidationError(u&apos;user角色是必须的。&apos;)
-</code></pre><p>上边一个简单的例子，完成了在创建新的用户时，必须给用户加上一个<code>user</code>的角色的功能。<br>图如下：<br><img src="http://upload-images.jianshu.io/upload_images/1747527-af80ba8bb350c743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无user角色报错"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">on_model_change</span><span class="params">(self, form, model, is_created)</span>:</span></div><div class="line">	<span class="keyword">if</span> <span class="string">'user'</span> <span class="keyword">not</span> <span class="keyword">in</span> [role.role_name <span class="keyword">for</span> role <span class="keyword">in</span> model.roles]:</div><div class="line">		<span class="keyword">raise</span> ValidationError(<span class="string">u'user角色是必须的。'</span>)</div></pre></td></tr></table></figure>
+<p>上边一个简单的例子，完成了在创建新的用户时，必须给用户加上一个<code>user</code>的角色的功能。<br>图如下：<br><img src="http://upload-images.jianshu.io/upload_images/1747527-af80ba8bb350c743.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="无user角色报错"></p>
 <p>3.同样类似的方法还有<code>after_model_change</code>、<code>on_model_delete</code>、<code>after_model_delete</code>等方法。具体的使用方法我们可以在FlaskAdmin的<a href="http://flask-admin.readthedocs.io/en/latest/api/mod_contrib_sqla/" target="_blank" rel="external">API</a>上找到相关介绍。</p>
 <h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><p>1.修改FlaskAdmin主页面</p>
 <p>默认的主页面是空白的，当然不好看，我们可以在初始化admin的时候自定义主页。如下：</p>
-<pre><code>admin = Admin(index_view=AdminIndexView(
-    name==u&apos;数据管理&apos;,
-    template=&apos;MyAdmin/welcome.html&apos;,
-    url=&apos;/admin&apos;,
-), template_mode=&apos;bootstrap3&apos;)
-</code></pre><p>其中template对应的html文件是我们自己写的。<br>可以继承来自Admin的源码中的template进行改写。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">admin = Admin(index_view=AdminIndexView(</div><div class="line">	name==<span class="string">u'数据管理'</span>,</div><div class="line">	template=<span class="string">'MyAdmin/welcome.html'</span>,</div><div class="line">	url=<span class="string">'/admin'</span>,</div><div class="line">), template_mode=<span class="string">'bootstrap3'</span>)</div></pre></td></tr></table></figure>
+<p>其中template对应的html文件是我们自己写的。<br>可以继承来自Admin的源码中的template进行改写。</p>
 <p>现在的首页如下：</p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1747527-1335361c6ac8ca59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改后的首页"></p>
 <p>2.结合权限管理。</p>
@@ -501,11 +458,8 @@ form_args = {
 <p>在我们自定义的ModeView中。</p>
 <p>定义方法<code>is_accessible()</code></p>
 <p>如下：</p>
-<pre><code>def is_accessible(self):
-    if current_user.is_authenticated and current_user.username == &quot;admin&quot;:
-        return True
-    return False
-</code></pre><p>这样的话如果用户没有登录，且不属于’admin’用户的话，就不会进入到该视图模型下面。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_accessible</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="keyword">if</span> current_user.is_authenticated <span class="keyword">and</span> current_user.username == <span class="string">"admin"</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">False</span></div></pre></td></tr></table></figure>
+<p>这样的话如果用户没有登录，且不属于’admin’用户的话，就不会进入到该视图模型下面。</p>
 
       
     </div>

@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="一只猪">
 <meta property="og:description" content="背景在项目后期，需要将产品进行发布，为了保护代码安全，最终选定将代码文件利用Cython编译成C的扩展。 有关Cython的介绍在官网上也有详细的说明。 这里只记录几个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-15T02:41:36.135Z">
+<meta property="og:updated_time" content="2017-09-17T10:35:12.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cython编译的坑">
 <meta name="twitter:description" content="背景在项目后期，需要将产品进行发布，为了保护代码安全，最终选定将代码文件利用Cython编译成C的扩展。 有关Cython的介绍在官网上也有详细的说明。 这里只记录几个问题。">
@@ -416,15 +416,11 @@
 <p>所以如果有使用Cython编译复杂结构的模块时，一定要理清楚导入的逻辑，推荐使用<code>import</code>，尽量节制使用<code>from...import</code></p>
 <p>当然如果结构没那么复杂，可以考虑给模块命名不一样。</p>
 <h2 id="函数的参数问题"><a href="#函数的参数问题" class="headerlink" title="函数的参数问题"></a>函数的参数问题</h2><p>在使用Cython编译后，有的函数被调用时，会爆出一个无参数的TypeError：</p>
-<pre><code>func() takes no keyword arguments
-</code></pre><p>在Bottle框架(一个Web框架)的<a href="https://github.com/bottlepy/bottle/issues/453" target="_blank" rel="external">issue</a>中有人也遇到这种问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">func() takes no keyword arguments</div></pre></td></tr></table></figure>
+<p>在Bottle框架(一个Web框架)的<a href="https://github.com/bottlepy/bottle/issues/453" target="_blank" rel="external">issue</a>中有人也遇到这种问题。</p>
 <p>通过这里给出的方法我们对报出Error的方法进行修改。</p>
-<p>例如：</p>
-<pre><code># 原来
-def sum(a,b): pass
-# 修改后
-def sum(a=None, b=None): pass
-</code></pre><p>这样可以将问题解决。</p>
+<p>例如：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 原来</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(a,b)</span>:</span> <span class="keyword">pass</span></div><div class="line"><span class="comment"># 修改后</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum</span><span class="params">(a=None, b=None)</span>:</span> <span class="keyword">pass</span></div></pre></td></tr></table></figure></p>
+<p>这样可以将问题解决。</p>
 <p>这个问题在Cython的<a href="https://github.com/cython/cython/issues/1670" target="_blank" rel="external">issue</a>中也有提到。</p>
 <p>相关的知识在Python的文档<a href="https://docs.python.org/3.6/c-api/arg.html#PyArg_ParseTuple" target="_blank" rel="external">解析参数和生成值</a>中也有部分介绍。</p>
 

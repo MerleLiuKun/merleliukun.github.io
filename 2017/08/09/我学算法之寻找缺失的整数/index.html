@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="一只猪">
 <meta property="og:description" content="有关数组里需找数字的算法题目 一个无序数组里有99个不重复正整数，范围从1到100，唯独缺少一个整数。如何找出这个缺失的整数？  解决办法一：  构建一个字典，以1-100为key，初始value均为0. 遍历原来数组，读到一个数，就将其对应的value设置为1. 遍历字典，得到value为0的key。就是数组中缺失的数字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-09T08:01:16.280Z">
+<meta property="og:updated_time" content="2017-09-17T10:40:52.536Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我学算法之寻找缺失的整数">
 <meta name="twitter:description" content="有关数组里需找数字的算法题目 一个无序数组里有99个不重复正整数，范围从1到100，唯独缺少一个整数。如何找出这个缺失的整数？  解决办法一：  构建一个字典，以1-100为key，初始value均为0. 遍历原来数组，读到一个数，就将其对应的value设置为1. 遍历字典，得到value为0的key。就是数组中缺失的数字">
@@ -418,41 +418,18 @@
 </ul>
 <a id="more"></a>
 <p>代码实现：</p>
-<pre><code>def check(my_list):
-    # 初始化字典
-    my_dict = {}
-    for i in range(100):
-        my_dict.update({i + 1: 0})
-    # 遍历数组，并操作字典
-    for i in my_list:
-        my_dict[i] = 1
-
-    # 遍历字典得到缺失值。
-    for i in range(100):
-        if my_dict[i + 1] == 0:
-            return i + 1
-</code></pre><p>算法时间复杂度为O(n)， 空间复杂度为O(n)</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">check</span><span class="params">(my_list)</span>:</span></div><div class="line">	<span class="comment"># 初始化字典</span></div><div class="line">    my_dict = &#123;&#125;</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</div><div class="line">        my_dict.update(&#123;i + <span class="number">1</span>: <span class="number">0</span>&#125;)</div><div class="line">	<span class="comment"># 遍历数组，并操作字典</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> my_list:</div><div class="line">        my_dict[i] = <span class="number">1</span></div><div class="line">	</div><div class="line">	<span class="comment"># 遍历字典得到缺失值。</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>):</div><div class="line">        <span class="keyword">if</span> my_dict[i + <span class="number">1</span>] == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> i + <span class="number">1</span></div></pre></td></tr></table></figure>
+<p>算法时间复杂度为O(n)， 空间复杂度为O(n)</p>
 <p>解决办法二：</p>
 <ul>
 <li>先对原数组进行排序。</li>
 <li>逐一判断，相邻元素是否为连续。</li>
 <li>不连续的话，中间元素的就是我们要找的结果。</li>
-<li>如股票全部连续，那么缺失的就是1或者100.</li>
+<li>如果全部连续，那么缺失的就是1或者100.</li>
 </ul>
 <p>代码实现：</p>
-<pre><code>def sort_check(my_list):
-    # 首先排序
-    my_list.sort()
-    # 先判断1和100是否存在
-    if 1 not in my_list:
-        return 1
-    if 100 not in my_list:
-        return 100
-    # 寻找缺失的数字
-    for i in range(len(my_list)-1):
-        if my_list[i+1] - my_list[i] != 1:
-            return my_list[i] + 1
-</code></pre><p>解决办法三：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sort_check</span><span class="params">(my_list)</span>:</span></div><div class="line">	<span class="comment"># 首先排序</span></div><div class="line">    my_list.sort()</div><div class="line">	<span class="comment"># 先判断1和100是否存在</span></div><div class="line">    <span class="keyword">if</span> <span class="number">1</span> <span class="keyword">not</span> <span class="keyword">in</span> my_list:</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line">    <span class="keyword">if</span> <span class="number">100</span> <span class="keyword">not</span> <span class="keyword">in</span> my_list:</div><div class="line">        <span class="keyword">return</span> <span class="number">100</span></div><div class="line">	<span class="comment"># 寻找缺失的数字</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(my_list)<span class="number">-1</span>):</div><div class="line">        <span class="keyword">if</span> my_list[i+<span class="number">1</span>] - my_list[i] != <span class="number">1</span>:</div><div class="line">            <span class="keyword">return</span> my_list[i] + <span class="number">1</span></div></pre></td></tr></table></figure>
+<p>解决办法三：</p>
 <p>当前情况下最佳，也最简单。</p>
 <ul>
 <li>由于题目要求计算1-100之间的缺失的整数且不重复！</li>
@@ -460,14 +437,8 @@
 <li>得到的结果就是我们寻找的数字。</li>
 </ul>
 <p>代码实现：</p>
-<pre><code>def simple_check(my_list):
-    # 计算1-100的和
-    result = sum([i + 1 for i in range(100)])
-    # 逐一相减得到最后结果
-    for i in my_list:
-        result -= i
-    return result
-</code></pre><hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">simple_check</span><span class="params">(my_list)</span>:</span></div><div class="line">	<span class="comment"># 计算1-100的和</span></div><div class="line">    result = sum([i + <span class="number">1</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>)])</div><div class="line">	<span class="comment"># 逐一相减得到最后结果</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> my_list:</div><div class="line">        result -= i</div><div class="line">    <span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<hr>
 <h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><blockquote>
 <p>一个无序数组里有若干个正整数，范围从1到100，其中99个整数都出现了偶数次，只有一个整数出现了奇数次（比如1,1,2,2,3,3,4,5,5），如何找到这个出现奇数次的整数？</p>
 </blockquote>
@@ -479,12 +450,8 @@
 <li>对于唯一出现奇数次的数字，就是最终的结果</li>
 </ul>
 <p>代码实现：</p>
-<pre><code>def check_one_num(my_list):
-    result = 0
-    for i in my_list:
-        result ^= i
-    return result
-</code></pre><hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_one_num</span><span class="params">(my_list)</span>:</span></div><div class="line">    result = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> my_list:</div><div class="line">        result ^= i</div><div class="line">    <span class="keyword">return</span> result</div></pre></td></tr></table></figure>
+<hr>
 <h2 id="题目：-1"><a href="#题目：-1" class="headerlink" title="题目："></a>题目：</h2><blockquote>
 <p>一个无序数组里有若干个正整数，范围从1到100，其中98个整数都出现了偶数次，只有两个整数出现了奇数次（比如1,1,2,2,3,4,5,5），如何找到这个出现奇数次的整数？</p>
 </blockquote>
@@ -498,25 +465,8 @@
 <li>再对分开的数字进行异或，最终可以得到这两个数。</li>
 </ul>
 <p>代码实现：</p>
-<pre><code>def check_two_num(my_list):
-    result = 0
-    num1 = 0
-    num2 = 0
-    # 先异或出原来数组的结果
-    for i in my_list:
-        result ^= i
-
-    # 寻找出我们需要的1 
-    tail = str(bin(result)).rindex(&apos;1&apos;)
-    flag = str(bin(result))[tail:]
-    # 按照条件分开数组，直接计算出最终结果。
-    for i in my_list:
-        if str(bin(i)).endswith(flag):
-            num1 ^= i
-        else:
-            num2 ^= i
-    return num1, num2
-</code></pre><p>代码放置与 我的<a href="https://github.com/MerleLK/python-demo-small/blob/master/myAlgorithms/simple_problem/find_lost_number.py" target="_blank" rel="external">github</a>上</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_two_num</span><span class="params">(my_list)</span>:</span></div><div class="line">    result = <span class="number">0</span></div><div class="line">    num1 = <span class="number">0</span></div><div class="line">    num2 = <span class="number">0</span></div><div class="line">	<span class="comment"># 先异或出原来数组的结果</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> my_list:</div><div class="line">        result ^= i</div><div class="line">		</div><div class="line">	<span class="comment"># 寻找出我们需要的1 </span></div><div class="line">    tail = str(bin(result)).rindex(<span class="string">'1'</span>)</div><div class="line">    flag = str(bin(result))[tail:]</div><div class="line">	<span class="comment"># 按照条件分开数组，直接计算出最终结果。</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> my_list:</div><div class="line">        <span class="keyword">if</span> str(bin(i)).endswith(flag):</div><div class="line">            num1 ^= i</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            num2 ^= i</div><div class="line">    <span class="keyword">return</span> num1, num2</div></pre></td></tr></table></figure>
+<p>代码放置与 我的<a href="https://github.com/MerleLK/python-demo-small/blob/master/myAlgorithms/simple_problem/find_lost_number.py" target="_blank" rel="external">github</a>上</p>
 <p>题目来源：</p>
 <p><a href="http://blog.jobbole.com/106521/" target="_blank" rel="external">寻找缺失的整数</a></p>
 

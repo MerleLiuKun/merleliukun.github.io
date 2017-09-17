@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="一只猪">
 <meta property="og:description" content="渣翻文章来自Randy Daw-Ran Liou ： Never Write For-Loops Again. 作者本人Blog 正文如下这是一个挑战，我挑战你去避免在每一个场景下写for循环。并且，我挑战你去寻找那些很难写出除了for循环之外的其他代码的场景，请分享出来。我很愿意去了解它们。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-09-17T09:19:47.273Z">
+<meta property="og:updated_time" content="2017-09-17T09:41:52.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="渣翻之NeverWriteFor-LoopsAgain">
 <meta name="twitter:description" content="渣翻文章来自Randy Daw-Ran Liou ： Never Write For-Loops Again. 作者本人Blog 正文如下这是一个挑战，我挑战你去避免在每一个场景下写for循环。并且，我挑战你去寻找那些很难写出除了for循环之外的其他代码的场景，请分享出来。我很愿意去了解它们。">
@@ -424,116 +424,38 @@
 <li>仅仅让缩进管理代码文本</li>
 </ol>
 <p>让我们先看下面的代码结构</p>
-<pre><code># 1
-with ...:
-    for ...:
-        if ...:
-            try:
-            except:
-        else:
-</code></pre><p>在这个示例中，我们正在处理很多层的代码，这很难去阅读。我所发现的问题是这段代码通过给定的无处不在的缩进混合了管理逻辑(<code>with</code>和<code>try-except</code>)以及业务逻辑(<code>for</code>、<code>if</code>)。如果你只使用缩进去规范管理逻辑，那么你的业务就可以脱离出来。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 1</span></div><div class="line"><span class="keyword">with</span> ...:</div><div class="line">    <span class="keyword">for</span> ...:</div><div class="line">        <span class="keyword">if</span> ...:</div><div class="line">	    <span class="keyword">try</span>:</div><div class="line">	    <span class="keyword">except</span>:</div><div class="line">	<span class="keyword">else</span>:</div></pre></td></tr></table></figure>
+<p>在这个示例中，我们正在处理很多层的代码，这很难去阅读。我所发现的问题是这段代码通过给定的无处不在的缩进混合了管理逻辑(<code>with</code>和<code>try-except</code>)以及业务逻辑(<code>for</code>、<code>if</code>)。如果你只使用缩进去规范管理逻辑，那么你的业务就可以脱离出来。</p>
 <blockquote>
 <p>“扁平优于嵌套” - Python之禅</p>
 </blockquote>
 <h4 id="你可以用来避免使用for循环的工具"><a href="#你可以用来避免使用for循环的工具" class="headerlink" title="你可以用来避免使用for循环的工具"></a>你可以用来避免使用for循环的工具</h4><p>一、列表推导式 / 生成器表达式 </p>
 <p>我们可以先看这样一个简单的示例。你想要在一个已存在的序列上得到一个新的序列</p>
-<pre><code>result = []
-for item in item_list:
-    new_item = do_something_with(item):
-    result.append(item)
-</code></pre><p>如果你喜欢MapReduce的话可以使用<code>map</code>或者Python拥有列表推导式。代码如下：</p>
-<pre><code>result = [do_something_with(item) for item in item_list]
-</code></pre><p>同样的如果你想要得到一个生成器，你可以使用生成器表达式，他们的语法很类似。(你怎么能不喜爱Python的一致性呢？)代码如下：</p>
-<pre><code>result = (do_something_with(item) for item in item_list)
-</code></pre><p>二、 函数</p>
-<p>从一个更高阶，更实用的编码方式，如果你想要映射一个序列到另一个序列，只需要使用<code>map</code>函数。(从我的理解，可以使用列表推导式代替它)</p>
-<pre><code>doubled_list = map(lambda x: x * 2, old_list)
-</code></pre><p>如果你想要将一个序列生一个最终结果。可以使用<code>reduce</code>。</p>
-<pre><code>from functools import reduce
-
-summation = reduce(lambda x, y: x + y, numbers)
-</code></pre><p>另外，很多Python的内置方法都可以使用迭代器(iterables)：</p>
-<pre><code>In [1]: a = list(range(10))
-In [2]: a
-Out[2]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-In [3]: all(a)
-Out[3]: False
-In [4]: any(a)
-Out[4]: True
-In [5]: max(a)
-Out[5]: 9
-In [6]: min(a)
-Out[6]: 0
-In [7]: list(filter(bool, a))
-Out[7]: [1, 2, 3, 4, 5, 6, 7, 8, 9]
-In [8]: set(a)
-Out[8]: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-In [9]: dict(zip(a, a))
-Out[9]: {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}
-In [10]: sorted(a, reverse=True)
-Out[10]: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-In [11]: str(a)
-Out[11]: &apos;[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]&apos;
-In [12]: sum(a)
-Out[12]: 45
-...........
-</code></pre><p>三、提取函数或者生成器</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">result = []</div><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> item_list:</div><div class="line">    new_item = do_something_with(item):</div><div class="line">    result.append(item)</div><div class="line">```		</div><div class="line"></div><div class="line">如果你喜欢MapReduce的话可以使用`map`或者Python拥有列表推导式。代码如下：</div><div class="line"></div><div class="line">``` python</div><div class="line">result = [do_something_with(item) <span class="keyword">for</span> item <span class="keyword">in</span> item_list]</div></pre></td></tr></table></figure>
+<p>同样的如果你想要得到一个生成器，你可以使用生成器表达式，他们的语法很类似。(你怎么能不喜爱Python的一致性呢？)代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">result = (do_something_with(item) <span class="keyword">for</span> item <span class="keyword">in</span> item_list)</div><div class="line">``` </div><div class="line"></div><div class="line">二、 函数</div><div class="line"></div><div class="line">从一个更高阶，更实用的编码方式，如果你想要映射一个序列到另一个序列，只需要使用`map`函数。(从我的理解，可以使用列表推导式代替它)</div><div class="line"></div><div class="line">``` python</div><div class="line">doubled_list = map(<span class="keyword">lambda</span> x: x * <span class="number">2</span>, old_list)</div></pre></td></tr></table></figure>
+<p>如果你想要将一个序列生一个最终结果。可以使用<code>reduce</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</div><div class="line">	</div><div class="line">summation = reduce(<span class="keyword">lambda</span> x, y: x + y, numbers)</div></pre></td></tr></table></figure></p>
+<p>另外，很多Python的内置方法都可以使用迭代器(iterables)：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: a = list(range(<span class="number">10</span>))</div><div class="line">In [<span class="number">2</span>]: a</div><div class="line">Out[<span class="number">2</span>]: [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</div><div class="line">In [<span class="number">3</span>]: all(a)</div><div class="line">Out[<span class="number">3</span>]: <span class="keyword">False</span></div><div class="line">In [<span class="number">4</span>]: any(a)</div><div class="line">Out[<span class="number">4</span>]: <span class="keyword">True</span></div><div class="line">In [<span class="number">5</span>]: max(a)</div><div class="line">Out[<span class="number">5</span>]: <span class="number">9</span></div><div class="line">In [<span class="number">6</span>]: min(a)</div><div class="line">Out[<span class="number">6</span>]: <span class="number">0</span></div><div class="line">In [<span class="number">7</span>]: list(filter(bool, a))</div><div class="line">Out[<span class="number">7</span>]: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</div><div class="line">In [<span class="number">8</span>]: set(a)</div><div class="line">Out[<span class="number">8</span>]: &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;</div><div class="line">In [<span class="number">9</span>]: dict(zip(a, a))</div><div class="line">Out[<span class="number">9</span>]: &#123;<span class="number">0</span>: <span class="number">0</span>, <span class="number">1</span>: <span class="number">1</span>, <span class="number">2</span>: <span class="number">2</span>, <span class="number">3</span>: <span class="number">3</span>, <span class="number">4</span>: <span class="number">4</span>, <span class="number">5</span>: <span class="number">5</span>, <span class="number">6</span>: <span class="number">6</span>, <span class="number">7</span>: <span class="number">7</span>, <span class="number">8</span>: <span class="number">8</span>, <span class="number">9</span>: <span class="number">9</span>&#125;</div><div class="line">In [<span class="number">10</span>]: sorted(a, reverse=<span class="keyword">True</span>)</div><div class="line">Out[<span class="number">10</span>]: [<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>]</div><div class="line">In [<span class="number">11</span>]: str(a)</div><div class="line">Out[<span class="number">11</span>]: <span class="string">'[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]'</span></div><div class="line">In [<span class="number">12</span>]: sum(a)</div><div class="line">Out[<span class="number">12</span>]: <span class="number">45</span></div><div class="line">...........</div></pre></td></tr></table></figure></p>
+<p>三、提取函数或者生成器</p>
 <p>上面两个方法很好的处理了简单的逻辑。那么怎么去处理复杂的逻辑呢？作为一个程序员，我们经常会把困难的事情抽象成函数。同样的方法也适用与这里。如果你写下面这样的代码：</p>
-<pre><code>results = []
-for item in item_list:
-    # setups
-    # condition
-    # processing
-    # calculation
-    result.append(result)
-</code></pre><p>显然的你让一段代码承担了太多的责任。取而代之的，我建议你这样做：</p>
-<pre><code>do process_item(item):
-    # setups
-    # conditions
-    # processing
-    # calculation
-    return result
-
-results = [process_item(item) for item in item_list]
-</code></pre><p>嵌套循环是怎么样的呢？</p>
-<pre><code>results = []
-for i in range(10):
-    for j in range(i):
-        results.appens((i, j))
-</code></pre><p>列表表达式这样帮助你：</p>
-<pre><code>results = [(i, j)
-          for i in range(10)
-          for j in range(i)]
-</code></pre><p>如果你想在代码中保存一些内部的状态怎么办呢？</p>
-<pre><code># finding the max prior to the current item
-a = [3, 4, 6, 2, 1, 9, 0, 7, 5, 8]
-results = []
-current_max = 0
-for i in a:
-    current_max = max(i, current_max)
-    results.append(current_max)
-
-# results = [3, 4, 6, 6, 6, 9, 9, 9, 9, 9]
-</code></pre><p>让我们抽象成一个生成器去做到这样的功能：</p>
-<pre><code>def max_generatir(numbers):
-    current_max = 0
-    for i in numbers:
-        current_max = max(i, current_max)
-        yield current_max
-
-a = [3, 4, 6, 2, 1, 9, 0, 7, 5, 8]
-results = list(max_generator(a))
-</code></pre><blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">results = []</div><div class="line"><span class="keyword">for</span> item <span class="keyword">in</span> item_list:</div><div class="line">    <span class="comment"># setups</span></div><div class="line">    <span class="comment"># condition</span></div><div class="line">    <span class="comment"># processing</span></div><div class="line">    <span class="comment"># calculation</span></div><div class="line">    result.append(result)</div></pre></td></tr></table></figure>
+<p>显然的你让一段代码承担了太多的责任。取而代之的，我建议你这样做：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">do process_item(item):</div><div class="line">    <span class="comment"># setups</span></div><div class="line">    <span class="comment"># conditions</span></div><div class="line">    <span class="comment"># processing</span></div><div class="line">    <span class="comment"># calculation</span></div><div class="line">    <span class="keyword">return</span> result</div><div class="line">	</div><div class="line">results = [process_item(item) <span class="keyword">for</span> item <span class="keyword">in</span> item_list]</div></pre></td></tr></table></figure>
+<p>嵌套循环是怎么样的呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">results = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</div><div class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</div><div class="line">        results.appens((i, j))</div></pre></td></tr></table></figure>
+<p>列表表达式这样帮助你：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">results = [(i, j)</div><div class="line">           <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>)</div><div class="line">           <span class="keyword">for</span> j <span class="keyword">in</span> range(i)]</div></pre></td></tr></table></figure>
+<p>如果你想在代码中保存一些内部的状态怎么办呢？</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># finding the max prior to the current item</span></div><div class="line">a = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">8</span>]</div><div class="line">results = []</div><div class="line">current_max = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</div><div class="line">    current_max = max(i, current_max)</div><div class="line">    results.append(current_max)</div><div class="line"></div><div class="line"><span class="comment"># results = [3, 4, 6, 6, 6, 9, 9, 9, 9, 9]</span></div></pre></td></tr></table></figure>
+<p>让我们抽象成一个生成器去做到这样的功能：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">max_generatir</span><span class="params">(numbers)</span>:</span></div><div class="line">    current_max = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> numbers:</div><div class="line">	current_max = max(i, current_max)</div><div class="line">	<span class="keyword">yield</span> current_max</div><div class="line">			</div><div class="line">a = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">8</span>]</div><div class="line">results = list(max_generator(a))</div></pre></td></tr></table></figure>
+<blockquote>
 <p>Oh! 等一下， 你刚刚在代码段中使用了一个for循环， 这是欺骗！</p>
 </blockquote>
 <p>好啦，自作聪明的家伙，让我们试一下下面的。</p>
 <p>四、不要自己写，<code>itertools</code>已经写了</p>
-<p>这个模块(<code>itertools</code>)简直精彩极了。我相信这个模块实现了80%的你想写for循环的情况。举个栗子， 刚才的最后一个示例可以被这样重写：</p>
-<pre><code>from itertools import accumulate
-
-a = [3, 4, 6, 2, 1, 9, 0, 7, 5, 8]
-results = list(accumulate(a, max))
-</code></pre><p>当然，如果你要迭代一个组合的序列， 你可以使用<code>product()</code>、<code>permutations()</code>、<code>combinations()</code>。</p>
+<p>这个模块(<code>itertools</code>)简直精彩极了。我相信这个模块实现了80%的你想写for循环的情况。举个栗子， 刚才的最后一个示例可以被这样重写：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> accumulate</div><div class="line">	</div><div class="line">a = [<span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">8</span>]</div><div class="line">results = list(accumulate(a, max))</div></pre></td></tr></table></figure></p>
+<p>当然，如果你要迭代一个组合的序列， 你可以使用<code>product()</code>、<code>permutations()</code>、<code>combinations()</code>。</p>
 <h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ol>
 <li>你在大多数场景下是不需要写for循环的</li>
 <li>为了拥有更好的代码可读性，你应当避免使用for循环</li>

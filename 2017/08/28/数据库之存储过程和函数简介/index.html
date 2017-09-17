@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="一只猪">
 <meta property="og:description" content="简介什么是存储过程和函数？ 首先我们要知道过程化SQL主要有两种类型，即命名块和匿名块。所谓匿名块即是我们在程序中所直接写的SQL语句， 每次执行都要编译，它不会存储到数据库中，也不能在其他过程化SQL块中调用。而存储过程和函数则是命名块，它们被编译后保存在数据库中，称为持久性存储模块。可以被反复调用，并且运行速度较快。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-28T13:06:28.555Z">
+<meta property="og:updated_time" content="2017-09-17T09:58:44.774Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库之存储过程和函数简介">
 <meta name="twitter:description" content="简介什么是存储过程和函数？ 首先我们要知道过程化SQL主要有两种类型，即命名块和匿名块。所谓匿名块即是我们在程序中所直接写的SQL语句， 每次执行都要编译，它不会存储到数据库中，也不能在其他过程化SQL块中调用。而存储过程和函数则是命名块，它们被编译后保存在数据库中，称为持久性存储模块。可以被反复调用，并且运行速度较快。">
@@ -428,19 +428,14 @@
 <p>四、基本使用</p>
 <p>我们可以通过如下SQL语句创建、执行、修改和删除存储过程。</p>
 <p>1、创建存储过程</p>
-<pre><code>CREATE OR REPLACE PRODUCRE 过程名([arg1, arg2...])
-AS
-&lt;过程化SQL语句块&gt;;
-</code></pre><p>2、执行存储过程</p>
-<pre><code>CALL/PERFORM PROCEDURE 过程名([arg1, arg2...])
-</code></pre><p>3、修改存储过程</p>
-<pre><code># 重命名存储过程
-ALTER PROCEDURE 过程名1 RENAME TO 过程名2
-# 重新编译存储过程
-ALTER PROCEDURE 过程名 COMPILE
-</code></pre><p>4、删除存储过程</p>
-<pre><code>DROP PROCEDURE 过程名()
-</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>一、概念</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> PRODUCRE 过程名([arg1, arg2...])</div><div class="line"><span class="keyword">AS</span></div><div class="line">&lt;过程化<span class="keyword">SQL</span>语句块&gt;;</div></pre></td></tr></table></figure>
+<p>2、执行存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CALL</span>/PERFORM <span class="keyword">PROCEDURE</span> 过程名([arg1, arg2...])</div></pre></td></tr></table></figure>
+<p>3、修改存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 重命名存储过程</span></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">PROCEDURE</span> 过程名<span class="number">1</span> <span class="keyword">RENAME</span> <span class="keyword">TO</span> 过程名<span class="number">2</span></div><div class="line"><span class="comment">-- 重新编译存储过程</span></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">PROCEDURE</span> 过程名 COMPILE</div></pre></td></tr></table></figure>
+<p>4、删除存储过程</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">DROP</span> <span class="keyword">PROCEDURE</span> 过程名()</div></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>一、概念</p>
 <p>函数也称自定义函数，因为是用户自己使用过程化SQL语句设计定义的。函数和存储过程类似，都是持久性存储模块。</p>
 <p>Tips:  </p>
 <blockquote>
@@ -448,47 +443,25 @@ ALTER PROCEDURE 过程名 COMPILE
 </blockquote>
 <p>二、基本语法格式</p>
 <p>1、函数定义语句</p>
-<pre><code>CREATE OR REPLACE FUNCTION 函数名([arg1, arg2...]) 
-RETURNS &lt;类型&gt;
-AS
-&lt;过程化SQL语句块&gt;；
-</code></pre><p>2、函数执行格式</p>
-<pre><code>CALL/SELECT 函数名([arg1, arg2...]);
-</code></pre><p>3、修改函数</p>
-<pre><code># 重命名函数
-ALTER FUNCTION 函数名1 RENAME TO 函数名2;
-# 重新编译函数
-ALTER FUNCTION 函数名 COMPILE;
-</code></pre><h1 id="PostgreSQL中的存储过程-函数"><a href="#PostgreSQL中的存储过程-函数" class="headerlink" title="PostgreSQL中的存储过程(函数)"></a>PostgreSQL中的存储过程(函数)</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>PostgreSQL对存储过程的描述是：存储过程和用户自定义函数（UDF）是SQL和过程语句的集合，它存储于数据库服务器并能被SQL接口调用。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">FUNCTION</span> 函数名([arg1, arg2...]) </div><div class="line"><span class="keyword">RETURNS</span> &lt;类型&gt;</div><div class="line"><span class="keyword">AS</span></div><div class="line">&lt;过程化<span class="keyword">SQL</span>语句块&gt;；</div></pre></td></tr></table></figure>
+<p>2、函数执行格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CALL</span>/<span class="keyword">SELECT</span> 函数名([arg1, arg2...]);</div></pre></td></tr></table></figure>
+<p>3、修改函数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 重命名函数</span></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">FUNCTION</span> 函数名<span class="number">1</span> <span class="keyword">RENAME</span> <span class="keyword">TO</span> 函数名<span class="number">2</span>;</div><div class="line"><span class="comment">-- 重新编译函数</span></div><div class="line"><span class="keyword">ALTER</span> <span class="keyword">FUNCTION</span> 函数名 COMPILE;</div></pre></td></tr></table></figure>
+<h1 id="PostgreSQL中的存储过程-函数"><a href="#PostgreSQL中的存储过程-函数" class="headerlink" title="PostgreSQL中的存储过程(函数)"></a>PostgreSQL中的存储过程(函数)</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>PostgreSQL对存储过程的描述是：存储过程和用户自定义函数（UDF）是SQL和过程语句的集合，它存储于数据库服务器并能被SQL接口调用。</p>
 <p>PostgreSQL官方支持PL/pgSQL，PL/Tcl，PL/Perl和PL/Python这几种过程语言，同时还支持一些第三方提供的过程语言，如PL/JAVA，PL/PHP，PL/R，PL/Scheme，PL/sh。</p>
 <p>注意：<br>PostgreSQL数据库并没有区分存储过程和函数。</p>
 <h2 id="基于SQL的存储过程"><a href="#基于SQL的存储过程" class="headerlink" title="基于SQL的存储过程"></a>基于SQL的存储过程</h2><p>定义方式</p>
-<pre><code># 创建一个查询所有结果的函数
-CREATE OR REPLACE FUNCTION GetAllUser()
-RETURNS RECORD
-AS $$
-SELECT * FROM USERS
-$$ LANGUAGE SQL;
-</code></pre><p>调用方式</p>
-<pre><code>select GetAllUser();
-</code></pre><h2 id="基于PL-PgSQL的存储过程定义"><a href="#基于PL-PgSQL的存储过程定义" class="headerlink" title="基于PL/PgSQL的存储过程定义"></a>基于PL/PgSQL的存储过程定义</h2><p>PL/PgSQL是一个块结构语言，函数定义的所有文本都必须是一个块。<a href="https://wiki.postgresql.org/wiki/9.1%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B9%9D%E7%AB%A0" target="_blank" rel="external">参考More</a><br>其定义如下：</p>
-<pre><code>[&lt;&lt;label&gt;&gt;]
-[ DECLARE
-    declaerations]
-BEGIN
-    statements
-END [lable];
-</code></pre><p>一个简单的例子：</p>
-<pre><code>CREATE OR REPLACE FUNCTION GetUser()
-RETURNS setof users 
-AS $$
-BEGIN
-    SELECT * FROM USERS;
-END;
-$$ LANGUAGE PLPGSQL;
-</code></pre><p>调用返回格式</p>
-<pre><code>select GetUser()
-</code></pre><p>返回所有的users表中的结果</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 创建一个查询所有结果的函数</span></div><div class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">FUNCTION</span> GetAllUser()</div><div class="line"><span class="keyword">RETURNS</span> <span class="built_in">RECORD</span></div><div class="line"><span class="keyword">AS</span> $$</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">USERS</span></div><div class="line">$$ <span class="keyword">LANGUAGE</span> <span class="keyword">SQL</span>;</div></pre></td></tr></table></figure>
+<p>调用方式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> GetAllUser();</div></pre></td></tr></table></figure>
+<h2 id="基于PL-PgSQL的存储过程定义"><a href="#基于PL-PgSQL的存储过程定义" class="headerlink" title="基于PL/PgSQL的存储过程定义"></a>基于PL/PgSQL的存储过程定义</h2><p>PL/PgSQL是一个块结构语言，函数定义的所有文本都必须是一个块。<a href="https://wiki.postgresql.org/wiki/9.1%E7%AC%AC%E4%B8%89%E5%8D%81%E4%B9%9D%E7%AB%A0" target="_blank" rel="external">参考More</a><br>其定义如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">[&lt;&lt;label&gt;&gt;]</div><div class="line">[ DECLARE</div><div class="line">	declaerations]</div><div class="line">BEGIN</div><div class="line">	statements</div><div class="line">END [lable];</div></pre></td></tr></table></figure>
+<p>一个简单的例子：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">CREATE</span> <span class="keyword">OR</span> <span class="keyword">REPLACE</span> <span class="keyword">FUNCTION</span> GetUser()</div><div class="line"><span class="keyword">RETURNS</span> setof <span class="keyword">users</span> </div><div class="line"><span class="keyword">AS</span> $$</div><div class="line"><span class="keyword">BEGIN</span></div><div class="line">	<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">USERS</span>;</div><div class="line"><span class="keyword">END</span>;</div><div class="line">$$ LANGUAGE PLPGSQL;</div></pre></td></tr></table></figure>
+<p>调用返回格式</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> GetUser()</div></pre></td></tr></table></figure>
+<p>返回所有的users表中的结果</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
 <li><a href="http://www.postgres.cn/docs/9.5/plpgsql-declarations.html" target="_blank" rel="external">http://www.postgres.cn/docs/9.5/plpgsql-declarations.html</a></li>
 <li><a href="http://www.jasongj.com/2015/12/27/SQL4_%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B_Store%20Procedure/" target="_blank" rel="external">http://www.jasongj.com/2015/12/27/SQL4_%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B_Store%20Procedure/</a></li>
