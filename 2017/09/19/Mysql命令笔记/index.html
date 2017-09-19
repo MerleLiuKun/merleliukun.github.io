@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="数据库,mysql," />
 
 
 
@@ -93,16 +93,18 @@
 
 
 
-<meta name="description" content="ideas and notes.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只猪">
-<meta property="og:url" content="http://lkhardy.cn/tags/嵌入式/index.html">
+<meta name="description" content="Mysql相关的命令记录 记录一些用到的命令  一、与docker相关1、创建一个mysql容器 1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql">
+<meta name="keywords" content="数据库,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mysql命令笔记">
+<meta property="og:url" content="http://lkhardy.cn/2017/09/19/Mysql命令笔记/index.html">
 <meta property="og:site_name" content="一只猪">
-<meta property="og:description" content="ideas and notes.">
+<meta property="og:description" content="Mysql相关的命令记录 记录一些用到的命令  一、与docker相关1、创建一个mysql容器 1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-09-19T12:25:28.318Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一只猪">
-<meta name="twitter:description" content="ideas and notes.">
+<meta name="twitter:title" content="Mysql命令笔记">
+<meta name="twitter:description" content="Mysql相关的命令记录 记录一些用到的命令  一、与docker相关1、创建一个mysql容器 1docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql">
 
 
 
@@ -130,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://lkhardy.cn/tags/嵌入式/"/>
+  <link rel="canonical" href="http://lkhardy.cn/2017/09/19/Mysql命令笔记/"/>
 
 
 
 
 
-  <title>标签: 嵌入式 | 一只猪</title>
+  <title>Mysql命令笔记 | 一只猪</title>
   
 
 
@@ -161,7 +163,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -309,44 +311,211 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>嵌入式<small>标签</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/09/19/Mysql命令笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MerleLiuKun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/erha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只猪">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mysql命令笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-19T20:16:00+08:00">
+                2017-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/database/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/database/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="Mysql相关的命令记录"><a href="#Mysql相关的命令记录" class="headerlink" title="Mysql相关的命令记录"></a>Mysql相关的命令记录</h2><blockquote>
+<p>记录一些用到的命令</p>
+</blockquote>
+<h3 id="一、与docker相关"><a href="#一、与docker相关" class="headerlink" title="一、与docker相关"></a>一、与docker相关</h3><p>1、创建一个mysql容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=password -d mysql</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>2、docker登录进入到容器中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker exec -it (container_name/id) /bin/bash</div></pre></td></tr></table></figure>
+<h3 id="二、数据库整体相关"><a href="#二、数据库整体相关" class="headerlink" title="二、数据库整体相关"></a>二、数据库整体相关</h3><p>1、查看数据库的编码</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'character%'</span>;</div></pre></td></tr></table></figure>
+<p>2、查看数据表的定义</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 两者都行</span></div><div class="line">desc (table_name);</div><div class="line"><span class="keyword">describe</span> (table_name);</div></pre></td></tr></table></figure>
+<p>3、创建新用户</p>
+<p>首先使用<code>root</code>账户登录。</p>
+<p>执行如下操作：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> mysql.user(Host,<span class="keyword">User</span>,authentication_string,ssl_cipher,x509_issuer,x509_subject) <span class="keyword">values</span>(<span class="string">"localhost"</span>,<span class="string">"your-name"</span>,<span class="keyword">password</span>(<span class="string">"123456"</span>),<span class="string">""</span>,<span class="string">""</span>,<span class="string">"”);</span></div></pre></td></tr></table></figure>
+<p>需要注意的是在mysql5.7之前的版本中<code>authentication_string</code>字段是对应<code>Password</code>字段的。</p>
+<p>另外Host指定为<code>localhost</code>，表示只能本地访问，如果想要远程访问需要改为<code>%</code>。</p>
+<p>登录新用户前需要重启一下<code>mysql</code>的服务。否则会报出错误。错误代码如下：<code>ERROR 1045 (28000)</code>。</p>
+<p>4、删除用户</p>
+<p>使用<code>root</code>账户登录。</p>
+<p>执行如下操作：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> mysql;</div><div class="line"><span class="keyword">Delete</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="keyword">User</span>=<span class="string">"your-name"</span>;</div></pre></td></tr></table></figure>
+<p>5、将数据库的权限授予某个用户</p>
+<p>使用<code>root</code>账户登录。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- 授权(所有权限)</span></div><div class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> test_g.* <span class="keyword">to</span> <span class="keyword">name</span>@localhost <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123456'</span>;</div><div class="line"></div><div class="line"><span class="comment">-- 刷新权限表</span></div><div class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</div><div class="line"></div><div class="line"><span class="comment">-- 授予某用户test数据库的某些权限(select, update)</span></div><div class="line"><span class="keyword">grant</span> <span class="keyword">select</span>,<span class="keyword">update</span> <span class="keyword">on</span> test.* <span class="keyword">to</span> <span class="keyword">name</span>@localhost <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123456'</span>;</div><div class="line"></div><div class="line"><span class="comment">-- 授予某用户所有数据库的某些权限(此处被非本地主机)</span></div><div class="line"><span class="comment">-- 要对本地主机授权，使用localhost替换 %</span></div><div class="line"><span class="keyword">grant</span> <span class="keyword">select</span>,<span class="keyword">delete</span>,<span class="keyword">update</span>,<span class="keyword">create</span>,<span class="keyword">drop</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="keyword">name</span>@<span class="string">"%"</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">"123456"</span>;</div></pre></td></tr></table></figure>
+<p>其命令格式为：</p>
+<p>grant 权限 on 数据库.* to 用户名@登录主机 identified by “密码”;</p>
+<p>持续更新中。。。。</p>
 
-      <h2 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/08/06/基于BBB开发板的温度检测和邮件自发送/" itemprop="url">
-              
-                <span itemprop="name">基于BBB开发板的温度检测和邮件自发送</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-06T23:20:41+08:00"
-              content="2017-08-06" >
-          08-06
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+          
+            <a href="/tags/mysql/" rel="tag"># mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/17/渣翻之NeverWriteFor-LoopsAgain/" rel="next" title="渣翻之NeverWriteFor-LoopsAgain">
+                <i class="fa fa-chevron-left"></i> 渣翻之NeverWriteFor-LoopsAgain
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -354,6 +523,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -374,8 +547,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/erha.png"
@@ -466,6 +648,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql相关的命令记录"><span class="nav-number">1.</span> <span class="nav-text">Mysql相关的命令记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、与docker相关"><span class="nav-number">1.1.</span> <span class="nav-text">一、与docker相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、数据库整体相关"><span class="nav-number">1.2.</span> <span class="nav-text">二、数据库整体相关</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -586,10 +784,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
