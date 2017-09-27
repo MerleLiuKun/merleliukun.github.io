@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -93,17 +93,18 @@
 
 
 
-<meta name="description" content="我的简历 联系方式 手机：18838032337 Email：merle.liukun@gmail.com  QQ/微信号：1164661296   个人信息 刘坤/男/1995-10  本科/河南工业大学软件工程系  技术博客：http://merlelk.github.io Github：http://github.com/merlelk 期望职位：Web后台开发 期望城市：北京   项目经历">
-<meta property="og:type" content="website">
-<meta property="og:title" content="resume">
-<meta property="og:url" content="http://lkhardy.cn/resume/index.html">
+<meta name="description" content="问题:在Linux服务上，安装了Oh-My-Zsh.但是因为自己只是一个普通用户，所以要对自己用户下的默认shell进行设置。 方法：临时修改shell">
+<meta name="keywords" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux修改某用户默认Shell">
+<meta property="og:url" content="http://lkhardy.cn/2017/09/27/Linux修改某用户默认Shell/index.html">
 <meta property="og:site_name" content="一只猪">
-<meta property="og:description" content="我的简历 联系方式 手机：18838032337 Email：merle.liukun@gmail.com  QQ/微信号：1164661296   个人信息 刘坤/男/1995-10  本科/河南工业大学软件工程系  技术博客：http://merlelk.github.io Github：http://github.com/merlelk 期望职位：Web后台开发 期望城市：北京   项目经历">
+<meta property="og:description" content="问题:在Linux服务上，安装了Oh-My-Zsh.但是因为自己只是一个普通用户，所以要对自己用户下的默认shell进行设置。 方法：临时修改shell">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-06T14:09:41.020Z">
+<meta property="og:updated_time" content="2017-09-27T06:41:49.524Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="resume">
-<meta name="twitter:description" content="我的简历 联系方式 手机：18838032337 Email：merle.liukun@gmail.com  QQ/微信号：1164661296   个人信息 刘坤/男/1995-10  本科/河南工业大学软件工程系  技术博客：http://merlelk.github.io Github：http://github.com/merlelk 期望职位：Web后台开发 期望城市：北京   项目经历">
+<meta name="twitter:title" content="Linux修改某用户默认Shell">
+<meta name="twitter:description" content="问题:在Linux服务上，安装了Oh-My-Zsh.但是因为自己只是一个普通用户，所以要对自己用户下的默认shell进行设置。 方法：临时修改shell">
 
 
 
@@ -131,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://lkhardy.cn/resume/"/>
+  <link rel="canonical" href="http://lkhardy.cn/2017/09/27/Linux修改某用户默认Shell/"/>
 
 
 
 
 
-  <title>resume | 一只猪</title>
+  <title>Linux修改某用户默认Shell | 一只猪</title>
   
 
 
@@ -311,120 +312,187 @@
             
 
   <div id="posts" class="posts-expand">
-  <header class="post-header">
+    
 
-	<h1 class="post-title" itemprop="name headline">resume</h1>
+  
 
+  
+  
+  
 
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/09/27/Linux修改某用户默认Shell/">
 
-</header>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MerleLiuKun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/erha.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只猪">
+    </span>
 
     
-    
-      <h1 id="我的简历"><a href="#我的简历" class="headerlink" title="我的简历"></a>我的简历</h1><hr>
-<h1 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h1><ul>
-<li>手机：18838032337</li>
-<li>Email：merle.liukun@gmail.com </li>
-<li>QQ/微信号：1164661296</li>
-</ul>
-<hr>
-<h1 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a>个人信息</h1><ul>
-<li>刘坤/男/1995-10 </li>
-<li>本科/河南工业大学软件工程系 </li>
-<li>技术博客：<a href="http://merlelk.github.io" target="_blank" rel="external">http://merlelk.github.io</a></li>
-<li>Github：<a href="http://github.com/merlelk" target="_blank" rel="external">http://github.com/merlelk</a></li>
-<li>期望职位：Web后台开发</li>
-<li>期望城市：北京</li>
-</ul>
-<hr>
-<h1 id="项目经历"><a href="#项目经历" class="headerlink" title="项目经历"></a>项目经历</h1><h2 id="物联网数据管理平台系统"><a href="#物联网数据管理平台系统" class="headerlink" title="物联网数据管理平台系统"></a>物联网数据管理平台系统</h2><ul>
-<li>项目简介：将现有的物联网前端采集设备和传输设备纳入到一个集中的展示控制平台中，平台负责存储、管理和展示物联网各传感器节点的数据，可以在平台内下发控制指令，控制执行设备。并且支持团队场景协作。</li>
-<li>项目时间： 2017.04-2017.08</li>
-<li>负责模块：数据库设计、前期架构设计、以及代码开发</li>
-<li>项目过程：<ol>
-<li>在项目中，由于存在多种不同层次的操作，使用Twisted框架作为底层处理不同作业的调度。</li>
-<li>使用开源的PostgreSQL作为数据存储层，考虑到对大量数据的操作，使用了ORM工具SQLAlchemy进行数据库的CRUD操作。</li>
-<li>在处理前后端的通信时，考虑到部分浏览器不支持WebSocket，使用了SockJS模拟对WebSocket的支持，实现了一个低延迟、全双工的通道。</li>
-<li>在产品发布时，考虑到用户安装部署的易用性，在Linux系统下采用了Docker镜像模式进行产品分发，在windows系统环境下采用inno Setup工具进行产品的打包发布。</li>
-</ol>
-</li>
-<li>项目结果：产品的Beta版本已经发布，已有多家高校存在采购意愿。并且在研发过程中，得到了客户的认可。</li>
-</ul>
-<h2 id="物联网口袋实验室系统"><a href="#物联网口袋实验室系统" class="headerlink" title="物联网口袋实验室系统"></a>物联网口袋实验室系统</h2><ul>
-<li>项目简介：<br>实现对物联网硬件设备“物联网网关”的软件模拟</li>
-<li>项目时间： 2016.10-2017.01</li>
-<li>负责模块：<br>前期系统设计、模块划分、代码编写</li>
-<li>项目过程：<ol>
-<li>由于要实现网络通信和底层数据采集，使用了Twisted框架，保证了异步处理操作。</li>
-<li>为了提高系统的扩展性，采用RestfulAPI技术提供开放式的API服务。</li>
-<li>并且为了提高系统的性能，采用Twisted作为Web服务器部署项目。</li>
-</ol>
-</li>
-<li>项目结果：<br>产品已经迭代多版本。对于实际场景的使用表现尚可。已有客户资源。</li>
-</ul>
-<h2 id="财务报账系统"><a href="#财务报账系统" class="headerlink" title="财务报账系统"></a>财务报账系统</h2><ul>
-<li>项目简介：<br>实现了教学办公经费报账的自动化流程。</li>
-<li>项目时间： 2016.07-2016.10</li>
-<li>负责模块：<br>数据库设计，业务分析。</li>
-<li>项目过程： <ol>
-<li>为了快速迭代出项目的初始版本。使用了Python的轻型Web框架Flask实现。</li>
-<li>由于业务层次深，且数据操作比较烦琐，采用Python的ORM工具SQLAlchemy进行数据库的CRUD操作的封装，避免了直接使用SQL语句。</li>
-</ol>
-</li>
-<li>项目结果：<br>项目交接前，系统的初步架构已经搭建完毕</li>
-</ul>
-<h2 id="OpenStack平台运维"><a href="#OpenStack平台运维" class="headerlink" title="OpenStack平台运维"></a>OpenStack平台运维</h2><ul>
-<li>项目简介：实验室的云平台</li>
-<li>项目时间： 2016.07-至今</li>
-<li>负责模块：系统维护，防火墙的初步搭建，</li>
-<li><p>项目过程：</p>
-</li>
-<li><p>项目结果：<br>目前来说，平台正常运行，平台用户有数家公司。</p>
-</li>
-</ul>
-<hr>
-<h1 id="技能清单"><a href="#技能清单" class="headerlink" title="技能清单"></a>技能清单</h1><p>以下均为我使用过的技能</p>
-<ul>
-<li>Web开发：Python/Java</li>
-<li>Web框架：Flask/Django/SpringBoot</li>
-<li>ORM工具：SQLAlchemy/Hibernate</li>
-<li>前端框架：Bootstrap/HTML5</li>
-<li>数据库相关：MySQL/PgSQL/SQLite</li>
-<li>版本管理、文档和自动化部署工具：Svn/Git</li>
-<li>单元测试：JUnit/unittest</li>
-</ul>
-<h2 id="技能关键字"><a href="#技能关键字" class="headerlink" title="技能关键字"></a>技能关键字</h2><ul>
-<li>Web</li>
-<li>Linux</li>
-<li>CSS</li>
-<li>JavaScript</li>
-<li>HTML</li>
-<li>jquery</li>
-<li>Flask</li>
-<li>mvc</li>
-<li>Java</li>
-<li>Python</li>
-<li>Django</li>
-<li>Git</li>
-<li>Bootstrap</li>
-<li>PostgreSQL</li>
-<li>Github</li>
-<li>Docker</li>
-<li>SQLAlchemy</li>
-<li>Twisted</li>
-<li>Celery</li>
-<li>WSGI</li>
-</ul>
-<hr>
-<h1 id="个人描述"><a href="#个人描述" class="headerlink" title="个人描述"></a>个人描述</h1><ol>
-<li>喜欢折腾与交流，曾在大一时组织过郑州附近的中兴手机用户的线下交流会并发布在中兴论坛上。大二担任院级协会部长，多次组织Office和PS等技术讲座。</li>
-<li>喜欢新技术，热衷开源，希望自己能够慢慢的成长为一个技术型大牛</li>
-<li>我理想中的团队： 有压力，有大牛，有激情，重视分享和学习</li>
-</ol>
-<hr>
-<h1 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a>致谢</h1><p>感谢您花时间阅读我的简历，期待能有机会和您共事。</p>
+      <header class="post-header">
 
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux修改某用户默认Shell</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T14:38:25+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题:"></a>问题:</h3><p>在Linux服务上，安装了<code>Oh-My-Zsh</code>.但是因为自己只是一个普通用户，所以要对自己用户下的默认shell进行设置。</p>
+<h3 id="方法："><a href="#方法：" class="headerlink" title="方法："></a>方法：</h3><h4 id="临时修改shell"><a href="#临时修改shell" class="headerlink" title="临时修改shell"></a>临时修改shell</h4><a id="more"></a>
+<p>我们可以对当前使用的shell进行改变，直接调用不同<code>sheel</code>名称进入到<code>shell</code>环境中去。</p>
+<p>首先我们可以使用命令<code>cat /etc/shells</code>得到当前系统支持的shell环境。<br>merle<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">merle@bogon ~ ❯❯❯ cat /etc/shells                                                                                                     </div><div class="line">/bin/sh                                                                                                                              </div><div class="line">/bin/bash                                                                                                                            </div><div class="line">/sbin/nologin                                                                                                                        </div><div class="line">/usr/bin/sh                                                                                                                          </div><div class="line">/usr/bin/bash                                                                                                                        </div><div class="line">/usr/sbin/nologin                                                                                                                    </div><div class="line">/bin/tcsh                                                                                                                            </div><div class="line">/bin/csh                                                                                                                             </div><div class="line">/bin/zsh</div></pre></td></tr></table></figure></p>
+<p>切换shell环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">merle@bogon ~ ❯❯❯ bash                                                                                                                </div><div class="line">[merle@bogon ~]$ sh</div><div class="line">sh-4.2$ csh</div><div class="line">[merle@bogon ~]$ zsh</div><div class="line">merle@bogon ~ ❯❯❯</div></pre></td></tr></table></figure>
+<p>使用<code>echo $SHELL</code>可得到当前的shell环境。</p>
+<h4 id="修改用户默认的shel"><a href="#修改用户默认的shel" class="headerlink" title="修改用户默认的shel"></a>修改用户默认的shel</h4><p>我们知道在linux系统的<code>/etc/passwd</code>文件内是保存系统内所有用户和用户的设置。</p>
+<p>对某用户的默认设置也在这里。首先我们可以查看一下当前的用户设置。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">merle@bogon ~ ❯❯❯ grep merle /etc/passwd                                                                                               </div><div class="line">merle:x:1000:1000:merle:/home/merle:/bin/zsh</div></pre></td></tr></table></figure>
+<p>一、我们可以使用<code>chsh</code>命令修改某用户的默认<code>shell</code></p>
+<p>使用如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">merle@bogon ~ ❯❯❯ chsh                                                                                                                </div><div class="line">Changing shell for merle.</div><div class="line">New shell [/bin/bash]: /bin/zsh</div><div class="line">密码：</div><div class="line">Shell changed.</div><div class="line">merle@bogon ~ ❯❯❯</div><div class="line"><span class="meta"></span></div><div class="line"># 再次查看该用户设置</div><div class="line">merle@bogon ~ ❯❯❯ grep merle /etc/passwd                                                                                               </div><div class="line">merle:x:1000:1000:merle:/home/merle:/bin/zsh</div></pre></td></tr></table></figure>
+<p>但是有可能系统不支持该命令。可以使用如下方法。</p>
+<p>二、 使用<code>usermod</code>命令</p>
+<p>用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">usermod -s /bin/zsh merle</div><div class="line"><span class="meta"></span></div><div class="line"># 再次查看该用户设置</div><div class="line">merle@bogon ~ ❯❯❯ grep merle /etc/passwd                                                                                               </div><div class="line">merle:x:1000:1000:merle:/home/merle:/bin/zsh</div></pre></td></tr></table></figure>
+<p>由上，我们可以在创建用户的时候指定默认<code>shell</code>.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd -s /bin/zsh username</div></pre></td></tr></table></figure>
+<p>give me a five.<br>同步更新于简书<a href="http://www.jianshu.com/p/1661b8c03edd" target="_blank" rel="external">笨猪_Merle</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/linux/" rel="tag"># linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/25/aiomysql文档一/" rel="next" title="aiomysql文档一">
+                <i class="fa fa-chevron-left"></i> aiomysql文档一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -568,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#我的简历"><span class="nav-number">1.</span> <span class="nav-text">我的简历</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#联系方式"><span class="nav-number">2.</span> <span class="nav-text">联系方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人信息"><span class="nav-number">3.</span> <span class="nav-text">个人信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#项目经历"><span class="nav-number">4.</span> <span class="nav-text">项目经历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#物联网数据管理平台系统"><span class="nav-number">4.1.</span> <span class="nav-text">物联网数据管理平台系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物联网口袋实验室系统"><span class="nav-number">4.2.</span> <span class="nav-text">物联网口袋实验室系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#财务报账系统"><span class="nav-number">4.3.</span> <span class="nav-text">财务报账系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenStack平台运维"><span class="nav-number">4.4.</span> <span class="nav-text">OpenStack平台运维</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技能清单"><span class="nav-number">5.</span> <span class="nav-text">技能清单</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#技能关键字"><span class="nav-number">5.1.</span> <span class="nav-text">技能关键字</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#个人描述"><span class="nav-number">6.</span> <span class="nav-text">个人描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#致谢"><span class="nav-number">7.</span> <span class="nav-text">致谢</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法："><span class="nav-number">2.</span> <span class="nav-text">方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#临时修改shell"><span class="nav-number">2.1.</span> <span class="nav-text">临时修改shell</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改用户默认的shel"><span class="nav-number">2.2.</span> <span class="nav-text">修改用户默认的shel</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -694,10 +762,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
