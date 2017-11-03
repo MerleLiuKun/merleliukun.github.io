@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[log查看流]]></title>
+    <url>%2F2017%2F11%2F03%2Flog%E6%9F%A5%E7%9C%8B%E6%B5%81%2F</url>
+    <content type="text"><![CDATA[背景最近看各种log文件，所以有一些常用的命令去查看文件，记录一下。 流程1、先查看文件的行数 1wc -l xxx.log 2、 参看文件末尾100行 12tail -n 20 xx.log# 不执行行数 则默认出10行 3、查看文件全部内容 1cat -n xx.log 4、查看文件头20行 12head -n 20 xx.log# 如果不指定行数 则默认10行 5、 实时查看文件变动 1tail -f xx.log 6、查看文件中的某些行 12sed -n '10,100p' xx.log# p不能省去。 表示10-100行 7、从后往前显示文件 1tac xxx.log 但是 tac 可以和tail一起用，可以查看debug的log(其实用处也不大) 1tail xx.log | tac 8、组合命令查看文件中的某些行 12345678910# 从3000行开始，展示100行，cat -n xx.log | tail -n 3000 | head -n 100# 显示1000到1500行cat -n xx.log | head -n 1500 | tail -n +1000# 其中tail -n 100 # 显示最后100行tail -n +100 # 显示第100行之后的所有行head -n 100 # 显示当前开始的前100行 参考资料Linux显示文件中间几行 安利一个全文搜索工具：The_silver_searcher—-AG]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ffmpeg使用笔记一]]></title>
     <url>%2F2017%2F10%2F27%2Fffmpeg%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0%E4%B8%80%2F</url>
     <content type="text"><![CDATA[简介ffmpeg是处理音频和视频的程序，可以将音频和视频装换成流，并且包含了音频/视频的解码库libavcodec，提供了一套很完整的音视频解决方案。了解更多 相关资源ffmpeg官网地址 ffmpeg的Github项目地址 常用参数介绍主要参数 -i 跟输入文件 -f 设置输出格式 -y 输出文件已存在则覆盖该文件 -fs 超过制定的文件大小则结束转换 -ss 制定开始时间 -t 从-ss时间开始转换的持续时间 -title 设置标题 -timestamp 设置时间戳 -vsync 增减Frame使得影音同步 视频相关参数 -b:v 设置视频流量，默认为200Kbit/s -r 设置帧率 默认为25 -s 设置画面的宽和高 -aspect 设置画面的比例 -vn 不处理视频，于仅针对声音做处理时使用。 -vcodec(-c:v) 设置视频编解码器，未设置时使用与输入文件相同的编解码器 音频相关参数 -b:a 设置每个通道的流量 -ar 设置采样率 -ac 设置声音的通道数目 -acodec 设置音频编解码器，未设置时使用与输入文件相同的编解码器 -an 不处理声音，仅针对视频做处理时使用 -vol 设置音量大小，256为标准音量。（要设置成两倍音量时则输入512，依此类推。） 基础命令ffmpeg版本对应信息1、 查看当前版本所包含的编解码器 12345678ffmpeg -formats输出:D 3dostr 3DO STR E 3g2 3GP2 (3GPP2 file format) E 3gp 3GP (3GPP file format)D 4xm 4X Technologies E a64 a64 - video for Commodore 64 ...... 常见用法视频相关操作1、查看视频(音频)信息 ffmpeg -i test1.avi ffmpeg -i test2.mp3 2、将一组图片序列合成视频 12ffmpeg -f image2 -i image%d.jpg output.mpg# -i image%d.jpg 将当前目录下的image1.jpg、image2.jpg...包含 3、 将视频分解成图片序列 1ffmpeg -i test1.mpg image%d.jpg 4、将.mpg 装换成 .avi文件 1ffmpeg -i test1.mpg out.avi 5、 从视频中抽出声音，存为.mp3文件 1ffmpeg -i test1.avi -vn -ar 44100 -ac 2 -ab 192 -f mp3 sound.mp3 音频相关操作1、拼接多个音频 需求： 将test1.mp3和test2.mp3两个文件连接在一起。 12ffmpeg -i "concat:123.mp3|124.mp3" -acodec copy output.mp3# 其中 -acodec copy 表示重新编码并且复制到输出文件中。 2、 混合多个音频需求： 将test1.mp3和test2.mp3混合成一个音频，以第一个文件的长度为准。 123456789ffmpeg -i test1.mp3 -i test2.mp3 -filter_complex amix=inputs=2:duration=first:dropout_transition=2 -f mp3 output.mp3# --filter_complex: ffmpeg的滤镜功能# amix 表示混合多个音频到单个音频# inputs=2：表示输入两个音频文件，可以多个# duration：表示输出文件的长度 有多个参数# - longest 最长# - shortest 最短# - first 第一个文件长度# dropout_transition：输入流结束时（音频）容量重整化的转换时间（以秒为单位）。 默认值为2秒 3、 截取一个音频 需求： 截取test1.mp3音频文件的开始一分钟 123ffmpeg -i test1.mp3 -acodec copy -ss 00:00:00 -t 00:01:00 output.mp3# -ss 开始截取的时间点# -t 截取音频的时间长度 4、音频文件的格式转换 需求： 将test1.ape转换成test1.mp3格式 12345ffmpeg -i test1.ape -ar 4410 -ac 2 -ab 16k -vol|50 -f mp3 test1.mp3# -ar 设置音频采样频率# -ac 设置音频通道数# -ab 设置声音比特率# -vol 设置音量 256为标准音量。（要设置成两倍音量时则输入512，依此类推。） 参考文章 维基百科FFmpeg 官方文档ffmpeg ffmpeg音频合并]]></content>
