@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[新博客搬迁计划]]></title>
+    <url>%2F2017%2F12%2F19%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
+    <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>杂项</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[let-sox-support-mp3-file]]></title>
     <url>%2F2017%2F11%2F08%2Flet-sox-support-mp3-file%2F</url>
     <content type="text"><![CDATA[问题直接通过brew install sox安装的sox出现如下: 1SoX was compiled with neither MP2 nor MP3 encoding support 原因就是当前的sox并没有用于mp2或者mp3文件的编解码器。对于sox支持mp3文件，需要依赖一些包。 方法安装对应依赖可以通过先使用如下命令将对应的依赖包都安装。 12brew install soxbrew uninstall sox 或者直接安装对应的依赖包，如下： 12brew install opencore-amr libao flac two-lame libtool mad libid3tag libmagiclibvorbis libpng libsndfile wavpack lame 源码编译官方的包对于macOS系统支持会有问题。所以可以下载如下仓库的包。 1git clone https://github.com/mansr/sox 进行编译 12345cd soxautoreconf -i./configuremake -s &amp;&amp; make install 参考资料 官方仓库 Homebrew-sox How-to-compile-SoX]]></content>
@@ -261,17 +272,6 @@
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[新博客搬迁计划]]></title>
-    <url>%2F2017%2F07%2F27%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
-    <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
-      <categories>
-        <category>杂项</category>
-      </categories>
-      <tags>
-        <tag>杂项</tag>
       </tags>
   </entry>
   <entry>
