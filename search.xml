@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[新博客搬迁计划]]></title>
-    <url>%2F2017%2F12%2F19%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
-    <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
+    <title><![CDATA[ffmpeg-concat-video-and-mix-audio.md]]></title>
+    <url>%2F2018%2F01%2F06%2Fffmpeg-concat-video-and-mix-audio%2F</url>
+    <content type="text"><![CDATA[需求将N个片段视频文件连接，并合并额外的音频文件 解决方案：在ffmpeg中，官网给出两种连接媒体文件(音频、视频、etc..)的解决方案。 the concat “demuxer” the concat “protocol” 对比而言， demuxer更加灵活一些，需要媒体文件是属于相同的编解码器，但是可以属于不同的容器格式(mp3,wav, mp4, mov, etc..).而protocol只适用于少数集中容器格式。 使用concat demuxer连接视频文件demuxer从一个文本文件中读取文件或者其他指令的列表，然后注意的对他们进行解复用。就像把他们的数据包混合到一起。 步骤： 1.创建一个文件mylist.txt，包含你想要连接的所有文件，格式如下： file &apos;path/to/file1&apos; file &apos;path/to/file2&apos; file &apos;path/to/file3&apos; 其中的文件路径可以是相对路径或者是绝对路径。 2.ffmpeg命令 1ffmpeg -f concat -safe 0 -i mylist.txt -c copy output 如果对应的路径为相对路径 参数-safe 0就不是必须的。 3.自动生成输入文本文件的 可以使用如下shell脚本生成。1234# with bash or zsh for loopfor f in *.mp4; do echo "file '$f'" &gt;&gt; mylist.txt; done# or with printfprintf "file '%s'\n" *.mp4 &gt; mylist.txt 使用Concat protocol 连接视频文件demuxer 是在文件流级别工作，而cancat protocol则是在文件级别操作。可以将使用MPEG-2传输流的文件连接在一起。类似于在类unix系统上使用cat，或在windows系统上使用copy. 1.下面的命令连接了三个MPEG-2 TS文件，并将它们连接在一起，但不进行重编码 1ffmpeg -i "concat:input1.ts|input2.ts|input3.ts" -c copy output.ts 2.使用中间文件123ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate1.tsffmpeg -i input2.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts intermediate2.tsffmpeg -i "concat:intermediate1.ts|intermediate2.ts" -c copy -bsf:a aac_adtstoasc output.mp4 3.使用命名管道避免中间文件1234mkfifo temp1 temp2ffmpeg -i input1.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp1 2&gt; /dev/null &amp; \ffmpeg -i input2.mp4 -c copy -bsf:v h264_mp4toannexb -f mpegts temp2 2&gt; /dev/null &amp; \ffmpeg -f mpegts -i "concat:temp1|temp2" -c copy -bsf:a aac_adtstoasc output.mp4 所有MPEG格式(MPEG-4 Part 10 / AVC, MPEG-4 Part 2, MPEG-2 Video, MPEG-1 Audio Layer II,MPEG-2 Audio Layer III (MP3), MPEG-4 Part III (AAC)).都可以转换成MPEG-TS.但是其中的一些参数需要改变，比如-bsf比特流过滤器需要改变 合并音频和视频默认情况下，ffmpeg只会处理一个音频流和一个视频流， 先给命令： 1ffmpeg -i input.mp4 -i input.mp3 -c copy -map 0:v:0 -map 1:a:0 output.mp4 相关解释： map 参数制指定了从哪一个输入流中映射到输出中。 0:v:0 从第一个输出文件中取第一个视频流，1:a:0从第二个文件中取第一个音频流。 v/a参数不是必需的。但是如果输入文件中包含多个流，这样有助于消除歧义。 如果你的音频流时长超过视频流，或者相反，你可以使用-shortest参数，使ffmpeg参数在处理到两个输入短的结束时结束。 -c copy 复制音频流和视频流，这意味着进程会处理的更快，并且质量也与之前一样。但是在添加一个wav音频到视频中时，最好先压缩一下音频。例如：ffmpeg -i input.mp4 -i input.wav -c:v copy -map 0:v:0 -map 1:a:0 -c:a aac -b:a 192k output.mp4命令中，我们复制了视频流，但是使用ffmpeg内置的AAC编码器重编码了音频，设置为了192kBit/s. 如果你的输出并不支持特定的编解码器， 例如(添加WAV到MP4，或者AAC到AVI中)重编码也是需要的。 我的解决方案由于需要合并片段文件和相应的音频文件，首先会拆离视频文件中的音频文件， 并与另外的音频文件混合。可以使用sox或者ffmpeg。 然后在执行连接命令。 命令如下： 1ffmpeg -hide_banner -f concat -i list.txt -i if.mp3 -c:v copy -c:a aac -strict -2 -map 0:v:0 -map 1:a:0 test.mp4 参考资料 Concatenating media files add-audio-to-video-using-ffmpeg]]></content>
       <categories>
-        <category>杂项</category>
+        <category>other</category>
       </categories>
       <tags>
-        <tag>杂项</tag>
+        <tag>other</tag>
       </tags>
   </entry>
   <entry>
@@ -328,6 +328,17 @@
       <tags>
         <tag>linux</tag>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[新博客搬迁计划]]></title>
+    <url>%2F2017%2F07%2F21%2F%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%81%E8%AE%A1%E5%88%92%2F</url>
+    <content type="text"><![CDATA[懒人自述很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。 新博客采用hexo搭建,主题使用next。简直完美。 正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。 开始找工作啦。。。。。。]]></content>
+      <categories>
+        <category>杂项</category>
+      </categories>
+      <tags>
+        <tag>杂项</tag>
       </tags>
   </entry>
 </search>

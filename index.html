@@ -321,7 +321,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2017/12/19/新博客搬迁计划/">
+    <link itemprop="mainEntityOfPage" href="http://lkhardy.cn/2018/01/06/ffmpeg-concat-video-and-mix-audio/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MerleLiuKun">
@@ -340,7 +340,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/19/新博客搬迁计划/" itemprop="url">新博客搬迁计划</a></h1>
+                <a class="post-title-link" href="/2018/01/06/ffmpeg-concat-video-and-mix-audio/" itemprop="url">ffmpeg-concat-video-and-mix-audio.md</a></h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-19T15:21:58+08:00">
-                2017-12-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-06T18:42:27+08:00">
+                2018-01-06
               </time>
             
 
@@ -375,8 +375,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/others/" itemprop="url" rel="index">
-                    <span itemprop="name">杂项</span>
+                  <a href="/categories/other/" itemprop="url" rel="index">
+                    <span itemprop="name">other</span>
                   </a>
                 </span>
 
@@ -410,13 +410,20 @@
 
       
         
-          
-            <h1 id="懒人自述"><a href="#懒人自述" class="headerlink" title="懒人自述"></a>懒人自述</h1><p>很久之前用wordpress搭建一个个人博客。但是后来服务器到期了，决定搬迁一下。</p>
-<p>新博客采用hexo搭建,主题使用next。简直完美。</p>
-<p>正好趁此机会把之前写的博客好好整理一番。熟悉熟悉自己的技能栈。</p>
-<p>开始找工作啦。。。。。。</p>
-
-          
+          <h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><p>将N个片段视频文件连接，并合并额外的音频文件</p>
+<h1 id="解决方案："><a href="#解决方案：" class="headerlink" title="解决方案："></a>解决方案：</h1><p>在<code>ffmpeg</code>中，官网给出两种连接媒体文件(音频、视频、etc..)的解决方案。</p>
+<ul>
+<li>the concat “demuxer”</li>
+<li>the concat “protocol”</li>
+</ul>
+<p>对比而言， <code>demuxer</code>更加灵活一些，需要媒体文件是属于相同的编解码器，但是可以属于不同的容器格式(mp3,wav, mp4, mov, etc..).<br>而<code>protocol</code>只适用于少数集中容器格式。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/06/ffmpeg-concat-video-and-mix-audio/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1720,7 +1727,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1766,7 +1773,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
