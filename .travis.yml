@@ -1,0 +1,26 @@
+
+language: node_js
+
+node_js: stable
+
+install:
+  - npm install
+
+before_script:
+- git config --global user.name "ikroskun"
+- git config --global user.email "merle.liukun@gmail.com"
+- sed -i "s/__GITHUB_TOKEN__/${GITHUB_TOKEN}/" _config.yml
+
+script:
+  - hexo clean
+  - hexo generate
+  - hexo deploy
+
+after_script:
+
+branches:
+  only:
+    - hexo_repo
+
+notifications:
+  email: true
