@@ -17,6 +17,7 @@
     "hexo-generator-json-content": "^3.0.1",
     "hexo-generator-restful": "^0.2.3",
     "hexo-generator-search": "^2.2.5",
+    "hexo-generator-searchdb": "^1.0.8",
     "hexo-generator-sitemap": "^1.2.0",
     "hexo-generator-tag": "^0.2.0",
     "hexo-renderer-ejs": "^0.3.0",
