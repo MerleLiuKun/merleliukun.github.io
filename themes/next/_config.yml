@@ -951,6 +951,7 @@ vendors:
 css: css
 js: js
 images: images
+lib: lib
 
 # custom_setting
 # 文章末尾添加“本文结束”标记

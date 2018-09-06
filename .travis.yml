@@ -16,7 +16,7 @@ script:
   - hexo generate
   - hexo deploy
 
-after_script:
+# after_script:
 
 branches:
   only:
