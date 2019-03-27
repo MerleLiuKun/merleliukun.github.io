@@ -17,14 +17,17 @@ It is Me
 
 热爱新技术，希望自己能够称为一个大牛。
 
+工作中......
+
 ---
 
 What I am doing now....
 -------------
 - 持续学习Python中...  
-- 目前以后端开发为主业，框架使用Flask、Django、Twisted。  
+- 目前以后端开发为主业，框架使用 `Flask`,`Django`,`Twisted`,`Celery`。  
 - Linux深入学习ing  
-- 前端无知少年，只会bootstrap框架
+- 前端学习中，了解 `React`, `LayUI`, `Bootstrap`等框架
+- Go语言初学...
 
 ---
 
@@ -32,7 +35,7 @@ What I am doing now....
 ---
 
 在读：
-  
+
 >1.《编程珠玑》
 >2.《代码整洁之道》
 >
