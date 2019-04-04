@@ -183,11 +183,12 @@ github_banner: https://github.com/MerleLiuKun || Follow me on GitHub
 
 # Blog rolls
 links_icon: link
-links_title: Links
+links_title: Friends
 links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+links:
+  Jae: http://yuuuuuy.top/
+  Teemo: https://eilene.cn/
 
 # Sidebar Avatar
 avatar:

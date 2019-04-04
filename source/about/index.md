@@ -59,7 +59,7 @@ What I am doing now....
 - [GitHub](https://github.com/MerleLiuKun)
 - [知乎](https://www.zhihu.com/people/liu-kun-1-34/activities)
 - [邮件](merle.liukun@gmail.com)
-
+- [简书](https://www.jianshu.com/u/cafa569ddcf1)
 
 ---
 
