@@ -1,8 +1,11 @@
 ---
 title: aiomysql文档一
 date: 2017-09-25 22:52:50
-categories: 数据库
-tags: 数据库
+categories: 
+- 数据库
+tags:
+- MySQL
+- python
 ---
 
 ## aiomysql官方文档

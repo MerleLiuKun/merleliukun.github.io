@@ -2,10 +2,10 @@
 title: Mysql命令笔记
 date: 2017-09-19 20:16:00
 categories:
-- Database
+- 数据库
 tags:
-- Database 
-- mysql
+- 数据库 
+- MySQL
 ---
 ## Mysql相关的命令记录
 

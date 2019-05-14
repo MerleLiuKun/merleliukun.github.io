@@ -1,8 +1,10 @@
 ---
 title: 渣翻之NeverWriteFor-LoopsAgain
 date: 2017-09-17 17:15:00
-categories: python
-tags: python
+categories: 
+- Python
+tags: 
+- python
 ---
 
 ### 渣翻
