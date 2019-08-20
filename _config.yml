@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 伊卡伊卡
+title: Ikaros Kun
 subtitle: Keep You Sane.
 description: Ideas and Notes.
 keywords:
-author: ikroskun
+author: ikaroskun
 language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://ikroskun.me
+url: https://blog.ikaroskun.xyz
 root: /merleliukun.github.io/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
