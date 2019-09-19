@@ -14,12 +14,12 @@ Developing
 
 封装了 `Facebook Graph API` 数据获取的库
 
-{% githubCard user:sns-sdks repo:python-facebook %}
+{% githubCard user:sns-sdks repo:python-facebook align:left %}
 
 
 封装了 `YouTube DATA API` 数据获取的库
 
-{% githubCard user:sns-sdks repo:python-youtube %}
+{% githubCard user:sns-sdks repo:python-youtube align:left %}
 
 
 IDEA
