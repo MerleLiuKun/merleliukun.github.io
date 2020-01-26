@@ -7,8 +7,7 @@ install:
   - sh init_env.sh
 
 before_install:
-    - git clone --branch=master https://github.com/MerleLiuKun/merleliukun.github.io .deploy_git
-    - git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/Butterfly
+    - git clone --recursive --branch=master https://github.com/MerleLiuKun/merleliukun.github.io .deploy_git
 
 script:
   - hexo clean
