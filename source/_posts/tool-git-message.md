@@ -9,6 +9,7 @@ categories:
 keywords: git,commitizen
 description: 优化你的git-commit-message
 comments:  false
+cover: https://i.loli.net/2020/01/20/aUMm2kZSbBpeVX7.png
 ---
 
 简介

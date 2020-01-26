@@ -8,6 +8,7 @@ tags:
 - dataclasses
 keywords: python dataclass
 description: Python 数据类 dataclasses 实践
+cover: https://i.loli.net/2020/01/26/Y7ZMhtH8XnqPxpI.png
 ---
 
 简介
