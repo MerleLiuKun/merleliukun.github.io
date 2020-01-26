@@ -20,7 +20,7 @@ after_script:
 
 branches:
   only:
-    - hexo_repo
+    - gh-pages
 
 notifications:
   email: true
