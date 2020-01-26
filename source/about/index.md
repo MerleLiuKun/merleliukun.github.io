@@ -52,6 +52,4 @@ What I am doing now
 
 What is my soul?
 
-<html>
-	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=5308028&auto=0&height=66"></iframe>
-</html>
+{% meting "5308028" "netease" "song" %}
