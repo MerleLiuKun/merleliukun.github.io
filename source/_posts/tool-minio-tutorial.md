@@ -12,11 +12,6 @@ description: MinIO对象存储服务介绍
 cover: https://i.loli.net/2020/01/26/QDe2iyskUSl3cMX.png
 ---
 
-简介
-===
-
-来自官网的介绍:
-
 [MinIO](https://docs.min.io/cn/minio-quickstart-guide.html) 是一个基于 `Apache License v2.0` 开源协议的对象存储服务。它兼容亚马逊S3云存储服务接口，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器/虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。
 
 `MinIO` 是一个非常轻量的服务,可以很简单的和其他应用的结合，类似 NodeJS, Redis 或者 MySQL.
