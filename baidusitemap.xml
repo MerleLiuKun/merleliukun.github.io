@@ -2,33 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://blog.ikaroskun.xyz/2017/08/02/alg-data-structure-single-linked-list/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2017/08/15/alg-sort-common/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2019/04/09/alg-token-bucket/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2017/07/25/front-js-datatype-common/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2017/07/26/front-js-object-loop/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2019/11/23/lan-python-dataclassess/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
+  </url>  <url>
+    <loc>https://blog.ikaroskun.xyz/2020/02/04/me-diary-20200204/</loc>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2019/05/14/sql-mysql-query-optimize-1/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2019/08/20/tool-git-message/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2019/08/01/tool-git-submodule/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>  <url>
     <loc>https://blog.ikaroskun.xyz/2019/05/25/tool-minio-tutorial/</loc>
-    <lastmod>2020-02-03</lastmod>
+    <lastmod>2020-02-04</lastmod>
   </url>
 </urlset>
