@@ -12,9 +12,6 @@ description: 常见的排序算法一
 cover: https://i.loli.net/2020/01/31/mCHXYiwrNLzExy1.jpg
 ---
 
-简介
-====
-
 按照相关排序算法的解释，手动用Python实现了一遍，记录一下。
 排序结果为从小到大。
 

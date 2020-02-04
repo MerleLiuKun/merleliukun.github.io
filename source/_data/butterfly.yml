@@ -233,7 +233,7 @@ valine:
 # ------------------------------------
 since: 2017
 
-footer_custom_text:
+footer_custom_text: ❤️ Welcome to my world !
 
 footer_copyright:
   enable: true
@@ -422,7 +422,7 @@ display_mode: light
 
 # 美化post頁顯示
 post_beautify:
-  enable: false
+  enable: true
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: "#F47466"
 
