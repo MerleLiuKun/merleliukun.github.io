@@ -2,6 +2,7 @@
 title: 关于我
 date: 2017-07-22 23:56:39
 type: "about"
+top_img: /images/about.jpg
 ---
 
 
