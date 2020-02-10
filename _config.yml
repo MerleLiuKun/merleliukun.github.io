@@ -114,6 +114,9 @@ douban:
   movie:
     title: 'Movie'
     quote: 'Movie is life'
+  book:
+    title: 'book'
+    quote: 'Book brings you unconsciously'
   timeout: 10000 
 
 # Securit by hexo-blog-encrypt

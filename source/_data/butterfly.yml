@@ -15,6 +15,7 @@ menu:
   嘀嗒||fa fa-list:
     - 音乐 || /music/ || fa fa-music
     - 电影 || /movies/ || fa fa-film
+    - 书籍 || /books/ || fa fa-book
 
 # Favicon
 # ---------------
