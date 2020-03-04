@@ -2,7 +2,7 @@
 title: 关于我
 date: 2017-07-22 23:56:39
 type: "about"
-top_img: /images/about.jpg
+top_img: https://i.loli.net/2020/03/05/4jb9m8ivhEnuOBY.jpg
 ---
 
 > What are you waiting for ?
