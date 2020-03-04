@@ -8,7 +8,7 @@ tags:
 - dataclasses
 keywords: python dataclass
 description: Python 数据类 dataclasses 实践
-cover: https://i.loli.net/2020/01/26/Y7ZMhtH8XnqPxpI.png
+cover: https://i.loli.net/2020/03/04/DhIK3TUzPCdxSt1.png
 ---
 
 从 `Python3.7` 版本开始，引入了一个新的模块 `dataclasses`，该模块主要提供了一种数据类的数据类的实现方式。基于 [PEP-557](https://www.python.org/dev/peps/pep-0557/)实现。 所谓数据类，类似 `Java` 语言中的 `Bean`。通过一个容器类(class)，继而使用对象的属性访问数据。

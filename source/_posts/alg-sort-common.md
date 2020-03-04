@@ -9,7 +9,7 @@ tags:
 - sort
 keywords: 排序 
 description: 常见的排序算法一
-cover: https://i.loli.net/2020/01/31/mCHXYiwrNLzExy1.jpg
+cover: https://i.loli.net/2020/03/04/g1wMk2QrTP9O7LR.jpg
 ---
 
 按照相关排序算法的解释，手动用Python实现了一遍，记录一下。

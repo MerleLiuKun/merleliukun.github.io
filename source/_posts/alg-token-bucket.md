@@ -9,7 +9,7 @@ tags:
 - nginx
 keywords: token-bucket ratelimit
 description: 令牌桶算法浅析
-cover: https://i.loli.net/2020/01/26/DwlhNPZ5rOnAFuV.jpg
+cover: https://i.loli.net/2020/03/04/ODnFgqjYuvVpk85.jpg
 ---
 
 负责的项目中有一个爬虫调度项目。基础的模型就是利用平台提供的 `Token` 通过相关的数据 `API` 从平台获取数据。
@@ -28,7 +28,7 @@ cover: https://i.loli.net/2020/01/26/DwlhNPZ5rOnAFuV.jpg
 当数据请求来临时，算法通过检查当前桶的令牌量，如果令牌量足以支持消耗，即会进行接下来的处理。
 如果令牌不足，则会将请求抛弃(获取缓存，看相关需求)
 
-![token-bucket.png](https://i.loli.net/2020/01/26/lE69Vhb3L72XyY5.png)
+![token-bucket.png](https://i.loli.net/2020/03/04/Z9O8tBPWe2cmgzK.png)
 
 ## 使用
 

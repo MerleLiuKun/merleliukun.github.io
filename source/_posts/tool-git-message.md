@@ -9,7 +9,7 @@ categories:
 keywords: git,commitizen
 description: 优化你的git-commit-message
 comments:  false
-cover: https://i.loli.net/2020/01/20/aUMm2kZSbBpeVX7.png
+cover: https://i.loli.net/2020/03/04/Gd3nLRyQW4XoOSl.png
 ---
 
 无论是写公司的项目或者是自己的项目时，总要向仓库中提交代码。每个人提交代码时写的提交信息都不一样。有随意写各种 `modify`, `fix`等简单的，还有一些比较友好，会写上自己此次提交的简介。个人觉得第二种对代码review，或者查找bug引入点时会更有帮助。
@@ -18,10 +18,10 @@ cover: https://i.loli.net/2020/01/20/aUMm2kZSbBpeVX7.png
 
 一、
 
-![formated.png](https://i.loli.net/2020/01/20/765QTkLY3jlBHgF.png)
+![formated.png](https://i.loli.net/2020/03/04/MqJTHIiYvfgP8dL.png)
 
 二、
-![not_formated.png](https://i.loli.net/2020/01/20/VrKt2EXGcwjyDhC.png)
+![not_formated.png](https://i.loli.net/2020/03/04/Xvye7MmskE2QrC5.png)
 
 对比之下第一种更加清晰明了。
 
@@ -125,7 +125,7 @@ npm install -D commitizen cz-conventional-changelog
 
 效果如下：
 
-![commitizen.png](https://i.loli.net/2020/01/20/aUMm2kZSbBpeVX7.png)
+![commitizen.png](https://i.loli.net/2020/03/04/Gd3nLRyQW4XoOSl.png)
 
 自定义
 -----

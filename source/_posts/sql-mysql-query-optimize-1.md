@@ -8,7 +8,7 @@ tags:
 - mysql
 keywords: mysql optimize
 description: MySQL查询优化一
-cover: https://i.loli.net/2020/01/27/EQKiAL5RegHfYxX.jpg
+cover: https://i.loli.net/2020/03/04/XKYv8TUEqDcxnZh.jpg
 ---
 
 多数情况下，我们知道索引能够提高查询效率，但应该如何建立索引？索引的顺序如何？许多人却只知道大概。其实理解这些概念并不难，而且索引的原理远没有想象的那么复杂。

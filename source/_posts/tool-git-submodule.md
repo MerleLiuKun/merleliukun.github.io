@@ -8,7 +8,7 @@ tags:
 - submodule
 keywords: git,submodule
 description: Git submodule 子模块管理
-cover: https://i.loli.net/2020/02/03/HypBcsILXoMmNxz.png
+cover: https://i.loli.net/2020/03/04/P4OS1FjhWTC6U3d.png
 ---
 
 在使用某些大型项目时，会发现项目会引用了其他的一些项目，而引用的这些项目也会进行一些更新维护的操作。那么如何对这些子项目进行管理呢？ 当然你可以将子项目的更新进行手动调整，进而提交到主项目中。但是这种操作并不友好，并且会污染主项目的提交历史。

@@ -107,7 +107,7 @@ katex:
 avatar: /images/avatar.jpg
 
 # the banner image of index
-index_img: /images/index.jpg
+index_img: /images/index-bg-road.jpeg
 
 # if the banner of page not setting,it will show the top_img
 default_top_img: /images/default-index.jpg

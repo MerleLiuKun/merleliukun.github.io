@@ -118,10 +118,3 @@ douban:
     title: 'book'
     quote: 'Book brings you unconsciously'
   timeout: 10000 
-
-# Securit by hexo-blog-encrypt
-encrypt:
-    enable: true
-    abstract: 秘而不宣
-    message: 从前的锁也好看，钥匙精美有样子，你锁了，人家就懂了。
-    wrong_pass_message: 打不开的门！
