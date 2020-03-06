@@ -18,8 +18,6 @@ cover: https://i.loli.net/2020/03/04/oBFUswaSibKN8v7.png
 
 简单来说, 我们可以基于 `MinIO` 搭建一个类似亚马逊S3(腾讯云OSS)的存储服务。
 
-<!-- more -->
-
 安装部署
 =======
 
