@@ -15,6 +15,13 @@ cover: https://i.loli.net/2020/03/09/IqEkKYm3zjJQBbH.jpg
 包管理
 ======
 
+切换快速源
+---------
+
+``` bash
+sudo pacman-mirrors -i -c China -m rank
+```
+
 Pacman 更新时出现文件已存在
 --------------------------
 
