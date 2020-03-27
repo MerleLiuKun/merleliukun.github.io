@@ -35,3 +35,14 @@ npm: /usr/lib/node_modules/npm/node_modules/minizlib/node_modules/minipass/READM
 sudo pacman -S npm --overwrite /path/to/npm
 ```
 
+硬件
+====
+
+蓝牙
+----
+
+安装依赖
+
+``` sh
+sudo pacman -S bluez bluez-utils pulseaudio-bluetooth pavucontrol pulseaudio-alsa pulseaudio-bluetooth-a2dp-gdm-fix
+```
