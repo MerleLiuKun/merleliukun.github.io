@@ -425,8 +425,8 @@ display_mode: light
 
 # 美化post頁顯示
 post_beautify:
-  enable: true
-  title-prefix-icon: '\f0c1'
+  enable: false
+  title-prefix-icon: '\f7a4'
   title-prefix-icon-color: "#F47466"
 
 # 全局字體
