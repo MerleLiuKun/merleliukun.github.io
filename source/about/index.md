@@ -20,7 +20,6 @@ Working...
 -------
 
 - [GitHub](https://github.com/MerleLiuKun)
-- [Twitter](https://twitter.com/LiuKun48140223)
 - [邮件](merle.liukun@gmail.com)
 - [简书](https://www.jianshu.com/u/cafa569ddcf1)
 

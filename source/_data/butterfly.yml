@@ -261,7 +261,7 @@ gitalk:
 
 # valine comment system. https://valine.js.org
 valine:
-  enable: false # if you want use valine,please set this value is true
+  enable: true # if you want use valine,please set this value is true
   appId: 'GTnmaRzsBP9ti6cxgFzQnlxF-gzGzoHsz' #leancloud application app id
   appKey: 'GSBMPvKie0Kr5THxCEvNBj6y' # leancloud application app key
   notify: false # valine mail notify (true/false) https://github.com/xCss/Valine/wiki
