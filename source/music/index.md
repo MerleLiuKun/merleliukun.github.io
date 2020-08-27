@@ -1,8 +1,6 @@
 ---
 title: 音乐洗涤心灵
 date: 2020-01-20 20:26:53
-layout: "music"
-type: "music"
 top_img: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/music.jpg
 comments: false
 reward: false
