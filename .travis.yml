@@ -4,7 +4,6 @@ node_js: 12
 
 install:
   - npm install
-  # - sh init_env.sh
 
 before_install:
     - git clone --recursive --branch=master https://github.com/MerleLiuKun/merleliukun.github.io .deploy_git
