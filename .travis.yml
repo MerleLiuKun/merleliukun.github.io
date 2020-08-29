@@ -1,27 +1,21 @@
+sudo: false
 language: node_js
-
-node_js: 12
-
-install:
-  - npm install
-
-before_install:
-    - git clone --recursive --branch=master https://github.com/MerleLiuKun/merleliukun.github.io .deploy_git
-
-script:
-  - hexo clean
-  - hexo douban -b
-  - hexo generate
-
-after_script:
-  - git config --global user.name "ikaroskun"
-  - git config --global user.email "merle.liukun@gmail.com"
-  - sed -i "s/__GITHUB_TOKEN__/${GITHUB_TOKEN}/" _config.yml
-  - hexo deploy
-
+node_js:
+  - 12 # use nodejs v12
+cache: npm
 branches:
   only:
-    - gh-pages
+    - gh-pages # build gh-pages branch only
+script:
+  - hexo generate # generate static files
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: ${GITHUB_TOKEN}
+  keep-history: true
+  on:
+    branch: master
+  local-dir: public
 
 notifications:
   email: true
