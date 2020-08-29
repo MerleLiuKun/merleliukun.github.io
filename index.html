@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ikaros の小屋 - Keep You Sane</title><meta name="description" content="学习笔记和思考"><meta name="keywords" content="idea,notes,blog"><meta name="author" content="Ikaros Kun"><meta name="copyright" content="Ikaros Kun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://blog.ikaroskun.xyz/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="Ikaros の小屋"><meta property="og:url" content="https://blog.ikaroskun.xyz/"><meta property="og:site_name" content="Ikaros の小屋"><meta property="og:description" content="学习笔记和思考"><meta property="og:image" content="https://blog.ikaroskun.xyz/images/avatar.jpg"><meta property="article:published_time" content="2020-08-29T14:57:59.408Z"><meta property="article:modified_time" content="2020-08-29T14:57:59.408Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.1.1',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime: '',
+  last_push_date: {"zeroDay":"Today","suffix":"days ago"},
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+      const now = new Date()
+      const expiryDay = ttl * 86400000
+      const item = {
+        value: value,
+        expiry: now.getTime() + expiryDay,
+      }
+      localStorage.setItem(key, JSON.stringify(item))
+    },
+  
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2020-08-29 22:57:59'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="Ikaros の小屋" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">13</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">17</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/repo/"><i class="fa-fw fas fa-flag"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 嘀嗒</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/03/05/mG3q8TnfhvZOW5C.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ikaros の小屋</a></span><span class="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/repo/"><i class="fa-fw fas fa-flag"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 嘀嗒</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">Ikaros の小屋</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/MerleLiuKun" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:merle.liukun@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fas fa-rss"></i></a><a class="social-icon" href="https://stackoverflow.com/users/6240162/ikaroskun" target="_blank" title=""><i class="fab fa-stack-overflow"></i></a><a class="social-icon" href="https://www.jianshu.com/u/cafa569ddcf1" target="_blank" title="简书"><i class="fas fa-blog"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/05/06/lan-python-mysqlclient-install/" title="mysqlclient 安装问题">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysqlclient 安装问题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/05/06/lan-python-mysqlclient-install/" title="mysqlclient 安装问题">mysqlclient 安装问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-05-06T13:23:11.000Z" title="Created 2020-05-06 21:23:11">2020-05-06</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/python/">python</a></span></div><div class="content">Linux 下如果已经本地安装了 MySQL 或者 MariaDB 此时可以直接使用命令安装。
+1pip install mysqlclient
+
+如果没有安装，需要先准备 MySQL 的开发依赖库。
+123456sudo apt-get install default-libmysqlclient-dev build-essential # Ubuntu/Debiansudo yum install mysql-devel # CentOS/RedHatsudo pacman -S libmysqlclient # Arch/Manjaro#　执行安装pip install mysqlclient
+
+MacOSMacOS 下，如果使用了 Homebrew 安装了 MySQL，可执行如下流程
+123456789101112# 确认在 Python 虚拟环境下# 假设本地为 MySQL 5.7.29 版本export PATH=&quot;/usr/local/Cellar/mysql@5.7/5.7.29/bin/:$PATH&quot;# 如果安装时爆出 ld: library no ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/03/25/linux-manjaro-introduce/" title="Manjaro 入门">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/31/x86vStZNAmIokCb.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Manjaro 入门"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/25/linux-manjaro-introduce/" title="Manjaro 入门">Manjaro 入门</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-03-25T16:39:57.000Z" title="Created 2020-03-26 00:39:57">2020-03-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Linux/Manjaro/">Manjaro</a></span></div><div class="content">Manjaro 是一款基于 Arch Linux 的、对用户友好、全球排名第 1 的Linux发行版, 从使用上来看，比 Arch 更加易用，面向的人群是新手和初级人员还有那些不愿意折腾，却又想使用 Arch 新特性的人群。
+系统安装资源中文镜像地址: 
+
+中科大地址
+清华大学地址
+
+官方镜像地址: 
+
+Manjaro Downloads
+
+启动盘制作: 
+
+Rufus
+
+安装选择中文，根据提示一步一步安装即可，要注意如下情况：
+
+如果是独立显卡时，可能出现黑屏，在启动配置页面可以选择 nofree 驱动。
+系统安装过程中，分区时，注意给 boot 分区增加一些空间，建议 1 G, 避免多内核切换时出现存储不足。
+
+系统配置软件源配置 Pacman 源
+1sudo pacman-mirrors -i -c China -m rank
+可选择，清华源(tuna.tsinghua), 中科大源(ustc)
+Pacman 常见命令
+123456789101112pacman -Syu # 同步数据包后更新系统pacman -Sy 包名 # 同步包数据库后安装。pacman -R 包名 # 删 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/03/08/linux-manjaro-questions/" title="Manjaro 使用中出现的奇妙问题">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/09/IqEkKYm3zjJQBbH.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Manjaro 使用中出现的奇妙问题"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/08/linux-manjaro-questions/" title="Manjaro 使用中出现的奇妙问题">Manjaro 使用中出现的奇妙问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2020-03-08T15:36:17.000Z" title="Created 2020-03-08 23:36:17">2020-03-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/Linux/Manjaro/">Manjaro</a></span></div><div class="content">此处记录使用 Linux 发行版 Manjaro 中出现的一些小问题，以及对应的解决方式。
+包管理切换快速源1sudo pacman-mirrors -i -c China -m rank
+
+Pacman 更新时出现文件已存在报出的错误如下:
+1234conflicting files:npm: &#x2F;usr&#x2F;lib&#x2F;node_modules&#x2F;npm&#x2F;node_modules&#x2F;minizlib&#x2F;node_modules&#x2F;minipass&#x2F;LICENSE already exists in filesystemnpm: &#x2F;usr&#x2F;lib&#x2F;node_modules&#x2F;npm&#x2F;node_modules&#x2F;minizlib&#x2F;node_modules&#x2F;minipass&#x2F;README.md already exists in filesystem...
+
+解决方式
+可以直接使用 overwrite 强制重写文件:
+1sudo p ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/11/23/lan-python-dataclassess/" title="Python 数据类 dataclasses 实践">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/04/DhIK3TUzPCdxSt1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 数据类 dataclasses 实践"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/11/23/lan-python-dataclassess/" title="Python 数据类 dataclasses 实践">Python 数据类 dataclasses 实践</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-11-23T13:37:40.000Z" title="Created 2019-11-23 21:37:40">2019-11-23</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Python/">Python</a></span></div><div class="content">从 Python3.7 版本开始，引入了一个新的模块 dataclasses，该模块主要提供了一种数据类的数据类的实现方式。基于 PEP-557实现。 所谓数据类，类似 Java 语言中的 Bean。通过一个容器类(class)，继而使用对象的属性访问数据。
+如果你使用过标准库中的 collections.namedtuple, 或者 typing.NamedTuple，dataclasses是与这两者类似的。
+通过 dataclasses 我们可以更加方便的去定义一个数据类。并且可以通过原生的方式进行类型检查。
+一个基础例子:
+123456789@dataclassclass InventoryItem:    &#x27;&#x27;&#x27;Class for keeping track of an item in inventory.&#x27;&#x27;&#x27;    name: str    unit_price: float    quantity_on_hand: int = 0    def total_cost(self) -&gt; float:      ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/08/20/tool-git-message/" title="优化你的git-commit-message">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/04/Gd3nLRyQW4XoOSl.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="优化你的git-commit-message"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/08/20/tool-git-message/" title="优化你的git-commit-message">优化你的git-commit-message</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-08-20T11:59:03.000Z" title="Created 2019-08-20 19:59:03">2019-08-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content">无论是写公司的项目或者是自己的项目时，总要向仓库中提交代码。每个人提交代码时写的提交信息都不一样。有随意写各种 modify, fix等简单的，还有一些比较友好，会写上自己此次提交的简介。个人觉得第二种对代码review，或者查找bug引入点时会更有帮助。
+简单做个比较如下：
+一、
+
+二、
+对比之下第一种更加清晰明了。
+规范 Commit message作用基本上很多团队都有自己的相关规范说明，但是目前使用的比较广泛是 Angular 规范, 基本样式如 上文第一张图所示。
+使用依据规范的 Commit message 会有很多好处， 比如：
+(1) 提供更多的信息，方便快速浏览。
+基于规范的 message 可以直接信息中就包含此次提交的内容。也可以基于 message进行过滤
+1git log v0.3 HEAD --grep feat
+
+(2) 可以直接根据 commit 生成对应的 Change Log.
+Commit message 格式每次提交 都需要包含三部分：Header，Body 和 Footer。
+12345&lt;type&gt;(&lt;scope&gt;):  ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/08/01/tool-git-submodule/" title="Git submodule 子模块管理">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/04/P4OS1FjhWTC6U3d.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git submodule 子模块管理"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/08/01/tool-git-submodule/" title="Git submodule 子模块管理">Git submodule 子模块管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-08-01T13:59:04.000Z" title="Created 2019-08-01 21:59:04">2019-08-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Git/">Git</a></span></div><div class="content">在使用某些大型项目时，会发现项目会引用了其他的一些项目，而引用的这些项目也会进行一些更新维护的操作。那么如何对这些子项目进行管理呢？ 当然你可以将子项目的更新进行手动调整，进而提交到主项目中。但是这种操作并不友好，并且会污染主项目的提交历史。
+Git 通过子模块 submodule 来解决这样的问题。子模块允许你将一个 Git 仓库作为另一个 Git 仓库的子目录。 它能让你将另一个仓库克隆到自己的项目中，同时还保持提交的独立。
+在使用 Hexo 搭建静态博客时，我们会通常不会选用内置的主题，而是选择更好看的第三方主题。那么就是上边我们说的场景。我们要在博客的主仓库中对主题的仓库进行统一处理。我们以此为例，简单介绍一下对子模块的使用。
+开始使用子模块假如我们使用第三方主题 hexo-theme-next。通过命令 git submodule add 来添加新的子模块。
+1git submodule add https://github.com/iissnan/hexo-theme-next
+
+此时会把主题项目 hexo-theme-next 克隆到当前目录下的同名目录中。如果你想要将其 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/05/25/tool-minio-tutorial/" title="MinIO对象存储服务介绍">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/04/oBFUswaSibKN8v7.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MinIO对象存储服务介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/05/25/tool-minio-tutorial/" title="MinIO对象存储服务介绍">MinIO对象存储服务介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-05-25T09:40:16.000Z" title="Created 2019-05-25 17:40:16">2019-05-25</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/storage/">storage</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/storage/minio/">minio</a></span></div><div class="content">MinIO 是一个基于 Apache License v2.0 开源协议的对象存储服务。它兼容亚马逊S3云存储服务接口，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器/虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。
+MinIO 是一个非常轻量的服务,可以很简单的和其他应用的结合，类似 NodeJS, Redis 或者 MySQL.
+简单来说, 我们可以基于 MinIO 搭建一个类似亚马逊S3(腾讯云OSS)的存储服务。
+安装部署官网上给出的安装步骤十分详细和完整。这里只简单罗列一下。 以下使用 Docker 进行部署的.
+安装官网详细安装说明
+拉取镜像
+1sudo docker pull minio/minio
+
+为了方便升级，迁移等操作, 我们将 MinIO 的数据放到宿主机上, 然后挂载到容器里。另外因为使用 Docker 部署, 所以需要自定义初始的账号信息. 基础的命令如下:
+123456sudo docker run -p 9000:9000 --name minio-server \  -e &quot;MINIO_ACC ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2019/05/14/sql-mysql-query-optimize-1/" title="MySQL查询优化一">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/04/XKYv8TUEqDcxnZh.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL查询优化一"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/05/14/sql-mysql-query-optimize-1/" title="MySQL查询优化一">MySQL查询优化一</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-05-14T11:38:02.000Z" title="Created 2019-05-14 19:38:02">2019-05-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/sql/">sql</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/sql/mysql/">mysql</a></span></div><div class="content">多数情况下，我们知道索引能够提高查询效率，但应该如何建立索引？索引的顺序如何？许多人却只知道大概。其实理解这些概念并不难，而且索引的原理远没有想象的那么复杂。
+建立索引的几大原则最左前缀匹配原则简单定义:MySQL会一直向右匹配直到遇到范围查询 (&gt;,&lt;,between,like) 就停止匹配.
+所以在针对查询条件进行创建索引时，要将范围级的条件放到索引字段的最后。以让 MySQL 使用索引。
+查询优化器理论上来说 索引对顺序很敏感，但是MySQL的查询优化器会自动调整where子句的条件顺序以使用适合的索引。这属于编译器层次优化.举例： 当 where 条件为 a=1 AND b=2 AND c=3 时, 对应建立的索引 (a,b,c) 列可以以任意顺序建立
+选择区分度高的列如果列的区分度很小，那么为这个列创建索引就不太合适了。比如 性别、某些状态字段之类的。
+有个计算公式：
+1count(distinct col) &#x2F; count(*)
+一般要求 0.1 以上 参考此处
+索引列不参与计算当为某列数据加上索引之后, 不能将该列直接参与计算。因为索引源数据中存的都 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2019/04/09/alg-token-bucket/" title="令牌桶算法浅析">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/04/ODnFgqjYuvVpk85.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="令牌桶算法浅析"></a></div><div class="recent-post-info"><a class="article-title" href="/2019/04/09/alg-token-bucket/" title="令牌桶算法浅析">令牌桶算法浅析</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2019-04-09T09:01:40.000Z" title="Created 2019-04-09 17:01:40">2019-04-09</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/algorithm/">algorithm</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/algorithm/nginx/">nginx</a></span></div><div class="content">负责的项目中有一个爬虫调度项目。基础的模型就是利用平台提供的 Token 通过相关的数据 API 从平台获取数据。对于每个 Token 均存在一个短时间内调用的上限。一旦超出限制，将在一段时间内不能进行继续获取。之前对于这个限制的管理比较简单，当任务触发时，会直接发起数据获取请求。通过检查返回信息，判断是否超限，如果超限，设置一个等待时间之后进行重试。但发现这样没有最大化的利用到 Token. 因为发起请求本身就是对 Token 的一种消耗。最近跟组长进行讨论相关细节时，他提到可以利用 Nginx 的流量限制来进行改进。研究之后发现令牌桶算法很合适这个需求。
+令牌桶算法简介令牌桶(token bucket)算法是 nginx 进行流量限制的一种常用算法。常用于控制发送到网络上的数据的数量，并允许突发数据的发送。
+基础流程图当数据请求来临时，算法通过检查当前桶的令牌量，如果令牌量足以支持消耗，即会进行接下来的处理。如果令牌不足，则会将请求抛弃(获取缓存，看相关需求)
+
+使用在当前的需求中，对每一个 Token 实例添加一个容量桶。存储当前的可调用次数。当有 worker 发起请求时，先检 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2017/08/15/alg-sort-common/" title="常见的排序算法一">     <img class="post_bg" data-lazy-src="https://i.loli.net/2020/03/04/g1wMk2QrTP9O7LR.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="常见的排序算法一"></a></div><div class="recent-post-info"><a class="article-title" href="/2017/08/15/alg-sort-common/" title="常见的排序算法一">常见的排序算法一</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2017-08-15T08:09:30.000Z" title="Created 2017-08-15 16:09:30">2017-08-15</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/algorithm/">algorithm</a><i class="fas fa-angle-right"></i><a class="article-meta__categories" href="/categories/algorithm/sort/">sort</a></span></div><div class="content">按照相关排序算法的解释，手动用Python实现了一遍，记录一下。排序结果为从小到大。
+安利一个学习算法的经典网站：算法图示
+这个网站上有很多算法的动图示例，还带有操作步骤解释，实在是居家旅行学习必备之网站。
+冒泡排序原理冒泡排序的原理是将临近的数字两两进行比较，然后按照从小到大或者从大到小的顺序进行交换。
+动图如下：
+
+步骤
+主要步骤如下：
+
+比较相邻的前后二个数据，如果前面数据大于后面的数据，就将二个数据交换。
+按照1的方法对源数组的第0个数据到N-1个数据进行一次遍历后，最大的一个数据就“升”到数组第N-1个位置（就是最后一个位置）。
+设置N=N-1，如果N不为0就重复前面二步，如果N==0，那么就是将原数组所有的数都排序一遍，此时排序完成。
+
+代码实现12345678def bubble_sort(array):   	length = len(array)   	while length &gt; 0:   	    for i in range(length - 1):   	        if array[i] &gt; array[i + 1]:   	         ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="/images/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Ikaros Kun</div><div class="author-info__description">学习笔记和思考</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">13</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">17</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">15</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/MerleLiuKun" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:merle.liukun@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title=""><i class="fas fa-rss"></i></a><a class="social-icon" href="https://stackoverflow.com/users/6240162/ikaroskun" target="_blank" title=""><i class="fab fa-stack-overflow"></i></a><a class="social-icon" href="https://www.jianshu.com/u/cafa569ddcf1" target="_blank" title="简书"><i class="fas fa-blog"></i></a></div></div></div><div class="sticky_layout"><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2020/05/06/lan-python-mysqlclient-install/" title="mysqlclient 安装问题"><img data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mysqlclient 安装问题"/></a><div class="content"><a class="title" href="/2020/05/06/lan-python-mysqlclient-install/" title="mysqlclient 安装问题">mysqlclient 安装问题</a><time datetime="2020-05-06T13:23:11.000Z" title="Created 2020-05-06 21:23:11">2020-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/03/25/linux-manjaro-introduce/" title="Manjaro 入门"><img data-lazy-src="https://i.loli.net/2020/03/31/x86vStZNAmIokCb.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Manjaro 入门"/></a><div class="content"><a class="title" href="/2020/03/25/linux-manjaro-introduce/" title="Manjaro 入门">Manjaro 入门</a><time datetime="2020-03-25T16:39:57.000Z" title="Created 2020-03-26 00:39:57">2020-03-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/03/08/linux-manjaro-questions/" title="Manjaro 使用中出现的奇妙问题"><img data-lazy-src="https://i.loli.net/2020/03/09/IqEkKYm3zjJQBbH.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Manjaro 使用中出现的奇妙问题"/></a><div class="content"><a class="title" href="/2020/03/08/linux-manjaro-questions/" title="Manjaro 使用中出现的奇妙问题">Manjaro 使用中出现的奇妙问题</a><time datetime="2020-03-08T15:36:17.000Z" title="Created 2020-03-08 23:36:17">2020-03-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/11/23/lan-python-dataclassess/" title="Python 数据类 dataclasses 实践"><img data-lazy-src="https://i.loli.net/2020/03/04/DhIK3TUzPCdxSt1.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python 数据类 dataclasses 实践"/></a><div class="content"><a class="title" href="/2019/11/23/lan-python-dataclassess/" title="Python 数据类 dataclasses 实践">Python 数据类 dataclasses 实践</a><time datetime="2019-11-23T13:37:40.000Z" title="Created 2019-11-23 21:37:40">2019-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2019/08/20/tool-git-message/" title="优化你的git-commit-message"><img data-lazy-src="https://i.loli.net/2020/03/04/Gd3nLRyQW4XoOSl.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="优化你的git-commit-message"/></a><div class="content"><a class="title" href="/2019/08/20/tool-git-message/" title="优化你的git-commit-message">优化你的git-commit-message</a><time datetime="2019-08-20T11:59:03.000Z" title="Created 2019-08-20 19:59:03">2019-08-20</time></div></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>Categories</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git/"><span class="card-category-list-name">Git</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">2</span></a></li><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/Manjaro/"><span class="card-category-list-name">Manjaro</span><span class="card-category-list-count">2</span></a></li></ul><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/algorithm/"><span class="card-category-list-name">algorithm</span><span class="card-category-list-count">2</span></a></li><ul class="card-category-list child"><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/algorithm/nginx/"><span class="card-category-list-name">nginx</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/algorithm/sort/"><span class="card-category-list-name">sort</span><span class="card-category-list-count">1</span></a></li></ul>
+            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
+                <span>More</span><i class="fas fa-angle-right"></i></a></li>           
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/JavaScript/" style="font-size: 1.5em; color: #99a9bf">JavaScript</a> <a href="/tags/Linux/" style="font-size: 1.5em; color: #99a9bf">Linux</a> <a href="/tags/algorithm/" style="font-size: 1.5em; color: #99a9bf">algorithm</a> <a href="/tags/commitizen/" style="font-size: 1.1em; color: #999">commitizen</a> <a href="/tags/data/" style="font-size: 1.1em; color: #999">data</a> <a href="/tags/dataclasses/" style="font-size: 1.1em; color: #999">dataclasses</a> <a href="/tags/git/" style="font-size: 1.5em; color: #99a9bf">git</a> <a href="/tags/minio/" style="font-size: 1.1em; color: #999">minio</a> <a href="/tags/mysql/" style="font-size: 1.1em; color: #999">mysql</a> <a href="/tags/nginx/" style="font-size: 1.1em; color: #999">nginx</a> <a href="/tags/object/" style="font-size: 1.1em; color: #999">object</a> <a href="/tags/python/" style="font-size: 1.5em; color: #99a9bf">python</a> <a href="/tags/sort/" style="font-size: 1.1em; color: #999">sort</a> <a href="/tags/storage/" style="font-size: 1.1em; color: #999">storage</a> <a href="/tags/submodule/" style="font-size: 1.1em; color: #999">submodule</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.1em; color: #999">数据结构</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.1em; color: #999">链表</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/05/"><span class="card-archive-list-date">May 2020</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/03/"><span class="card-archive-list-date">March 2020</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/11/"><span class="card-archive-list-date">November 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/08/"><span class="card-archive-list-date">August 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/05/"><span class="card-archive-list-date">May 2019</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2019/04/"><span class="card-archive-list-date">April 2019</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/08/"><span class="card-archive-list-date">August 2017</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2017/07/"><span class="card-archive-list-date">July 2017</span><span class="card-archive-list-count">2</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">Article :</div><div class="webinfo-article-count">13</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">UV :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">PV :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="webinfo-last-push-date-name">Last Push :</div><div class="webinfo-last-push-date" last-push-date="2020-08-29"></div></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2020 By Ikaros Kun</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

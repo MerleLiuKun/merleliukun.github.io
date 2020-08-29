@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Git submodule 子模块管理 | Ikaros の小屋</title><meta name="description" content="Git submodule 子模块管理"><meta name="keywords" content="git,submodule"><meta name="author" content="Ikaros Kun"><meta name="copyright" content="Ikaros Kun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://blog.ikaroskun.xyz/2019/08/01/tool-git-submodule/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="Git submodule 子模块管理"><meta property="og:url" content="https://blog.ikaroskun.xyz/2019/08/01/tool-git-submodule/"><meta property="og:site_name" content="Ikaros の小屋"><meta property="og:description" content="Git submodule 子模块管理"><meta property="og:image" content="https://i.loli.net/2020/03/04/P4OS1FjhWTC6U3d.png"><meta property="article:published_time" content="2019-08-01T13:59:04.000Z"><meta property="article:modified_time" content="2020-08-29T14:57:04.506Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.1.1',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime: '',
+  last_push_date: {"zeroDay":"Today","suffix":"days ago"},
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+      const now = new Date()
+      const expiryDay = ttl * 86400000
+      const item = {
+        value: value,
+        expiry: now.getTime() + expiryDay,
+      }
+      localStorage.setItem(key, JSON.stringify(item))
+    },
+  
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-08-29 22:57:04'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="Ikaros の小屋" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">13</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">17</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/repo/"><i class="fa-fw fas fa-flag"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 嘀嗒</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">开始使用子模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%8B%E9%9A%86%E5%90%AB%E6%9C%89%E5%AD%90%E6%A8%A1%E5%9D%97%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.</span> <span class="toc-text">克隆含有子模块的项目</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%85%8B%E9%9A%86%E5%90%8E%E6%9B%B4%E6%96%B0"><span class="toc-number">2.1.</span> <span class="toc-text">先克隆后更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E5%85%8B%E9%9A%86%E6%95%B4%E4%B8%AA%E9%A1%B9%E7%9B%AE"><span class="toc-number">2.2.</span> <span class="toc-text">递归克隆整个项目</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">其他操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="toc-number">3.1.</span> <span class="toc-text">查看子模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%AD%90%E6%A8%A1%E5%9D%97"><span class="toc-number">3.2.</span> <span class="toc-text">删除子模块</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">4.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/03/04/P4OS1FjhWTC6U3d.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ikaros の小屋</a></span><span class="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/repo/"><i class="fa-fw fas fa-flag"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 嘀嗒</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">Git submodule 子模块管理</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-08-01T13:59:04.000Z" title="Created 2019-08-01 21:59:04">2019-08-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-29T14:57:04.506Z" title="Updated 2020-08-29 22:57:04">2020-08-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Git/">Git</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p>在使用某些大型项目时，会发现项目会引用了其他的一些项目，而引用的这些项目也会进行一些更新维护的操作。那么如何对这些子项目进行管理呢？ 当然你可以将子项目的更新进行手动调整，进而提交到主项目中。但是这种操作并不友好，并且会污染主项目的提交历史。</p>
+<p><code>Git</code> 通过子模块 <a target="_blank" rel="noopener" href="https://github.blog/2016-02-01-working-with-submodules/">submodule</a> 来解决这样的问题。子模块允许你将一个 <code>Git</code> 仓库作为另一个 <code>Git</code> 仓库的子目录。 它能让你将另一个仓库克隆到自己的项目中，同时还保持提交的独立。</p>
+<p>在使用 <code>Hexo</code> 搭建静态博客时，我们会通常不会选用内置的主题，而是选择更好看的第三方主题。那么就是上边我们说的场景。我们要在博客的主仓库中对主题的仓库进行统一处理。我们以此为例，简单介绍一下对子模块的使用。</p>
+<h1 id="开始使用子模块"><a href="#开始使用子模块" class="headerlink" title="开始使用子模块"></a>开始使用子模块</h1><p>假如我们使用第三方主题 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">hexo-theme-next</a>。通过命令 <code>git submodule add</code> 来添加新的子模块。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https://github.com/iissnan/hexo-theme-next</span><br></pre></td></tr></table></figure>
+
+<p>此时会把主题项目 <code>hexo-theme-next</code> 克隆到当前目录下的同名目录中。如果你想要将其放置到其他目录，可以在命令后边加上制定的目录，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https://github.com/iissnan/hexo-theme-next themes/hexo-theme-next</span><br></pre></td></tr></table></figure>
+
+<p>此时你可以使用 <code>git status</code> 命令查看当前仓库的状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Your branch is up-to-date with <span class="string">&#x27;origin/master&#x27;</span>.</span><br><span class="line"></span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">        新文件：   .gitmodules</span><br><span class="line">        新文件：   themes/hexo-theme-next</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关键注意点是文件 <code>.gitmodules</code>，该配置文件存储了项目和本地目录之间的映射关系。<br>其中 <code>path</code> 指定本地的相对目录，<code>url</code> 指定子项目的仓库地址。</p>
+<p>该文件需要进行版本控制，用于其他人也可以知道子模块的位置。</p>
+<h1 id="克隆含有子模块的项目"><a href="#克隆含有子模块的项目" class="headerlink" title="克隆含有子模块的项目"></a>克隆含有子模块的项目</h1><p>如果需要完整克隆带有子模块的项目，有两种方式：</p>
+<ol>
+<li>正常克隆主项目，然后更新子模块</li>
+<li>使用参数 <code>--recursive</code> 自动初始化并更新所有的子模块</li>
+</ol>
+<h2 id="先克隆后更新"><a href="#先克隆后更新" class="headerlink" title="先克隆后更新"></a>先克隆后更新</h2><p>先克隆主项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> git@github.com:MerleLiuKun/merleliukun.github.io.git</span><br></pre></td></tr></table></figure>
+
+<p>切换到项目目录下，初始化子模块，注意初始化只需要执行一次</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule init</span><br></pre></td></tr></table></figure>
+
+<p>更新子模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule update</span><br></pre></td></tr></table></figure>
+
+<h2 id="递归克隆整个项目"><a href="#递归克隆整个项目" class="headerlink" title="递归克隆整个项目"></a>递归克隆整个项目</h2><p>采用递归参数 <code>--recursive</code>  克隆项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> --recursive git@github.com:MerleLiuKun/merleliukun.github.io.git</span><br></pre></td></tr></table></figure>
+
+<h1 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h1><h2 id="查看子模块"><a href="#查看子模块" class="headerlink" title="查看子模块"></a>查看子模块</h2><p>切换到主项目目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule </span><br><span class="line">620b1e829eb8b6fd72426f3009866b79d8ee2e7b themes/hexo-theme-next (v5.1.1-693-g620b1e8)</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除子模块"><a href="#删除子模块" class="headerlink" title="删除子模块"></a>删除子模块</h2><p>切换到主项目目录下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git submodule deinit themes/hexo-theme-next</span><br><span class="line">$ git rm themes/hexo-theme-next</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git-Tools-Submodules</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.blog/2016-02-01-working-with-submodules/">Working with submodules</a></li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Ikaros Kun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.ikaroskun.xyz/2019/08/01/tool-git-submodule/">https://blog.ikaroskun.xyz/2019/08/01/tool-git-submodule/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/git/">git</a><a class="post-meta__tags" href="/tags/submodule/">submodule</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/03/04/P4OS1FjhWTC6U3d.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/08/20/tool-git-message/"><img class="prev-cover" data-lazy-src="https://i.loli.net/2020/03/04/Gd3nLRyQW4XoOSl.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">优化你的git-commit-message</div></div></a></div><div class="next-post pull-right"><a href="/2019/05/25/tool-minio-tutorial/"><img class="next-cover" data-lazy-src="https://i.loli.net/2020/03/04/oBFUswaSibKN8v7.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">MinIO对象存储服务介绍</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> Related Articles</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/08/20/tool-git-message/" title="优化你的git-commit-message"><img class="relatedPosts_cover" data-lazy-src="https://i.loli.net/2020/03/04/Gd3nLRyQW4XoOSl.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2019-08-20</div><div class="relatedPosts_title">优化你的git-commit-message</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2020 By Ikaros Kun</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    window.valine = new Valine({
+      el: '#vcomment',
+      appId: 'GTnmaRzsBP9ti6cxgFzQnlxF-gzGzoHsz',
+      appKey: 'GSBMPvKie0Kr5THxCEvNBj6y',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    });
+    if ('nick,mail') { valine.config.requiredFields= 'nick,mail'.split(',') }
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

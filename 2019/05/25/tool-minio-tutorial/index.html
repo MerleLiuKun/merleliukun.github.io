@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MinIO对象存储服务介绍 | Ikaros の小屋</title><meta name="description" content="MinIO对象存储服务介绍"><meta name="keywords" content="minio storage"><meta name="author" content="Ikaros Kun"><meta name="copyright" content="Ikaros Kun"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/images/favicon.ico"><link rel="canonical" href="https://blog.ikaroskun.xyz/2019/05/25/tool-minio-tutorial/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="MinIO对象存储服务介绍"><meta property="og:url" content="https://blog.ikaroskun.xyz/2019/05/25/tool-minio-tutorial/"><meta property="og:site_name" content="Ikaros の小屋"><meta property="og:description" content="MinIO对象存储服务介绍"><meta property="og:image" content="https://i.loli.net/2020/03/04/oBFUswaSibKN8v7.png"><meta property="article:published_time" content="2019-05-25T09:40:16.000Z"><meta property="article:modified_time" content="2020-08-29T14:57:04.506Z"><meta name="twitter:card" content="summary"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.1.1',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime: '',
+  last_push_date: {"zeroDay":"Today","suffix":"days ago"},
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+      const now = new Date()
+      const expiryDay = ttl * 86400000
+      const item = {
+        value: value,
+        expiry: now.getTime() + expiryDay,
+      }
+      localStorage.setItem(key, JSON.stringify(item))
+    },
+  
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2020-08-29 22:57:04'
+}</script><noscript><style type="text/css">
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var autoChangeMode = 'false'
+var t = saveToLocal.get('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (saveToLocal.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/atom.xml" title="Ikaros の小屋" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" data-lazy-src="/images/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">13</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">17</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">15</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/repo/"><i class="fa-fw fas fa-flag"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 嘀嗒</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">安装部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Nginx%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">Nginx配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">其他配置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">2.</span> <span class="toc-text">参考</span></a></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2020/03/04/oBFUswaSibKN8v7.png)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ikaros の小屋</a></span><span class="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/repo/"><i class="fa-fw fas fa-flag"></i><span> 项目</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 嘀嗒</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">MinIO对象存储服务介绍</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-05-25T09:40:16.000Z" title="Created 2019-05-25 17:40:16">2019-05-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2020-08-29T14:57:04.506Z" title="Updated 2020-08-29 22:57:04">2020-08-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/storage/">storage</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/storage/minio/">minio</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://docs.min.io/cn/minio-quickstart-guide.html">MinIO</a> 是一个基于 <code>Apache License v2.0</code> 开源协议的对象存储服务。它兼容亚马逊S3云存储服务接口，非常适合于存储大容量非结构化的数据，例如图片、视频、日志文件、备份数据和容器/虚拟机镜像等，而一个对象文件可以是任意大小，从几kb到最大5T不等。</p>
+<p><code>MinIO</code> 是一个非常轻量的服务,可以很简单的和其他应用的结合，类似 NodeJS, Redis 或者 MySQL.</p>
+<p>简单来说, 我们可以基于 <code>MinIO</code> 搭建一个类似亚马逊S3(腾讯云OSS)的存储服务。</p>
+<h1 id="安装部署"><a href="#安装部署" class="headerlink" title="安装部署"></a>安装部署</h1><p>官网上给出的安装步骤十分详细和完整。这里只简单罗列一下。 以下使用 <code>Docker</code> 进行部署的.</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a target="_blank" rel="noopener" href="https://docs.min.io/cn/minio-quickstart-guide.html">官网详细安装说明</a></p>
+<p>拉取镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull minio/minio</span><br></pre></td></tr></table></figure>
+
+<p>为了方便升级，迁移等操作, 我们将 <code>MinIO</code> 的数据放到宿主机上, 然后挂载到容器里。另外因为使用 <code>Docker</code> 部署, 所以需要自定义初始的账号信息. 基础的命令如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run -p 9000:9000 --name minio-server \</span><br><span class="line">  -e <span class="string">&quot;MINIO_ACCESS_KEY=Your Key&quot;</span> \</span><br><span class="line">  -e <span class="string">&quot;MINIO_SECRET_KEY=Your Secret&quot;</span> \</span><br><span class="line">  -v /data/minio_data:/data \</span><br><span class="line">  -v /data/minio_config:/root/.minio \</span><br><span class="line">  -d minio/minio server /data</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可以将命令写到脚本里, 方便修改和执行。</p>
+</blockquote>
+<p>此时, <code>MinIO</code> 服务已经起来了. 如果你是在本地搭建的, 可以使用你指定的账号信息访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:9000/">http://127.0.0.1:9000</a>. 如果可以访问, 即表明已经部署成功。</p>
+<h2 id="Nginx配置"><a href="#Nginx配置" class="headerlink" title="Nginx配置"></a>Nginx配置</h2><p>如果我们想要搭建一个私有的存储服务，那么部署一定是在服务器上。我们可以使用 <code>Nginx</code> 配置一下代理.<br>官方也给了使用 <code>Nginx</code> 做代理的配置说明 <a target="_blank" rel="noopener" href="https://docs.min.io/cn/setup-nginx-proxy-with-minio.html">为MinIO Server设置Nginx代理</a> 。</p>
+<p>简单列一下我的配置.</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">upstream</span> minioServer &#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">127.0.0.1:9000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># minio</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>       <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span>  img.example.com;  <span class="comment"># your domain</span></span><br><span class="line">    <span class="attribute">return</span> <span class="number">301</span> https://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># https</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>        <span class="number">443</span>;</span><br><span class="line">    <span class="attribute">server_name</span>   img.example.com;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span>      /path/to/chain.pem;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span>  /path/to/privkey.pem;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$http_host</span>;  <span class="comment"># 请求头转发</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> http://minioServer;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启 <code>Nginx</code> 服务. 然后可以 访问 <a target="_blank" rel="noopener" href="https://img.example.com/">https://img.example.com</a> 来验证配置状态。</p>
+<h2 id="其他配置"><a href="#其他配置" class="headerlink" title="其他配置"></a>其他配置</h2><p><code>MinIO</code> 提供了更多的一些配置，比如 <code>TLS安全访问</code>, <code>状态通知</code>等, 可以依据官方文档进行相关的配置。</p>
+<p>接下来, 就可以愉快的使用它了。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/minio/minio">官方Github</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.min.io/">官方文档</a></li>
+</ul>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Ikaros Kun</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://blog.ikaroskun.xyz/2019/05/25/tool-minio-tutorial/">https://blog.ikaroskun.xyz/2019/05/25/tool-minio-tutorial/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/storage/">storage</a><a class="post-meta__tags" href="/tags/minio/">minio</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/03/04/oBFUswaSibKN8v7.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/08/01/tool-git-submodule/"><img class="prev-cover" data-lazy-src="https://i.loli.net/2020/03/04/P4OS1FjhWTC6U3d.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Git submodule 子模块管理</div></div></a></div><div class="next-post pull-right"><a href="/2019/05/14/sql-mysql-query-optimize-1/"><img class="next-cover" data-lazy-src="https://i.loli.net/2020/03/04/XKYv8TUEqDcxnZh.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">MySQL查询优化一</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2017 - 2020 By Ikaros Kun</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></section><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    window.valine = new Valine({
+      el: '#vcomment',
+      appId: 'GTnmaRzsBP9ti6cxgFzQnlxF-gzGzoHsz',
+      appKey: 'GSBMPvKie0Kr5THxCEvNBj6y',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-CN',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    });
+    if ('nick,mail') { valine.config.requiredFields= 'nick,mail'.split(',') }
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></div></body></html>

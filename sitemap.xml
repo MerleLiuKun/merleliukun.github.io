@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2017/08/02/alg-data-structure-single-linked-list/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2017/08/15/alg-sort-common/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2019/04/09/alg-token-bucket/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2017/07/25/front-js-datatype-common/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2017/07/26/front-js-object-loop/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2019/11/23/lan-python-dataclassess/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2020/05/06/lan-python-mysqlclient-install/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2020/03/25/linux-manjaro-introduce/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2020/03/08/linux-manjaro-questions/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2019/05/14/sql-mysql-query-optimize-1/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2019/08/20/tool-git-message/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2019/08/01/tool-git-submodule/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/2019/05/25/tool-minio-tutorial/</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/about/index.html</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/books/index.html</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/index.html</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/link/index.html</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/movies/index.html</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/music/index.html</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/repo/index.html</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/index.html</loc>
+    
+    <lastmod>2020-08-29</lastmod>
+    
+  </url>
+  
+
+  <url>
+    <loc>https://blog.ikaroskun.xyz/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/%E9%93%BE%E8%A1%A8/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/algorithm/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/sort/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/nginx/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/JavaScript/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/data/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/object/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/python/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/dataclasses/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/Linux/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/mysql/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/git/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/commitizen/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/submodule/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/storage/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/tags/minio/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/algorithm/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/JavaScript/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E9%93%BE%E8%A1%A8/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/Python/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/algorithm/sort/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/python/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/Linux/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/algorithm/nginx/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/sql/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/Git/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/storage/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/Linux/Manjaro/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/sql/mysql/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.ikaroskun.xyz/categories/storage/minio/</loc>
+    <lastmod>2020-08-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+</urlset>
