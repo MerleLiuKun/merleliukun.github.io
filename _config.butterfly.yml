@@ -31,14 +31,6 @@ highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
 code_word_wrap: false
 
-# copy settings
-# copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
-copy:
-  enable: true
-  copyright:
-    enable: false
-    limit_count: 50
-
 # social settings (社交圖標設置)
 # formal:
 #   icon: link || the description
@@ -170,17 +162,13 @@ wordcount:
 # 2: both (if the description exists, it will show description, or show the auto_excerpt)
 # 3: auto_excerpt (default)
 index_post_content:
-  method: 3
+  method: 2
   length: 500 # if you set method to 2 or 3, the length need to config
 
 # Post
 # --------------------------------------
 
-# toc (目錄)
-toc:
-  enable: true
-  number: true
-  auto_open: true # auto open the sidebar
+disable_top_img: true  # 不显示顶部图
 
 post_copyright:
   enable: true
@@ -199,27 +187,53 @@ reward:
     #   link:
     #   text: alipay
 
+# toc (目錄)
+toc:
+  post: true
+  page: false
+  number: true
+  expand: false
+  style_simple: false # for post
+
 # Related Articles
 related_post:
   enable: true
   limit: 6 # Number of posts displayed
   date_type: created # or created or updated 文章日期顯示創建日或者更新日
 
+# 文章过期提醒
+noticeOutdate:
+  enable: true
+  style: flat # style: simple/flat
+  limit_day: 365 # When will it be shown
+  position: top # position: top/bottom
+  message_prev: 这是一个创建于
+  message_next: 天前的主题，其中的信息可能已经有所发展或是发生改变。
+
+# 文章编辑
+post_edit:
+  enable: false
+
+# anchor 页面锚点
+# when you scroll in post, the URL will update according to header id.
+anchor:
+  button:
+    enable: false
+    always_show: false
+    icon: # the unicode value of Font Awesome icon, such as '\3423'
+  auto_update: false # when you scroll in post, the URL will update according to header id.
+
 # figcaption (圖片描述文字)
 photofigcaption: false
 
-# anchor
-# when you scroll in post, the URL will update according to header id.
-anchor: false
+# copy settings 复制相关设置
+# copyright: Add the copyright information after copied content (複製的內容後面加上版權信息)
+copy:
+  enable: true
+  copyright:
+    enable: false
+    limit_count: 50
 
-# Displays outdated notice for a post (文章過期提醒)
-noticeOutdate:
-  enable: false
-  style: flat # style: simple/flat
-  limit_day: 500 # When will it be shown
-  position: top # position: top/bottom
-  message_prev: It has been
-  message_next: days since the last update, the content of the article may be outdated.
 
 # Share System (分享功能)
 # --------------------------------------
@@ -375,7 +389,7 @@ footer:
   owner:
     enable: true
     since: 2017
-  custom_text:
+  custom_text: 
   copyright: true # Copyright of theme and framework
   ICP: # Chinese ICP License
     enable: false
@@ -481,6 +495,7 @@ tag_ui: # 留空或 index
 # The formal of color: '#49B202'
 # The formal of image: url(http://xxxxxx.com/xxx.jpg)
 # White color will be shown as default
+# background: '#6495ed'
 background:
 
 # Show the footer background image (same as top_img)
