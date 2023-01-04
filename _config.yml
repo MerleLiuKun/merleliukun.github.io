@@ -113,7 +113,7 @@ aplayer:
 
 # Douban Moive
 douban:
-  user: ikaroskun
+  id: 123556564
   builtin: true
   movie:
     title: 'Movie'
