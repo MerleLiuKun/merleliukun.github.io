@@ -15,9 +15,9 @@ menu:
   友链: /link/ || fa fa-link
   关于: /about/ || fa fa-heart
   嘀嗒||fa fa-list:
-    - 音乐: /music/ || fa fa-music
-    - 电影: /movies/ || fa fa-film
-    - 书籍: /books/ || fa fa-book
+    音乐: /music/ || fa fa-music
+    电影: /movies/ || fa fa-film
+    书籍: /books/ || fa fa-book
 
 # Hide the child menu items in mobile sidebar
 hide_sidebar_menu_child: false
@@ -37,9 +37,8 @@ code_word_wrap: false
 social:
   fab fa-github: https://github.com/MerleLiuKun || Github
   fas fa-envelope: mailto:merle.liukun@gmail.com || Email
-  fas fa-rss: /atom.xml
   fab fa-stack-overflow: https://stackoverflow.com/users/6240162/ikaroskun
-  fas fa-blog: https://www.jianshu.com/u/cafa569ddcf1 || 简书
+  fas fa-rss: /atom.xml
 
 # search (搜索)
 # --------------------------------------
@@ -327,9 +326,9 @@ valine:
 # utterances
 # https://utteranc.es/
 utterances:
-  repo:
+  repo: MerleLiuKun/merleliukun.github.io
   # Issue Mapping: pathname/url/title/og:title
-  issue_term: MerleLiuKun/merleliukun.github.io
+  issue_term: pathname
   # Theme: github-light/github-dark/github-dark-orange/icy-dark/dark-blue/photon-dark
   light_theme: github-light
   dark_theme: photon-dark
@@ -618,17 +617,17 @@ preloader: false
 aside:
   enable: true
   mobile: true # display on mobile
-  position: right # left or right
+  position: left # left or right
   card_author:
     enable: true
     description:
     button:
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/xxxxxx
+      link: https://github.com/MerleLiuKun
   card_announcement:
     enable: true
-    content: This is my Blog
+    content: Keep me sane
   card_recent_post:
     enable: true
     limit: 5 # if set 0 will show all
