@@ -15,9 +15,9 @@ menu:
   友链: /link/ || fa fa-link
   关于: /about/ || fa fa-heart
   嘀嗒||fa fa-list:
-    - 音乐 || /music/ || fa fa-music
-    - 电影 || /movies/ || fa fa-film
-    - 书籍 || /books/ || fa fa-book
+    - 音乐: /music/ || fa fa-music
+    - 电影: /movies/ || fa fa-film
+    - 书籍: /books/ || fa fa-book
 
 # Hide the child menu items in mobile sidebar
 hide_sidebar_menu_child: false
@@ -262,14 +262,14 @@ addtoany:
 comments:
   # Up to two comments system, the first will be shown as default
   # Choose: Disqus/Disqusjs/Livere/Gitalk/Valine/Utterances/Facebook Comments
-  use:
-    - utterances
+  use: Utterances
   # - Disqus
   text: true # Display the comment name next to the button
   # lazyload: The comment system will be load when comment element enters the browser's viewport.
   # If you set it to true, the comment count will be invalid
-  lazyload: false
-  count: false # Display comment count in top_img
+  lazyload: true
+  count: true # Display comment count in top_img
+  card_post_count: false
 
 # disqus
 # https://disqus.com/
