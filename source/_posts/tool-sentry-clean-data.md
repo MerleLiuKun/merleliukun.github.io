@@ -7,6 +7,7 @@ tags:
 - DevOps
 - Docker
 keywords: sentry
+cover: https://s2.loli.net/2023/01/04/rCHhytUVnOBAz64.jpg
 ---
 
 之前部署了一个 [Sentry](https://sentry.io/welcome/) 的服务，经过一段时间运行后，产生了很多的数据记录需要进行清理。
