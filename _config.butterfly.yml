@@ -8,10 +8,13 @@
 
 menu:
   首页: / || fa fa-home
-  时间轴: /archives/ || fa fa-archive
+  目录 || fas fa-compass:
+    时间轴: /archives/ || fa fa-archive
+    标签: /tags/ || fa fa-tags
+    分类: /categories/ || fa fa-folder-open
   项目: /repo/ || fas fa-flag
-  标签: /tags/ || fa fa-tags
-  分类: /categories/ || fa fa-folder-open
+  周报 || fas fa-flag:
+    2023: /weekly-2023/ || fas fa-calendar-week
   友链: /link/ || fa fa-link
   关于: /about/ || fa fa-heart
   嘀嗒||fa fa-list:
