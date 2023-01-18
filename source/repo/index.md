@@ -22,5 +22,11 @@ Developing
 {% githubCard user:sns-sdks repo:python-youtube align:left %}
 
 
+封装了 `Twitter API V2` 数据获取的库
+
+{% githubCard user:sns-sdks repo:python-twitter align:left %}
+
+{% githubCard user:sns-sdks repo:go-twitter align:left %}
+
 IDEA
 ----
