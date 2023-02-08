@@ -391,7 +391,7 @@ footer:
   owner:
     enable: true
     since: 2017
-  custom_text: 
+  custom_text: <a href="http://beian.miit.gov.cn/"><img class="icp-icon" src="https://i.loli.net/2021/07/12/K2DLFGesgZNuhYm.png"><span>豫ICP备17030789号-1</span></a> | 本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img class="icp-icon" src="https://i.loli.net/2021/07/12/VubIOKPs2p9eNWz.png"></a>提供CDN加速/云存储服务
   copyright: true # Copyright of theme and framework
   ICP: # Chinese ICP License
     enable: false
