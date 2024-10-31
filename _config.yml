@@ -111,18 +111,6 @@ deploy:
 aplayer:
   meting: true
 
-# Douban Moive
-douban:
-  id: 123556564
-  builtin: true
-  movie:
-    title: 'Movie'
-    quote: 'Movie is life'
-  book:
-    title: 'book'
-    quote: 'Book brings you unconsciously'
-  timeout: 10000 
-
 # hexo-hide-posts
 hide_posts:
   enable: true

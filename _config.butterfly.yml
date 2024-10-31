@@ -17,10 +17,6 @@ menu:
     2023: /weekly-2023/ || fas fa-calendar-week
   友链: /link/ || fa fa-link
   关于: /about/ || fa fa-heart
-  嘀嗒||fa fa-list:
-    音乐: /music/ || fa fa-music
-    电影: /movies/ || fa fa-film
-    书籍: /books/ || fa fa-book
 
 # Hide the child menu items in mobile sidebar
 hide_sidebar_menu_child: false
